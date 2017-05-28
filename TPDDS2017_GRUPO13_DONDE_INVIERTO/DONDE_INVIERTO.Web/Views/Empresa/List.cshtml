@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DONDE_INVIERTO.Model.Empresa>
+
+@{
+    ViewBag.Title = "Empresas / Listado";
+}
+<div class="row row-striped">
+    <h2>Empresas / Listado</h2>
+</div>
+<div class="row">
+    <div class="col-md-12" align="right">
+        <a id="btn-nueva" class="btn btn-success">Nueva</a>
+    </div>
+</div>
+<div class="row">
+        <table class="table">
+            <tr>
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Id })
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
