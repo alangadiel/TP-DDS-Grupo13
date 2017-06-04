@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DONDE_INVIERTO.Model
 {
-    public class Cuenta
+    public class Model
     {
-        public string Contenido { get; set; }
+        public int Id { get; set; }
     }
 }

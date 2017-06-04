@@ -1,0 +1,31 @@
+﻿@model DONDE_INVIERTO.Model.Empresa
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar Empresa</h2>
+
+<h3>Esta seguro que desea eliminar esta empresa?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> 
+            <a id="btn-volver" onclick="location.href='@Url.Action("List", "Empresa")'" class="btn btn-default">Volver</a>
+        </div>
+    }
+</div>

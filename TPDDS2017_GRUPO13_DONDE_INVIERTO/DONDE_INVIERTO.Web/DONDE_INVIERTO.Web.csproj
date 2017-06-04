@@ -201,6 +201,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Empresa\List.cshtml" />
     <Content Include="Views\Cuenta\Create.cshtml" />
+    <Content Include="Views\Empresa\Create.cshtml" />
+    <Content Include="Views\Empresa\Delete.cshtml" />
+    <Content Include="Views\Empresa\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace DONDE_INVIERTO.Model
 {
-    public class Empresa
+    public class Empresa : Model
     {
-        public int Id { get; set; }
 
+        [Required]
         public string Nombre { get; set; }
 
         public List<Periodo> Periodos { get; set; }

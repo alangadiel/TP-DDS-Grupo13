@@ -7,23 +7,35 @@ using DONDE_INVIERTO.Model;
 
 namespace DONDE_INVIERTO.Entity
 {
-    public class Empresa
+    public class Empresa : Entity<Model.Empresa>
     {
-        List<Model.Empresa> Empresas;
+        private static volatile Empresa instance;
+        private static object syncRoot = new object();
 
-        public Empresa()
+        private Empresa()
         {
-            Empresas = new List<Model.Empresa>();
-            Model.Empresa emp1 = new Model.Empresa { Id = 1, Nombre = "Nombre Empresa 1" };
-            Model.Empresa emp2 = new Model.Empresa { Id = 2, Nombre = "Nombre Empresa 2" };
-            Empresas.Add(emp1);
-            Empresas.Add(emp2);
+            base.Initialize();
+            base.Save(new Model.Empresa { Nombre = "PRUEBA 1" });
+            base.Save(new Model.Empresa { Nombre = "PRUEBA 2" });
         }
 
-        public IEnumerable<Model.Empresa> GetAll()
+        public static Empresa Instance
         {
-            return Empresas;
+            get
+            {
+                if(instance == null)
+                {
+                    lock(syncRoot)
+                    {
+                        if (instance == null)
+                            instance = new Empresa();
+                    }
+                }
+                return instance;
+            }
         }
+
+
 
     }
 }

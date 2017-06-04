@@ -7,16 +7,30 @@ namespace DONDE_INVIERTO.Service
 {
     public class EmpresaService
     {
-        private Entity.Empresa Entity;
 
         public EmpresaService()
         {
-            Entity = new DONDE_INVIERTO.Entity.Empresa();
+           
         }
 
         public IEnumerable<Empresa> List()
         {
-            return Entity.GetAll();
+            return Entity.Empresa.Instance.GetAll();
+        }
+
+        public void Save(Empresa empresa)
+        {
+            Entity.Empresa.Instance.Save(empresa);
+        }
+
+        public void Delete(int Id)
+        {
+            Entity.Empresa.Instance.Delete(Id);
+        }
+
+        public Empresa Get(int Id)
+        {
+            return Entity.Empresa.Instance.Get(Id);
         }
     }
 }
