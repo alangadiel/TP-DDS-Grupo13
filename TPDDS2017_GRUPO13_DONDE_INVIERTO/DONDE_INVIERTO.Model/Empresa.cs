@@ -7,7 +7,6 @@ namespace DONDE_INVIERTO.Model
 {
     public class Empresa : Model
     {
-
         [Required]
         public string Nombre { get; set; }
 

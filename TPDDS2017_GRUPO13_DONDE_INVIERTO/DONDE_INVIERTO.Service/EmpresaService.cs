@@ -8,11 +8,6 @@ namespace DONDE_INVIERTO.Service
     public class EmpresaService
     {
 
-        public EmpresaService()
-        {
-           
-        }
-
         public IEnumerable<Empresa> List()
         {
             return Entity.Empresa.Instance.GetAll();

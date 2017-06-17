@@ -16,20 +16,23 @@
 
 <div class="container">
     <div class="row">
-        <div class='col-md-2'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
+        <div class="col-md-2">
+            <label for="fecha">Inicio de Obra</label>
+            <div class='input-group date' id='fecha'>
+                @Html.TextBoxFor(model => model.Item1.Inicio, new { @id = "fecha", @class = "form-control input-date" })
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
             </div>
         </div>
         <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker();
+            $(document).ready(function () {
+                $("#fecha").datetimepicker({
+                    format: "DD/MM/YYYY hh:mm:ss a",
+                    locale: 'es'
+                });
             });
+
         </script>
     </div>
 </div>

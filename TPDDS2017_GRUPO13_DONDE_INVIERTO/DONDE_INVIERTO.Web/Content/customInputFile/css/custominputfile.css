@@ -1,0 +1,106 @@
+/*
+    jQuery Custom Input File Plugin - version 1.0
+	Copyright 2014, Ángel Espro, www.aesolucionesweb.com.ar,
+	Licence : GNU General Public License
+
+	Site: www.aesolucionesweb.com.ar/plugins/custom-input-file
+	
+	You must not remove these lines. Read gpl.txt for further legal information.
+*/
+
+/*File Picker*/
+.cif-file-picker{
+	position:relative;
+	width:380px;
+	height:180px;
+	padding:0;
+	border:4px dashed rgba(0,0,0,.2);
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center; 
+	opacity:.5;
+	box-sizing:border-box; -moz-box-sizing:border-box;
+}
+.cif-icon-picker{background:url(cif-icons-20xy.png) 0 0 no-repeat; width:80px; height:60px; display:inline-block}
+.cif-file-picker h3{margin:0; font-size:20px; text-align:center}
+.cif-file-picker p{margin:0 0 10px 0; font-size:16px; text-align:center}
+.cif-file-picker:hover{opacity:1}
+.cif-file-picker.dragover:not(.inactive){border-color: #46be5e; opacity:1;  box-shadow:0 0 50px rgba(0,0,0,.5)}
+.cif-file-picker.inactive{opacity:.2}
+.cif-file-picker.inactive.dragover{cursor:pointer}
+
+/*Container item File*/
+.cif-file-container{}
+.cif-parent{position:relative; margin-bottom:10px}
+.foto-file-row .field-wr-int{position:relative}
+.cif-close{opacity:.5; text-indent:-100000px; width:14px; height:14px; cursor:default;color:#555;background: url(cif-icons-20xy.png) 0px -60px no-repeat;}
+.cif-file-container.cif-type-image .cif-close{top: 0px; left:0px; position:absolute; }
+.cif-close:hover{opacity:1}
+
+/*Container All type*/
+.cif-file-container.cif-container-all-type .cif-file-row{margin: 10px 0}
+.cif-file-container.cif-container-all-type .cif-parent{max-width:380px; box-sizing:border-box; -moz-box-sizing:border-box; padding:10px 10px 10px 30px; border:1px solid #dfdfdf; background:#F4F4F4}
+.cif-file-container.cif-container-all-type .cif-all-type{font-size:13px; line-height:16px;}
+.cif-file-container.cif-container-all-type .cif-close{top: 50%; margin-top:-7px;left: 5px; position:absolute;}
+.cif-file-container.cif-container-all-type .cif-file-size{opacity:.8}
+
+/*Container Image*/
+.cif-file-container.cif-container-image-type .cif-file-row{border-bottom:1px solid #f2f2f2; padding: 20px 0}
+.cif-file-container.cif-container-image-type .cif-parent{padding-top:30px;}
+.cif-file-container.cif-container-image-type .cif-close{top: 5px}
+.cif-img{max-height:300px; max-width:380px;}
+
+/*message*/
+#cif-msg-wr{font-size:13px; position:fixed; z-index:10000; top: 100px ; right:20px; max-width:50%;padding:15px; background: #fff; border:1px solid #dfdfdf; box-shadow:3px 3px 6px rgba(0,0,0,.5)}
+#cif-msg-wr .cif-msg-close{opacity: .5;position:absolute; right:0;top:0; width:16px; height:16px; text-indent:-100000px;background: url(cif-icons-20xy.png) 0 -75px no-repeat;}
+#cif-msg-wr .cif-msg-close:hover{opacity:1}
+.cif-msg-icon{padding:0 10px; font-size:8px;}
+.cif-msg-icon-error{background: url(cif-icons-20xy.png) 0 -120px no-repeat;}
+.cif-msg-icon-ok{background: url(cif-icons-20xy.png) 0 -100px no-repeat;}
+
+/*Progressbar*/
+.cf-progressbar-wr{position:fixed; top:0; left:0; background:rgba(0,0,0,.7); width:100%; height:100%; z-index:50000}
+.cf-progressbar{
+	height: 12px;
+	position: absolute;
+	top:50%; margin-top:-6px;
+	left: 50%; margin-left:-125px;
+	width:250px;
+	background: #dadada;
+	padding: 2px;
+	box-sizing:border-box;
+	border:1px solid #000;
+}
+.cf-progressbar>span {
+	display: block;
+	height: 100%;
+	background: rgb(43,194,83);
+	background-image: url(bg-progress-bar.png);
+	position: relative;
+	transition: width 200ms;
+	overflow: hidden;
+}
+
+
+
+
+/*Jcrop for Custom Inpur File plugin*/
+.jcrop-holder .preview-pane {
+  display: block;
+  position: absolute;
+  z-index: 2000;
+  top: 00px;
+  left: 102%;
+  padding: 6px;
+  border: 1px rgba(0,0,0,.4) solid;
+  background-color: white;
+
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+
+  -webkit-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.2);
+}
+.preview-pane .preview-container { overflow: hidden;}
