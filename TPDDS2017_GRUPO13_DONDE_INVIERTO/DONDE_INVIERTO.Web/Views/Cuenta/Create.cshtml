@@ -1,4 +1,4 @@
-﻿@model DONDE_INVIERTO.Model.Cuenta
+﻿@model Tuple<DONDE_INVIERTO.Model.Periodo, DONDE_INVIERTO.Model.Cuenta>
 
 @{
     ViewBag.Title = "Create";
@@ -11,25 +11,28 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>Cuenta</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Contenido, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Contenido, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Contenido, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+}
+
+<div class="container">
+    <div class="row">
+        <div class='col-md-2'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
             </div>
         </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
     </div>
-}
+</div>
 
 <div>
     @Html.ActionLink("Back to List", "Index")
@@ -38,3 +41,4 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
+
