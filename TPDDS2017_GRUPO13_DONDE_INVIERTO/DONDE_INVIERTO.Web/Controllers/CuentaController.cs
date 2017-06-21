@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DONDE_INVIERTO.Model;
+using DONDE_INVIERTO.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -23,7 +25,23 @@ namespace DONDE_INVIERTO.Web.Controllers
         // GET: Cuenta/Create
         public ActionResult Create()
         {
-            return View();
+            ViewBag.Empresas = new EmpresaService().List().OrderBy(x => x.Nombre);
+            Model.Periodo periodo = new Model.Periodo();
+            periodo.Cuentas = new List<Model.Cuenta>();
+            periodo.Inicio = DateTime.Today.AddYears(-1);
+            periodo.Fin = DateTime.Today;
+            return View(periodo);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddAccount(Periodo Periodo)
+        {
+            if (ModelState.IsValid)
+            {
+                new PeriodoService().Save(Periodo);
+            }
+            return View("Create", Periodo);
         }
 
         // POST: Cuenta/Create

@@ -21,7 +21,7 @@ namespace DONDE_INVIERTO.Entity
             this.entities = new List<TEntity>();
         }
 
-        public void Save(TEntity entity)
+        public int Save(TEntity entity)
         {
             if(entity.Id == 0)
             {
@@ -32,6 +32,8 @@ namespace DONDE_INVIERTO.Entity
                 Delete(entity.Id);
             }
             this.entities.Add(entity);
+
+            return entity.Id;
         }
 
         public void Delete(int Id)

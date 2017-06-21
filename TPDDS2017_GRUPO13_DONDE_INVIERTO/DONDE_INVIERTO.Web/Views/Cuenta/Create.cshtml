@@ -1,45 +1,96 @@
-﻿@model Tuple<DONDE_INVIERTO.Model.Periodo, DONDE_INVIERTO.Model.Cuenta>
+﻿@model DONDE_INVIERTO.Model.Periodo
 
 @{
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Cargar Cuenta</h2>
 
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
-
 }
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-2">
-            <label for="fecha">Inicio de Obra</label>
-            <div class='input-group date' id='fecha'>
-                @Html.TextBoxFor(model => model.Item1.Inicio, new { @id = "fecha", @class = "form-control input-date" })
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-            </div>
-        </div>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $("#fecha").datetimepicker({
-                    format: "DD/MM/YYYY hh:mm:ss a",
-                    locale: 'es'
-                });
-            });
 
-        </script>
+<div class="row" style="margin-top: 30px">
+    <div class="col-md-2">
+        <label for="empresa">Empresa</label>
+        <div>
+            @Html.DropDownList("empresa", new SelectList(ViewBag.Empresas, "Id", "Nombre"), new { @id = "empresa", @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-2">
+        <label for="fechaDesde">Fecha Desde</label>
+        <div class='input-group date' id='fechaDesde'>
+            @Html.TextBoxFor(model => model.Inicio, new { @id = "fechaDesde", @class = "form-control input-date" })
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+    </div>
+    <div class="col-md-2">
+        <label for="fechaHasta">Fecha Hasta</label>
+        <div class='input-group date' id='fechaHasta'>
+            @Html.TextBoxFor(model => model.Fin, new { @id = "fechaHasta", @class = "form-control input-date" })
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#fechaDesde").datetimepicker({
+                format: "DD/MM/YYYY",
+                locale: 'es'
+            });
+            $("#fechaHasta").datetimepicker({
+                format: "DD/MM/YYYY",
+                locale: 'es'
+            });
+        });
+    </script>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <label for="contenido">Contenido</label>
+        @Html.TextBox("contenido", "", new { @id = "contenido", @class = "form-control" })
+    </div>      
+    <div class="col-md-1">
+        <button type="button" class="btn btn-success">Agregar</button>
     </div>
 </div>
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<h3>Cuentas</h3>
+<div class="row">
+    <table class="table">
+        <tr>
+            <th>Fecha Desde</th>
+            <th>Fecha Hasta</th>
+            <th>Contenido</th>
+            <th>Acciones</th>
+        </tr>
+        @foreach (var item in Model.Cuentas)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.Inicio)
+                    @Html.DisplayFor(model => model.Fin)
+                    @Html.DisplayFor(modelItem => item.Contenido)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary">Editar</button>
+                    <button type="button" class="btn btn-danger">Eliminar</button>
+                </td>
+            </tr>
+        }    
+    </table>
 </div>
+
+
+
+
+
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
