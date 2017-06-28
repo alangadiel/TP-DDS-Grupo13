@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cuenta.cs" />
+    <Compile Include="CuentaPeriodo.cs" />
     <Compile Include="Empresa.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="Periodo.cs" />

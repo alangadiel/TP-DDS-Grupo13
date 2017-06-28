@@ -244,10 +244,10 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Empresa\List.cshtml" />
-    <Content Include="Views\Cuenta\Create.cshtml" />
     <Content Include="Views\Empresa\Create.cshtml" />
     <Content Include="Views\Empresa\Delete.cshtml" />
     <Content Include="Views\Empresa\Edit.cshtml" />
+    <Content Include="Views\Cuenta\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

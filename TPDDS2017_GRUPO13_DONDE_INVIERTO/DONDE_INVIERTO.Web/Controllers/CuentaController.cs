@@ -30,34 +30,23 @@ namespace DONDE_INVIERTO.Web.Controllers
             periodo.Cuentas = new List<Model.Cuenta>();
             periodo.Inicio = DateTime.Today.AddYears(-1);
             periodo.Fin = DateTime.Today;
-            return View(periodo);
-        }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult AddAccount(Periodo Periodo)
-        {
-            if (ModelState.IsValid)
-            {
-                new PeriodoService().Save(Periodo);
-            }
-            return View("Create", Periodo);
+            CuentaPeriodo model = new CuentaPeriodo();
+            model.Periodo = periodo;
+            model.Cuenta = new Cuenta();
+            return View(model);
         }
 
         // POST: Cuenta/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(CuentaPeriodo model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
-            catch
-            {
-                return View();
-            }
+            return View(model);
         }
 
         // GET: Cuenta/Edit/5
