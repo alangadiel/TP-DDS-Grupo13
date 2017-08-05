@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr4.Runtime, Version=4.6.0.0, Culture=neutral, PublicKeyToken=09abb75b9ed49849, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr4.Runtime.4.6.4\lib\net45\Antlr4.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,10 +45,15 @@
   <ItemGroup>
     <Compile Include="CuentaService.cs" />
     <Compile Include="EmpresaService.cs" />
+    <Compile Include="IndicadorService.cs" />
     <Compile Include="PeriodoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Desktop\ANTLR-WForms\ANTLR\DONDE_INVIERTO.ANTLR.csproj">
+      <Project>{EFF27364-DD33-40EA-8A03-15563D67F043}</Project>
+      <Name>DONDE_INVIERTO.ANTLR</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DONDE_INVIERTO.Entity\DONDE_INVIERTO.Entity.csproj">
       <Project>{f5755fec-2b51-411a-8d15-f040c39ad146}</Project>
       <Name>DONDE_INVIERTO.Entity</Name>
@@ -54,6 +62,9 @@
       <Project>{AAF7B17C-85DD-4D78-AE53-0B0392E7E82B}</Project>
       <Name>DONDE_INVIERTO.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -43,6 +43,7 @@
     <Compile Include="Cuenta.cs" />
     <Compile Include="Empresa.cs" />
     <Compile Include="Entity.cs" />
+    <Compile Include="Indicador.cs" />
     <Compile Include="Periodo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

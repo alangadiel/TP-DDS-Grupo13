@@ -11,10 +11,6 @@ namespace DONDE_INVIERTO.Entity
     {
         private List<TEntity> entities;
 
-        public Entity()
-        {
-
-        }
 
         public void Initialize()
         {

@@ -44,9 +44,16 @@
     <Compile Include="Cuenta.cs" />
     <Compile Include="CuentaPeriodo.cs" />
     <Compile Include="Empresa.cs" />
+    <Compile Include="Indicador.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="Periodo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Desktop\ANTLR-WForms\ANTLR\DONDE_INVIERTO.ANTLR.csproj">
+      <Project>{EFF27364-DD33-40EA-8A03-15563D67F043}</Project>
+      <Name>DONDE_INVIERTO.ANTLR</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
