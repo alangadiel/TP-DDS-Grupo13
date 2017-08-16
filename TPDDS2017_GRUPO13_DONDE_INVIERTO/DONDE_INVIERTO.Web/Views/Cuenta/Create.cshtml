@@ -10,7 +10,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4></h4>
+        <h4>Crear Cuenta</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -21,51 +21,13 @@
                         @Html.DropDownListFor(Model => Model.Periodo.EmpresaId, new SelectList(ViewBag.Empresas, "Id", "Nombre"), new { @id = "cboEmpresas", @class = "form-control" })
                     </div>
                 </div>
-                <div class="col-md-2">
-                    <label for="fechaDesde">Fecha Desde</label>
-                    <div class='input-group date' id='fechaDesde'>
-                        @Html.TextBoxFor(Model => Model.Periodo.Inicio, new { @id = "fechaDesde", @class = "form-control input-date" })
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
-                </div>
-                <div class="col-md-2">
-                    <label for="fechaHasta">Fecha Hasta</label>
-                    <div class='input-group date' id='fechaHasta'>
-                        @Html.TextBoxFor(Model => Model.Periodo.Fin, new { @id = "fechaHasta", @class = "form-control input-date" })
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6" style="margin-left: 30px">
-                        <label for="contenido">Contenido</label>
-                        @Html.TextBoxFor(Model => Model.Cuenta.Contenido, new { @id = "tbContenido", @class = "form-control input-date" })
-                    </div>
-                    <div class="col-md-1">
-                        <div class="form-group">
-                            <input type="submit" value="Crear" class="btn btn-success" />
-                        </div>
-                    </div>
+                <div class="col-md-2" align="right">
+                    <a id="btn-add" onclick="" class="btn btn-success">Agregar Cuenta</a>
                 </div>
             </div>
         </div>
     </div>
 
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $("#fechaDesde").datetimepicker({
-                    format: "DD/MM/YYYY",
-                    locale: 'es'
-                });
-                $("#fechaHasta").datetimepicker({
-                    format: "DD/MM/YYYY",
-                    locale: 'es'
-                });
-            });
-        </script>
 }
 
 <div>

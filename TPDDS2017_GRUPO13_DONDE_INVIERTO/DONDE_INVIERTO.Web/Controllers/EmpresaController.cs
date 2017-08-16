@@ -29,7 +29,7 @@ namespace DONDE_INVIERTO.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Nombre")] Empresa empresa)
+        public ActionResult Create([Bind(Include = "Nombre, Fecha_Creacion")] Empresa empresa)
         {
             if (ModelState.IsValid)
             {

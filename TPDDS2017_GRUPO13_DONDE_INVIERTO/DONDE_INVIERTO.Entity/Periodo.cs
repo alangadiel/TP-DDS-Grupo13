@@ -32,15 +32,5 @@ namespace DONDE_INVIERTO.Entity
             }
         }
 
-        private void AddAccount(Model.Cuenta cuenta)
-        {
-            base.Get(cuenta.PeriodoId).Cuentas.Add(cuenta);
-        }
-
-        private void RemoveAccount(Model.Cuenta cuenta)
-        {
-            base.Get(cuenta.PeriodoId).Cuentas.Remove(cuenta);
-        }
-
     }
 }

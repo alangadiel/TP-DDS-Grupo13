@@ -1,13 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace DONDE_INVIERTO.Model
 {
     public class Cuenta : Model
     {
-        public string Contenido { get; set; }
 
-        public int PeriodoId { get; set; }
+        [Required]
+        public string Nombre { get; set; }
+
+        [Required]
+        public decimal Valor { get; set; }
+
+
     }
 }

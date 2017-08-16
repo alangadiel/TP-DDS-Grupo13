@@ -27,7 +27,6 @@ namespace DONDE_INVIERTO.Web.Controllers
         {
             ViewBag.Empresas = new EmpresaService().List().OrderBy(x => x.Nombre);
             Model.Periodo periodo = new Model.Periodo();
-            periodo.Cuentas = new List<Model.Cuenta>();
             periodo.Inicio = DateTime.Today.AddYears(-1);
             periodo.Fin = DateTime.Today;
 

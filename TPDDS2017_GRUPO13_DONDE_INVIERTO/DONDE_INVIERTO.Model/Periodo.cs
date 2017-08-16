@@ -10,8 +10,12 @@ namespace DONDE_INVIERTO.Model
 
         public DateTime Fin { get; set; }
 
-        public List<Cuenta> Cuentas { get; set; }
+        public Cuenta Cuenta { get; set; }
 
         public int EmpresaId { get; set; }
+
+        public bool Anual { get; set; }
+
+        public bool Semestral { get; set; }
     }
 }

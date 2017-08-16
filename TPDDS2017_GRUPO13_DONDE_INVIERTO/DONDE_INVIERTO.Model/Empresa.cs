@@ -10,6 +10,8 @@ namespace DONDE_INVIERTO.Model
         [Required]
         public string Nombre { get; set; }
 
+        public DateTime Fecha_Creacion { get; set; }
+
         public List<Periodo> Periodos { get; set; }
     }
 }
