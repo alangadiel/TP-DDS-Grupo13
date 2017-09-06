@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7ead75bfcc004bda8f5d8455df90fa69" Name="Diagram1" >
+        <EntityTypeShape EntityType="DataModel.Cuenta" Width="1.5" PointX="7.75" PointY="6.25" />
+        <EntityTypeShape EntityType="DataModel.Empresa" Width="1.5" PointX="7.625" PointY="3.75" />
+        <EntityTypeShape EntityType="DataModel.Indicador" Width="1.5" PointX="3.625" PointY="6.25" />
+        <EntityTypeShape EntityType="DataModel.Metodologia" Width="1.5" PointX="3.625" PointY="3.75" />
+        <EntityTypeShape EntityType="DataModel.Periodo" Width="1.5" PointX="10" PointY="3.75" />
+        <EntityTypeShape EntityType="DataModel.CuentaXPeriodo" Width="1.5" PointX="10" PointY="6.375" />
+        <AssociationConnector Association="DataModel.CuentaXPeriodoCuenta" />
+        <AssociationConnector Association="DataModel.CuentaXPeriodoPeriodo" />
+        <EntityTypeShape EntityType="DataModel.Usuario" Width="1.5" PointX="5.625" PointY="3.75" />
+        <EntityTypeShape EntityType="DataModel.IndicadorXCuenta" Width="1.5" PointX="5.75" PointY="6.375" />
+        <AssociationConnector Association="DataModel.IndicadorXCuentaCuenta" />
+        <AssociationConnector Association="DataModel.IndicadorXCuentaIndicador" />
+        <AssociationConnector Association="DataModel.EmpresaCuenta" />
+        <AssociationConnector Association="DataModel.UsuarioIndicador" />
+        <AssociationConnector Association="DataModel.UsuarioMetodologia" />
+        <EntityTypeShape EntityType="DataModel.Condicion" Width="1.5" PointX="1.375" PointY="6.5" />
+        <EntityTypeShape EntityType="DataModel.CondicionXMetodologia" Width="1.5" PointX="1.375" PointY="3.875" />
+        <AssociationConnector Association="DataModel.CondicionIndicador" />
+        <AssociationConnector Association="DataModel.CondicionXMetodologiaMetodologia" />
+        <AssociationConnector Association="DataModel.CondicionXMetodologiaCondicion" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

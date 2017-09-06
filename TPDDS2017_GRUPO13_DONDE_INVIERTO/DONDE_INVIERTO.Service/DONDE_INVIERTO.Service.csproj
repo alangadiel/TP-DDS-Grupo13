@@ -33,7 +33,14 @@
     <Reference Include="Antlr4.Runtime, Version=4.6.0.0, Culture=neutral, PublicKeyToken=09abb75b9ed49849, processorArchitecture=MSIL">
       <HintPath>..\packages\Antlr4.Runtime.4.6.4\lib\net45\Antlr4.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,9 +57,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Desktop\ANTLR-WForms\ANTLR\DONDE_INVIERTO.ANTLR.csproj">
-      <Project>{EFF27364-DD33-40EA-8A03-15563D67F043}</Project>
-      <Name>DONDE_INVIERTO.ANTLR</Name>
+    <ProjectReference Include="..\ANTLR\ANTLR.csproj">
+      <Project>{d0f04f63-f24e-4187-8a6b-cb6dc8253405}</Project>
+      <Name>ANTLR</Name>
     </ProjectReference>
     <ProjectReference Include="..\DONDE_INVIERTO.Entity\DONDE_INVIERTO.Entity.csproj">
       <Project>{f5755fec-2b51-411a-8d15-f040c39ad146}</Project>
@@ -64,6 +71,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
