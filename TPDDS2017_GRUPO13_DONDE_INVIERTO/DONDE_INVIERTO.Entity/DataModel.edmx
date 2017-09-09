@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="DataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="DataModelTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="DataModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CuentaSet" EntityType="DataModel.Cuenta" />
+          <EntitySet Name="EmpresaSet" EntityType="DataModel.Empresa" />
+          <EntitySet Name="IndicadorSet" EntityType="DataModel.Indicador" />
+          <EntitySet Name="MetodologiaSet" EntityType="DataModel.Metodologia" />
+          <EntitySet Name="PeriodoSet" EntityType="DataModel.Periodo" />
+          <EntitySet Name="CuentaXPeriodoSet" EntityType="DataModel.CuentaXPeriodo" />
+          <AssociationSet Name="CuentaXPeriodoCuenta" Association="DataModel.CuentaXPeriodoCuenta">
+            <End Role="CuentaXPeriodo" EntitySet="CuentaXPeriodoSet" />
+            <End Role="Cuenta" EntitySet="CuentaSet" />
+          </AssociationSet>
+          <AssociationSet Name="CuentaXPeriodoPeriodo" Association="DataModel.CuentaXPeriodoPeriodo">
+            <End Role="CuentaXPeriodo" EntitySet="CuentaXPeriodoSet" />
+            <End Role="Periodo" EntitySet="PeriodoSet" />
+          </AssociationSet>
+          <EntitySet Name="UsuarioSet" EntityType="DataModel.Usuario" />
+          <EntitySet Name="IndicadorXCuentaSet" EntityType="DataModel.IndicadorXCuenta" />
+          <AssociationSet Name="IndicadorXCuentaCuenta" Association="DataModel.IndicadorXCuentaCuenta">
+            <End Role="IndicadorXCuenta" EntitySet="IndicadorXCuentaSet" />
+            <End Role="Cuenta" EntitySet="CuentaSet" />
+          </AssociationSet>
+          <AssociationSet Name="IndicadorXCuentaIndicador" Association="DataModel.IndicadorXCuentaIndicador">
+            <End Role="IndicadorXCuenta" EntitySet="IndicadorXCuentaSet" />
+            <End Role="Indicador" EntitySet="IndicadorSet" />
+          </AssociationSet>
+          <AssociationSet Name="EmpresaCuenta" Association="DataModel.EmpresaCuenta">
+            <End Role="Empresa" EntitySet="EmpresaSet" />
+            <End Role="Cuenta" EntitySet="CuentaSet" />
+          </AssociationSet>
+          <AssociationSet Name="UsuarioIndicador" Association="DataModel.UsuarioIndicador">
+            <End Role="Usuario" EntitySet="UsuarioSet" />
+            <End Role="Indicador" EntitySet="IndicadorSet" />
+          </AssociationSet>
+          <AssociationSet Name="UsuarioMetodologia" Association="DataModel.UsuarioMetodologia">
+            <End Role="Usuario" EntitySet="UsuarioSet" />
+            <End Role="Metodologia" EntitySet="MetodologiaSet" />
+          </AssociationSet>
+          <EntitySet Name="CondicionSet" EntityType="DataModel.Condicion" />
+          <EntitySet Name="CondicionXMetodologiaSet" EntityType="DataModel.CondicionXMetodologia" />
+          <AssociationSet Name="CondicionIndicador" Association="DataModel.CondicionIndicador">
+            <End Role="Condicion" EntitySet="CondicionSet" />
+            <End Role="Indicador" EntitySet="IndicadorSet" />
+          </AssociationSet>
+          <AssociationSet Name="CondicionXMetodologiaMetodologia" Association="DataModel.CondicionXMetodologiaMetodologia">
+            <End Role="CondicionXMetodologia" EntitySet="CondicionXMetodologiaSet" />
+            <End Role="Metodologia" EntitySet="MetodologiaSet" />
+          </AssociationSet>
+          <AssociationSet Name="CondicionXMetodologiaCondicion" Association="DataModel.CondicionXMetodologiaCondicion">
+            <End Role="CondicionXMetodologia" EntitySet="CondicionXMetodologiaSet" />
+            <End Role="Condicion" EntitySet="CondicionSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Cuenta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <NavigationProperty Name="CuentaXPeriodo" Relationship="DataModel.CuentaXPeriodoCuenta" FromRole="Cuenta" ToRole="CuentaXPeriodo" />
+          <NavigationProperty Name="IndicadorXCuenta" Relationship="DataModel.IndicadorXCuentaCuenta" FromRole="Cuenta" ToRole="IndicadorXCuenta" />
+          <NavigationProperty Name="Empresa" Relationship="DataModel.EmpresaCuenta" FromRole="Cuenta" ToRole="Empresa" />
+          <Property Name="EmpresaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <NavigationProperty Name="Cuenta" Relationship="DataModel.EmpresaCuenta" FromRole="Empresa" ToRole="Cuenta" />
+        </EntityType>
+        <EntityType Name="Indicador">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <Property Name="Contenido" Type="String" Nullable="false" />
+          <NavigationProperty Name="IndicadorXCuenta" Relationship="DataModel.IndicadorXCuentaIndicador" FromRole="Indicador" ToRole="IndicadorXCuenta" />
+          <NavigationProperty Name="Usuario" Relationship="DataModel.UsuarioIndicador" FromRole="Indicador" ToRole="Usuario" />
+          <Property Name="UsuarioId" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="Condicion" Relationship="DataModel.CondicionIndicador" FromRole="Indicador" ToRole="Condicion" />
+        </EntityType>
+        <EntityType Name="Metodologia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="DataModel.UsuarioMetodologia" FromRole="Metodologia" ToRole="Usuario" />
+          <Property Name="UsuarioId" Type="Int32" Nullable="true" />
+          <NavigationProperty Name="CondicionXMetodologia" Relationship="DataModel.CondicionXMetodologiaMetodologia" FromRole="Metodologia" ToRole="CondicionXMetodologia" />
+        </EntityType>
+        <EntityType Name="Periodo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Anio" Type="Int16" Nullable="false" />
+          <Property Name="Semestre" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="CuentaXPeriodo" Relationship="DataModel.CuentaXPeriodoPeriodo" FromRole="Periodo" ToRole="CuentaXPeriodo" />
+        </EntityType>
+        <EntityType Name="CuentaXPeriodo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Cuenta" Relationship="DataModel.CuentaXPeriodoCuenta" FromRole="CuentaXPeriodo" ToRole="Cuenta" />
+          <Property Name="CuentaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Periodo" Relationship="DataModel.CuentaXPeriodoPeriodo" FromRole="CuentaXPeriodo" ToRole="Periodo" />
+          <Property Name="PeriodoId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="CuentaXPeriodoCuenta">
+          <End Type="DataModel.CuentaXPeriodo" Role="CuentaXPeriodo" Multiplicity="*" />
+          <End Type="DataModel.Cuenta" Role="Cuenta" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Cuenta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CuentaXPeriodo">
+              <PropertyRef Name="CuentaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CuentaXPeriodoPeriodo">
+          <End Type="DataModel.CuentaXPeriodo" Role="CuentaXPeriodo" Multiplicity="*" />
+          <End Type="DataModel.Periodo" Role="Periodo" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Periodo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CuentaXPeriodo">
+              <PropertyRef Name="PeriodoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <Property Name="Contrasenia" Type="String" Nullable="false" />
+          <NavigationProperty Name="Indicador" Relationship="DataModel.UsuarioIndicador" FromRole="Usuario" ToRole="Indicador" />
+          <NavigationProperty Name="Metodologia" Relationship="DataModel.UsuarioMetodologia" FromRole="Usuario" ToRole="Metodologia" />
+        </EntityType>
+        <EntityType Name="IndicadorXCuenta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Cuenta" Relationship="DataModel.IndicadorXCuentaCuenta" FromRole="IndicadorXCuenta" ToRole="Cuenta" />
+          <Property Name="CuentaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Indicador" Relationship="DataModel.IndicadorXCuentaIndicador" FromRole="IndicadorXCuenta" ToRole="Indicador" />
+          <Property Name="IndicadorId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="IndicadorXCuentaCuenta">
+          <End Type="DataModel.IndicadorXCuenta" Role="IndicadorXCuenta" Multiplicity="*" />
+          <End Type="DataModel.Cuenta" Role="Cuenta" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Cuenta">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IndicadorXCuenta">
+              <PropertyRef Name="CuentaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="IndicadorXCuentaIndicador">
+          <End Type="DataModel.IndicadorXCuenta" Role="IndicadorXCuenta" Multiplicity="*" />
+          <End Type="DataModel.Indicador" Role="Indicador" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Indicador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="IndicadorXCuenta">
+              <PropertyRef Name="IndicadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmpresaCuenta">
+          <End Type="DataModel.Empresa" Role="Empresa" Multiplicity="1" />
+          <End Type="DataModel.Cuenta" Role="Cuenta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Cuenta">
+              <PropertyRef Name="EmpresaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UsuarioIndicador">
+          <End Type="DataModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+          <End Type="DataModel.Indicador" Role="Indicador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Indicador">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UsuarioMetodologia">
+          <End Type="DataModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+          <End Type="DataModel.Metodologia" Role="Metodologia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Metodologia">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Condicion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Indicador" Relationship="DataModel.CondicionIndicador" FromRole="Condicion" ToRole="Indicador" />
+          <Property Name="IndicadorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CondicionXMetodologia" Relationship="DataModel.CondicionXMetodologiaCondicion" FromRole="Condicion" ToRole="CondicionXMetodologia" />
+          <Property Name="ComoDescartar" Type="String" Nullable="false" />
+          <Property Name="ComoOrdenar" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CondicionXMetodologia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Metodologia" Relationship="DataModel.CondicionXMetodologiaMetodologia" FromRole="CondicionXMetodologia" ToRole="Metodologia" />
+          <Property Name="MetodologiaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Condicion" Relationship="DataModel.CondicionXMetodologiaCondicion" FromRole="CondicionXMetodologia" ToRole="Condicion" />
+          <Property Name="CondicionId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="CondicionIndicador">
+          <End Type="DataModel.Condicion" Role="Condicion" Multiplicity="*" />
+          <End Type="DataModel.Indicador" Role="Indicador" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Indicador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Condicion">
+              <PropertyRef Name="IndicadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CondicionXMetodologiaMetodologia">
+          <End Type="DataModel.CondicionXMetodologia" Role="CondicionXMetodologia" Multiplicity="*" />
+          <End Type="DataModel.Metodologia" Role="Metodologia" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Metodologia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CondicionXMetodologia">
+              <PropertyRef Name="MetodologiaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CondicionXMetodologiaCondicion">
+          <End Type="DataModel.CondicionXMetodologia" Role="CondicionXMetodologia" Multiplicity="*" />
+          <End Type="DataModel.Condicion" Role="Condicion" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Condicion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CondicionXMetodologia">
+              <PropertyRef Name="CondicionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="DataModel" />
+        <Alias Key="Target" Value="DataModel.Store" />
+        <EntityContainerMapping CdmEntityContainer="DataModelContainer" StorageEntityContainer="DataModelTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
