@@ -12,19 +12,22 @@ namespace DONDE_INVIERTO.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class Empresa
+    public partial class Usuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Empresa()
+        public Usuario()
         {
-            this.Cuenta = new HashSet<Cuenta>();
+            this.Indicador = new HashSet<Indicador>();
+            this.Metodologia = new HashSet<Metodologia>();
         }
     
         public int Id { get; set; }
-        public System.DateTime FechaCreacion { get; set; }
         public string Nombre { get; set; }
+        public string Contrasenia { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cuenta> Cuenta { get; set; }
+        public virtual ICollection<Indicador> Indicador { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Metodologia> Metodologia { get; set; }
     }
 }

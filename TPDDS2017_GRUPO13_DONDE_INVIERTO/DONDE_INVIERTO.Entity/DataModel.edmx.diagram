@@ -21,7 +21,7 @@
         <AssociationConnector Association="DataModel.UsuarioIndicador" />
         <AssociationConnector Association="DataModel.UsuarioMetodologia" />
         <EntityTypeShape EntityType="DataModel.Condicion" Width="1.5" PointX="1.375" PointY="6.5" />
-        <EntityTypeShape EntityType="DataModel.CondicionXMetodologia" Width="1.5" PointX="1.375" PointY="3.875" />
+        <EntityTypeShape EntityType="DataModel.CondicionXMetodologia" Width="1.5" PointX="1.75" PointY="3.875" />
         <AssociationConnector Association="DataModel.CondicionIndicador" />
         <AssociationConnector Association="DataModel.CondicionXMetodologiaMetodologia" />
         <AssociationConnector Association="DataModel.CondicionXMetodologiaCondicion" />
