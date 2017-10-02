@@ -8,10 +8,10 @@ namespace DONDE_INVIERTO.Model
     public class Empresa : Model
     {
         [Required]
-        public string Nombre { get; set; }
+        public virtual string Nombre { get; set; }
 
-        public DateTime Fecha_Creacion { get; set; }
+        public virtual DateTime Fecha_Creacion { get; set; }
 
-        public List<Periodo> Periodos { get; set; }
+        public virtual List<Periodo> Periodos { get; set; }
     }
 }

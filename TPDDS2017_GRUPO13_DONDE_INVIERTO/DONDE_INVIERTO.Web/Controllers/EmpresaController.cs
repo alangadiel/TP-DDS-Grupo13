@@ -65,11 +65,11 @@ namespace DONDE_INVIERTO.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete([Bind(Include = "Id")] Empresa empresa)
+        public ActionResult Delete([Bind(Include = "Id, Nombre, Fecha_Creacion")] Empresa empresa)
         {
             try
             {
-                Service.Delete(empresa.Id);
+                Service.Delete(empresa);
                 return RedirectToAction("List");
             }
             catch

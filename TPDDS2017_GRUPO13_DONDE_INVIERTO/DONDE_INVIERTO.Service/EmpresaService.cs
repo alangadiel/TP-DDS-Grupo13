@@ -1,4 +1,5 @@
-﻿using DONDE_INVIERTO.Model;
+﻿using DONDE_INVIERTO.DataStorage;
+using DONDE_INVIERTO.Model;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,17 +11,17 @@ namespace DONDE_INVIERTO.Service
 
         public IEnumerable<Empresa> List()
         {
-            return Entity.Empresa.Instance.GetAll();
+            return StorageProvider<Empresa>.ReadAll();
         }
 
         public void Save(Empresa empresa)
         {
-            Entity.Empresa.Instance.Save(empresa);
+            StorageProvider<Empresa>.Save(empresa);
         }
 
-        public void Delete(int Id)
+        public void Delete(Empresa empresa)
         {
-            Entity.Empresa.Instance.Delete(Id);
+            StorageProvider<Empresa>.Delete(empresa);
         }
 
         public Empresa Get(int Id)
