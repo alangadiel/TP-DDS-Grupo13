@@ -1,0 +1,87 @@
+﻿@model DONDE_INVIERTO.Model.Metodologia
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+  <div class="container">
+        <h4>Crear Metodología</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+             
+      
+      <div class="row">
+          <div class="form-group">
+              <div class="col-xs-12 col-md-5">
+                  <div class="row" style="margin-top: 30px">
+                      <label for="cuenta">Nombre Metodología</label>
+                      <input type="text" class="form-control" id="idCuenta">
+                  </div>
+              </div>
+          </div>
+
+          <div class="dropdown">
+              <div class="col-xs-12 col-md-5">
+                  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                      Tipo
+                      <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                      <li><a href="#">Comparar Indicador vs otra Empresa</a></li>
+                      <li><a href="#">Comparar Indicador vs Valor</a></li>
+                      <li><a href="#">Comparar Promedio de Indicador</a></li>
+                      <li><a href="#">Indicador creciente</a></li>
+                      <li><a href="#">Indicador decreciente</a></li>
+                  </ul>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <div class="col-xs-12 col-md-5">
+                  <div class="row" style="margin-top: 30px">
+                      <label for="cuenta">Nombre Indicador</label>
+                      <input type="text" class="form-control" id="idCuenta">
+                  </div>
+              </div>
+          </div>
+
+          <div class="clearfix col-xs-12 col-md-5">
+              <label for="tipoperiodo">Comparación</label>
+              <div class="radio">
+                  <label><input type="radio" name="optradio" value="">Mayor</label>
+              </div>
+              <div class="radio">
+                  <label><input type="radio" name="optradio" value="">Menor</label>
+              </div>
+          </div>
+
+          <div class="clearfix col-xs-12 col-md-5">
+              <label for="tipoperiodo">Tipo de Período</label>
+              <div class="radio">
+                  <label><input type="radio" name="optradio" value="">Semestral</label>
+              </div>
+              <div class="radio">
+                  <label><input type="radio" name="optradio" value="">Anual</label>
+              </div>
+          </div>
+          
+       </div>
+          
+      <div class="col-sm-2">
+          <a id="btn-add" onclick="" class="btn btn-success">Agregar Cuenta</a>
+
+          <a id="btn-back" onclick="" class="btn btn-link">Atrás</a>
+      </div>
+
+  </div>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
