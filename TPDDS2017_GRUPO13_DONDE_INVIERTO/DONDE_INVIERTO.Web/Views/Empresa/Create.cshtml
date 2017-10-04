@@ -15,13 +15,15 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-2">
-                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
-            </div>
-            <div class="col-md-2">
-                <label for="fechaCreacion">Fecha Creación</label>
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                </div>
+            </div>  
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.Fecha_Creacion, htmlAttributes: new { @class = "control-label col-md-5" })
                 <div class='input-group date' id='fechaDesde'>
                     @Html.TextBoxFor(model => model.Fecha_Creacion, new { @id = "fechaCreacion", @class = "form-control input-date" })
                     <span class="input-group-addon">
@@ -29,19 +31,18 @@
                     </span>
                 </div>
             </div>
-        </div>
-
+        </div>     
+              
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Guardar" class="btn btn-success" />
+                <a id="btn-volver" onclick="location.href='@Url.Action("List", "Empresa")'" class="btn btn-default">Volver</a>
             </div>
         </div>
     </div>
 }
 
-<div>
-    <a id="btn-volver" onclick="location.href='@Url.Action("List", "Empresa")'" class="btn btn-default">Volver</a>
-</div>
+
 
 <script type="text/javascript">
             $(document).ready(function () {
