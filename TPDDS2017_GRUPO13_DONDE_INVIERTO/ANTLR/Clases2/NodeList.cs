@@ -20,13 +20,7 @@ namespace ANTLR.Clases2
 
         public Node<T> FindByValue(T value)
         {
-            // search the list for the value
-            foreach (Node<T> node in Items)
-                if (node.Value.Equals(value))
-                    return node;
-
-            // if we reached here, we didn't find a matching node
-            return null;
+            return Items.Where(item => item.Value.Equals(value)).First();
         }
     }
 }

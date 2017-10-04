@@ -6,7 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D0F04F63-F24E-4187-8A6B-CB6DC8253405}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ANTLR</RootNamespace>
     <AssemblyName>ANTLR</AssemblyName>
@@ -34,6 +34,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Antlr4.Runtime, Version=4.6.0.0, Culture=neutral, PublicKeyToken=09abb75b9ed49849, processorArchitecture=MSIL">
@@ -99,80 +102,10 @@
     <Compile Include="Clases2\Numero.cs" />
     <Compile Include="Clases\Resta.cs" />
     <Compile Include="Clases\Suma.cs" />
-    <Compile Include="Forms\CargarCuentas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CargarCuentas.Designer.cs">
-      <DependentUpon>CargarCuentas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CargarEmpresas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CargarEmpresas.Designer.cs">
-      <DependentUpon>CargarEmpresas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CargarMetodologias.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CargarMetodologias.Designer.cs">
-      <DependentUpon>CargarMetodologias.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Principal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Principal.Designer.cs">
-      <DependentUpon>Principal.cs</DependentUpon>
-    </Compile>
     <Compile Include="ANTLR\Gramatica.g4.lexer.cs" />
     <Compile Include="ANTLR\Gramatica.g4.parser.cs" />
     <Compile Include="ANTLR\Listener.cs" />
-    <Compile Include="Forms\CargarIndicadores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CargarIndicadores.Designer.cs">
-      <DependentUpon>CargarIndicadores.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\VerCuentas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\VerCuentas.Designer.cs">
-      <DependentUpon>VerCuentas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\VerIndicadores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\VerIndicadores.Designer.cs">
-      <DependentUpon>VerIndicadores.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\VerMetodologias.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\VerMetodologias.Designer.cs">
-      <DependentUpon>VerMetodologias.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\CargarCuentas.resx">
-      <DependentUpon>CargarCuentas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CargarEmpresas.resx">
-      <DependentUpon>CargarEmpresas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CargarMetodologias.resx">
-      <DependentUpon>CargarMetodologias.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Principal.resx">
-      <DependentUpon>Principal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CargarIndicadores.resx">
-      <DependentUpon>CargarIndicadores.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\VerCuentas.resx">
-      <DependentUpon>VerCuentas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\VerIndicadores.resx">
-      <DependentUpon>VerIndicadores.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
