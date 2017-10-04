@@ -2,15 +2,12 @@
 
 namespace DONDE_INVIERTO.Model
 {
-    public class Cuenta : Model
+    public class Usuario : Model
     {
-
         [Required]
         public virtual string Nombre { get; set; }
 
-        [Required]
-        public virtual Empresa Empresa { get; set; }
-
+        public virtual string Contrasenia { get; set; }
 
     }
 }

@@ -8,8 +8,8 @@ namespace DONDE_INVIERTO.Model
 {
     public class CuentaPeriodo
     {
-        public Periodo Periodo { get; set; }
+        public virtual IList<Periodo> Periodo { get; set; }
 
-        public Cuenta Cuenta { get; set; }
+        public virtual IList<Cuenta> Cuenta { get; set; }
     }
 }

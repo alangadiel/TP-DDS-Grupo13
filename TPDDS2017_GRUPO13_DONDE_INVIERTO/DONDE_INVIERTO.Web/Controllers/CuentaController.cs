@@ -27,12 +27,14 @@ namespace DONDE_INVIERTO.Web.Controllers
         {
             ViewBag.Empresas = new EmpresaService().List().OrderBy(x => x.Nombre);
             Model.Periodo periodo = new Model.Periodo();
+            /*
             periodo.Inicio = DateTime.Today.AddYears(-1);
-            periodo.Fin = DateTime.Today;
+            periodo.Fin = DateTime.Today;*/
 
-            CuentaPeriodo model = new CuentaPeriodo();
+            /*
             model.Periodo = periodo;
-            model.Cuenta = new Cuenta();
+            model.Cuenta = new Cuenta();*/
+            CuentaPeriodo model = new CuentaPeriodo();
             return View(model);
         }
 

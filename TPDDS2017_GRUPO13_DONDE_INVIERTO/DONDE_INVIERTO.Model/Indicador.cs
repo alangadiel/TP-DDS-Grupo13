@@ -6,11 +6,13 @@ namespace DONDE_INVIERTO.Model
     public class Indicador : Model
     {
         [Required]
-        public string Nombre { get; set; }
+        public virtual string Nombre { get; set; }
 
-        public BinaryTree<IContenidoNodo> BinaryTree { get; set; }
+        public virtual BinaryTree<IContenidoNodo> BinaryTree { get; set; }
 
         [Required]
-        public string Contenido { get; set; }
+        public virtual string Contenido { get; set; }
+
+        public virtual Usuario Usuario { get; set; }
     }
 }
