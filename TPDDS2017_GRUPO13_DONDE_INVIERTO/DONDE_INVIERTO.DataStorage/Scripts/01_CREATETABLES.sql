@@ -1,3 +1,12 @@
+DROP DATABASE IF EXISTS dondeinvierto
+GO
+
+CREATE DATABASE dondeinvierto
+GO
+
+USE [dondeinvierto]
+GO
+
 CREATE TABLE [dbo].[condicion](
 	[cond_id] [int] IDENTITY(1,1),
 	[cond_indicador_id] [int] NOT NULL,
@@ -102,8 +111,11 @@ GO
 
 CREATE TABLE [dbo].[usuario](
 	[usu_id] [int] IDENTITY(1,1) NOT NULL,
-	[usu_nombre] [nvarchar](200) NOT NULL,
-	[usu_contrasenia] [nvarchar](200) NOT NULL,
+	[usu_usuario] [nvarchar](20) NOT NULL,
+	[usu_contrasenia] [nvarchar](20) NOT NULL,
+	[usu_nombre] [nvarchar](50) NOT NULL,
+	[usu_apellido] [nvarchar](50) NOT NULL,
+	[usu_fecha_alta] [datetime] NOT NULL
  CONSTRAINT [PK_usuario] PRIMARY KEY CLUSTERED 
 (
 	[usu_id] ASC

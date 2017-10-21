@@ -50,7 +50,7 @@ namespace DONDE_INVIERTO.Web
                         "~/Content/font-awesome.css",
                        "~/Content/font-awesome.min.css",
                        "~/Content/fontgoogle.css",
-                       "~/Content/style.css",
+                       "~/Content/login.css",
                        "~/Content/form-elements.css"));
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
@@ -65,7 +65,7 @@ namespace DONDE_INVIERTO.Web
                       "~/Scripts/bootstrap-switch.min.js"
                 ));
             bundles.Add(new ScriptBundle("~/bundles/loginjs").Include(
-                     "~/Scripts/scripts.js",
+                     "~/Scripts/login.js",
                       "~/Scripts/placeholder.js",
                       "~/Scripts/placeholder.js",
                       //"~/Scripts/jquery-1.11.1.min.js",
