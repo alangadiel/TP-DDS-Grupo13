@@ -9,6 +9,7 @@ namespace ANTLR.Clases2
     public class Operador : IContenidoNodo
     {
         public enum Operadores { Suma = '+', Resta = '-', Multiplicacion = '*', Division = '/' , Potenciacion = '^' }
+
         public Operadores contenido { get; set; }
         public Operador(string o)
         { 
@@ -47,6 +48,19 @@ namespace ANTLR.Clases2
         public string getString()
         {
             return contenido.ToString();
+        }
+
+        internal double Operar(double izq, double der)
+        {
+            switch (contenido)
+            {
+                case Operadores.Suma: return izq + der;
+                case Operadores.Resta: return izq - der;
+                case Operadores.Multiplicacion: return izq * der;
+                case Operadores.Division: return izq / der;
+                case Operadores.Potenciacion: return Math.Pow(izq, der);
+                default: return 0;
+            }
         }
     }
 }
