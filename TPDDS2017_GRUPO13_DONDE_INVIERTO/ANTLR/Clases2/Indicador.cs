@@ -43,5 +43,40 @@ namespace ANTLR.Clases2
             this.Nombre = nombre;
             this.BinaryTree = new BinaryTree<IContenidoNodo>();
         }
+
+        public bool Calcular(out double resultado)
+        {
+            return Resolver(out resultado, BinaryTree.Root);
+        }
+
+        private bool Resolver(out double resultado, BinaryTreeNode<IContenidoNodo> nodo)
+        {
+            switch(nodo.Value)
+            {
+                case Operador op:
+                    if (Resolver(out double izq, nodo.Left) && Resolver(out double der, nodo.Right))
+                    {
+                        resultado = op.Operar(izq, der);
+                        return true;
+                    }
+                    else
+                    {
+                        resultado = 0;
+                        return false;
+                    }
+                case Numero num:
+                    resultado = num.getResultado();
+                    return true;
+                case Cuenta cuenta:
+                    resultado = cuenta.Valor;
+                    return true;
+                case Indicador ind:
+                    return ind.Calcular(out resultado);
+                default:
+                    resultado = 0;
+                    return false;
+            }
+            
+        }
     }
 }
