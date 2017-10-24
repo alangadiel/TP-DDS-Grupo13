@@ -11,13 +11,10 @@ namespace DONDE_INVIERTO.Model
         [Required]
         public virtual string Contrasenia { get; set; }
 
-        [Required]
         public virtual string Nombre { get; set; }
 
-        [Required]
         public virtual string Apellido { get; set; }
 
-        [Required]
         public virtual DateTime FechaAlta { get; set; }
 
     }

@@ -25,7 +25,7 @@ namespace DONDE_INVIERTO.DataStorage
             _sessionFactory = configuration.BuildSessionFactory();
         }
 
-        private static ISession GetCurrentSession()
+        public static ISession GetCurrentSession()
         {
             if (_sessionFactory == null)
                 OpenSession();

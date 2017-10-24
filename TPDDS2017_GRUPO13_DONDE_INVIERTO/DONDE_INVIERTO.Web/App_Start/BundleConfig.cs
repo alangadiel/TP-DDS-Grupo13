@@ -68,10 +68,11 @@ namespace DONDE_INVIERTO.Web
                      "~/Scripts/login.js",
                       "~/Scripts/placeholder.js",
                       "~/Scripts/placeholder.js",
-                      //"~/Scripts/jquery-1.11.1.min.js",
-                      //"~/Scripts/jquery-1.11.1.js",
+                      "~/Scripts/jquery-1.11.1.min.js",
+                      "~/Scripts/jquery-1.11.1.js",
                       "~/Scripts/jquery.backstretch.min.js",
-                      "~/Scripts/jquery.backstretch.js"
+                      "~/Scripts/jquery.backstretch.js",
+                      "~/Scripts/User/User.js"
                ));
             bundles.Add(new ScriptBundle("~/bundles/fileupload").Include(
                       "~/Scripts/jQuery.FileUpload/jQuery.ui.widget.js",
