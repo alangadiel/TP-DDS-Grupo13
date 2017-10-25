@@ -52,6 +52,7 @@
     <Compile Include="CuentaPeriodo.cs" />
     <Compile Include="Empresa.cs" />
     <Compile Include="Indicador.cs" />
+    <Compile Include="Metodologia.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="Periodo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

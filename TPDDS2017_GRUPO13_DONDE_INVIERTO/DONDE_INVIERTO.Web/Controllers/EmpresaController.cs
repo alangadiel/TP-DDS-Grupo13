@@ -77,5 +77,11 @@ namespace DONDE_INVIERTO.Web.Controllers
                 return View();
             }
         }
+
+        [HttpGet]
+        public ActionResult ConsultarValor()
+        {
+            return View();
+        }
     }
 }
