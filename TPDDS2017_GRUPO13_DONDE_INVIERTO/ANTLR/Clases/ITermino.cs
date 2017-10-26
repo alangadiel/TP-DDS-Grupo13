@@ -8,7 +8,6 @@ namespace ANTLR.Clases
 {
     interface ITermino : IExpresion
     {
-        double getResultado();
-        String getResultadoString();
+        string getResultadoString();
     }
 }
