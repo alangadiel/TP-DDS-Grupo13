@@ -4,26 +4,25 @@
     ViewBag.Title = "Nueva Empresa";
 }
 
-<h2>Nueva Empresa</h2>
-
-
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <hr />
+
+    <div class="formholder-nueva-empresa">
+        <div class="row-title">
+            <label>Nueva Empresa</label>
+        </div>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            <div class="col-md-3">
-                @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-4" })
-                <div class="col-md-8">
-                    @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
-                </div>
-            </div>  
-            <div class="col-md-3">
-                @Html.LabelFor(model => model.Fecha_Creacion, htmlAttributes: new { @class = "control-label col-md-5" })
+        <div class="row-form">
+            <div class="col-md-12">
+                @Html.LabelFor(model => model.Nombre)
+                @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="row-form">
+            <div class="col-md-4">
+                @Html.LabelFor(model => model.Fecha_Creacion, "Fecha creación")
                 <div class='input-group date' id='fechaDesde'>
                     @Html.TextBoxFor(model => model.Fecha_Creacion, new { @id = "fechaCreacion", @class = "form-control input-date" })
                     <span class="input-group-addon">
@@ -31,28 +30,21 @@
                     </span>
                 </div>
             </div>
-        </div>     
-              
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar" class="btn btn-success" />
-                <a id="btn-volver" onclick="location.href='@Url.Action("List", "Empresa")'" class="btn btn-default">Volver</a>
-            </div>
+        </div>
+        <div class="row-form-footer">
+            <a id="btn-volver" onclick="location.href='@Url.Action("List", "Empresa")'" class="btn btn-default">Volver</a>
+            <input type="submit" value="Guardar" class="btn btn-success" />       
         </div>
     </div>
-}
 
-
-
-<script type="text/javascript">
-            $(document).ready(function () {
-                $("#fechaCreacion").datetimepicker({
-                    format: "DD/MM/YYYY",
-                    locale: 'es'
-                });
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#fechaCreacion").datetimepicker({
+               format: "DD/MM/YYYY",
+             locale: 'es'
             });
-</script>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+         });
+    </script>
 }
+
+

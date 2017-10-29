@@ -8,7 +8,6 @@ namespace ANTLR.Clases
 {
     interface ICuenta : IExpresion
     {
-        double getResultado();
         String getResultadoString();
     }
 }

@@ -1,333 +1,50 @@
 ﻿body {
-    padding-top: 0;
-    padding-bottom: 20px;
-
-    background-color: #DEDEDE;
-    font-family: Arial,sans-serif;
-    height: 100%;
-    width:100%;
+    margin: 0;
+    padding: 0;
+    font-family: Sans-serif;
+    background: #474747;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 1%;
-    padding-right: 1%;
-    margin-top: 10%;
-    width: 100%;
-    height: 100%;
+.row-title {
+    background: #333;
+    height: 35px;
+    position: relative;
 }
 
-/*.body-content .content-fluid div {
-    height: 100%;
-}*/
-
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+.row-title label {
+    font-size: 25px;
+    color: #9d9d9d;
+    margin-left: 15px;
 }
 
-#div-filtro{
-    position:absolute;
-    width:75%;
-    z-index:20;
+.formholder-nueva-empresa {
+    background: #ecf0f1;
+    width: 50%;
+    height: 50%;
+    border-radius: 5px;
+    padding-top: 5px;
+    position: fixed;
+    top: 24%;
+    left: 24%;
 }
 
-.eldiv
-{
- width:100%;
- overflow-x:auto;
- padding-top: 25px;
+.row-form {
+    position: relative;
+    height: 70px;
+    margin-top: 10px;
 }
 
-
-.main-header {
-    
-    width:100%;
-    
-    color: white;
-    position:fixed;
-    top: 0;
-    left: 0;
-    z-index:100;
-}
-#image-header {
-    width:100%;
-    height:100%;
-    position:relative;
-    z-index:100;
-}
-#image-header img {
-    width:100%;
-}
-#login-display {
-    font-size: 20pt;
-    display: block;
-    text-align: right;
-    /*float: right;*/
-    /*margin: 25px;*/
-    color: White;
-    right:2%;
-    top:20%;
-    position:absolute;
-}
-#login-display #titulo-web{
-    font-style:italic;
-    font-weight:bold;
-}
-#login-display #version-web{
-    font-size: 10pt;
-}
-#menu-navegacion {
-    border:0 !important;
-    background-color:#003341 !important;
-    border-radius:0 !important;
-    font-family:Arial;
-}
-#menu-navegacion li a{
-    color: #F0F3F1;
-}
-#menu-navegacion ul.dropdown-menu a{
-    color: black;
-}
-#menu-navegacion li a li a{
-    color: #333333 !important;
-}
-#menu-navegacion li#home.menu-li a:hover{
-    background-color: #F0F3F1;
-    color: #0083c5;
-}
-#menu-navegacion li.active{
-    color: #005c84 !important;
-    background-color:#f0f3f1 !important;
-}
-#menu-navegacion li.active a{
-    color: #005c84 !important;
-    font-weight:bold;
-}
-.main-footer {
-    background-color:#3e5667;
-    background-image: -moz-linear-gradient(top, #344856, #3e5667);
-    background-image: -webkit-gradient(linear, left top,left bottom, from(#344856), to(#3e5667));
-    background-image: linear-gradient(top, #344856, #3e5667);
-    -moz-box-shadow:    0 1px 1px 0 #444;
-    -webkit-box-shadow: 0 1px 1px 0 #444;
-    box-shadow:         0 1px 1px 0 #444;
-    color: white;
-    position:fixed;
-    line-height: normal;
-    font-size: .9em;
-    bottom: 0;
-    left: 0;
-    width:100%;
-    height: 28px;
-    z-index:1;
-}
-.open > a{
-    color: #0083c5 !important;
-}
-.main-footer p {
-    text-align:center;
-    margin-top:5px;
-}
-#navbar-usuariored{
-    color: #FFF !important;
+.row-form-footer {
+    position: absolute;
+    bottom: 10px;
+    width: 98%;
 }
 
-.btn-actionTable{
-    cursor: pointer;
+.row-form-footer .btn {
+    float: right;
+    margin-left: 5px;
 }
 
-.input-date{
-    position: static !important;
+.row-form-footer btn-default {
+    float: right;
 }
-
-.td-penal{
-    width: 10%;
-}
-
-.bootstrap-tagsinput {
-    width: 100%;
-}
-
-.field-validation-error{ color: red; font-family:Arial,sans-serif }
-
-
-.h-divider{
-     margin-top:5px;
-     margin-bottom:5px;
-     height:1px;
-     width:100%;
-     border-top:1px solid rgb(198, 198, 198);
-}
-
-#createModal {
-        width: 40%;
-        margin: 0 auto;
-        margin-top: 2%;
-        
-    }
-
-/*------------------------------------------------------*/
-/*PANEL TELEFONICA*/
-.panel-telefonica {
-border-color: #004250;
-}
-.panel-telefonica > .panel-heading {
-color: #FFF;
-background-color: #025668;
-border-color: #004250;
-}
-/*.panel-telefonica > .panel-heading>h1,
-.panel-telefonica > .panel-heading >h2,
-.panel-telefonica > .panel-heading >h3
-{
-    margin:0px;
-     padding:0px important!;
-}*/
-.btn-telefonica {
-color: #fff;
-background-color: #025668;
-border-color: #004250;
-}
-.btn-telefonica:hover,
-.btn-telefonica:focus,
-.btn-telefonica.focus,
-.btn-telefonica:active,
-.btn-telefonica.active,
-.open > .dropdown-toggle.btn-telefonica {
-color: #fff;
-background-color: #057A93;
-border-color: #0A6275;
-}
-.btn-black {
-color: #fff;
-background-color: #012229;
-border-color: #003540;
-}
-.btn-black:hover,
-.btn-black:focus,
-.btn-black.focus,
-.btn-black:active,
-.btn-black.active,
-.open > .dropdown-toggle.btn-black {
-color: #fff;
-background-color: #003341;
-border-color: #0A6275;
-}
-.input-group-addon.telefonica {
-color: #fff;
-background-color: #025668;
-border-color: #004250;
-}
-.input-group-addon.danger {
-color: rgb(255, 255, 255);
-background-color: rgb(217, 83, 79);
-border-color: rgb(212, 63, 58);
-}
-.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-telefonica,
-.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-telefonica {
-color: #fff;
-background: #025668;
-}
-/*.chosen-choices {
-max-height: 40px !important;
-height: 40px !important;
-overflow-y: auto !important;
-background-color: aqua;
-}
-.chosen-container {
-width: 100% !important;
-min-width: 300px !important
-}*/
-/*estilo personalizado para barra de navegacion*/
-.navbar-telefonica {
-background-color: #003341;
-border-color: #003341;
-
-}
-.navbar-telefonica li a {
-  cursor: pointer;
-}
-.navbar-telefonica .navbar-brand {
-color: #ffffff;
-}
-.navbar-telefonica .navbar-brand:hover, .navbar-telefonica .navbar-brand:focus {
-color: #005c84;
-}
-.navbar-telefonica .navbar-text {
-color: #ffffff;
-}
-.navbar-telefonica .navbar-nav > li > a {
-color: #ffffff;
-cursor: pointer;
-}
-.navbar-telefonica .navbar-nav > li > a:hover, .navbar-telefonica .navbar-nav > li > a:focus {
-color: #005c84;
-
-}
-.navbar-telefonica .navbar-nav > .active > a, .navbar-telefonica .navbar-nav > .active > a:hover, .navbar-telefonica .navbar-nav > .active > a:focus {
-color: #005c84;
-background-color: #f0f3f1;
-font-weight: bold;
-cursor: pointer;
-}
-.navbar-telefonica .navbar-nav > .open > a, .navbar-telefonica .navbar-nav > .open > a:hover, .navbar-telefonica .navbar-nav > .open > a:focus {
-color: #005c84;
-background-color: #f0f3f1;
-}
-.navbar-telefonica .navbar-toggle {
-border-color: #f0f3f1;
-cursor: pointer;
-}
-.navbar-telefonica .navbar-toggle:hover, .navbar-telefonica .navbar-toggle:focus {
-background-color: #f0f3f1;
-}
-.navbar-telefonica .navbar-toggle .icon-bar {
-background-color: #ffffff;
-}
-.navbar-telefonica .navbar-collapse,
-.navbar-telefonica .navbar-form {
-border-color: #ffffff;
-}
-.navbar-telefonica .navbar-link {
-color: #ffffff;
-}
-.navbar-telefonica .navbar-link:hover {
-color: #005c84;
-
-}
-
-/*.dropdown-menu > li > a:focus, 
-.dropdown-menu > li > a:hover {
-  color: #ffffff;
-  background-color: #003341;
-}*/
-@media (max-width: 767px) {
-.navbar-telefonica .navbar-nav .open .dropdown-menu > li > a {
-color: #ffffff;
-cursor: pointer;
-}
-.navbar-telefonica .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-telefonica .navbar-nav .open .dropdown-menu > li > a:focus {
-color: #005c84;
-cursor: pointer;
-}
-.navbar-telefonica .navbar-nav .open .dropdown-menu > .active > a, .navbar-telefonica .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-telefonica .navbar-nav .open .dropdown-menu > .active > a:focus {
-color: #005c84;
-background-color: #f0f3f1;
-cursor: pointer;
-}
-}
-
-
-/*--------------------------------------------------------------------*/
-
-.cuerpo {
-    margin-top:10%;
-}
-
-/*.btn-logout {
- border-color:white;
-}*/
-

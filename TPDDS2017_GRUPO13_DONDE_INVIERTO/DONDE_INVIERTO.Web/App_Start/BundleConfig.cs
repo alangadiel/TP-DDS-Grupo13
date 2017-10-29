@@ -33,7 +33,7 @@ namespace DONDE_INVIERTO.Web
                         ));
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                       "~/Content/Site.css",
+                      "~/Content/Site.css",
                       "~/Content/jquery.dataTables.css",
                       "~/Content/bootstrap-dialog.css",
                       "~/Content/bootstrap-chosen.less",
