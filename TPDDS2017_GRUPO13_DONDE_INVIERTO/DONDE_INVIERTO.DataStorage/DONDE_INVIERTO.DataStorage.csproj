@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DONDE_INVIERTO.DataStorage</RootNamespace>
     <AssemblyName>DONDE_INVIERTO.DataStorage</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -31,25 +31,32 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core, Version=3.2.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Castle.Core.3.2.0\lib\net45\Castle.Core.dll</HintPath>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr3.Runtime.3.5.1\lib\net40-client\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Iesi.Collections.3.4.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.2.1\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
+    <Reference Include="Iesi.Collections, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.2\lib\net461\Iesi.Collections.dll</HintPath>
     </Reference>
-    <Reference Include="NHibernate.ByteCode.Castle, Version=3.3.3.4000, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NHibernate.ByteCode.Castle.3.3.3.4000\lib\net35\NHibernate.ByteCode.Castle.dll</HintPath>
+    <Reference Include="NHibernate, Version=5.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.5.0.0\lib\net461\NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="NHibernate.Caches.SysCache, Version=3.3.3.4000, Culture=neutral, PublicKeyToken=6876f2ea66c9f443, processorArchitecture=MSIL">
-      <HintPath>..\packages\NHibernate.Caches.SysCache.3.3.3.4000\lib\net35\NHibernate.Caches.SysCache.dll</HintPath>
+    <Reference Include="NHibernate.Caches.SysCache, Version=5.1.0.0, Culture=neutral, PublicKeyToken=6876f2ea66c9f443, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.Caches.SysCache.5.1.0\lib\net461\NHibernate.Caches.SysCache.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq, Version=2.1.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.2.1.2\lib\net45\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq.EagerFetching, Version=2.1.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.EagerFetching.2.1.0\lib\net45\Remotion.Linq.EagerFetching.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -69,10 +76,6 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DONDE_INVIERTO.Entity\DONDE_INVIERTO.Entity.csproj">
-      <Project>{F5755FEC-2B51-411A-8D15-F040C39AD146}</Project>
-      <Name>DONDE_INVIERTO.Entity</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DONDE_INVIERTO.Model\DONDE_INVIERTO.Model.csproj">
       <Project>{AAF7B17C-85DD-4D78-AE53-0B0392E7E82B}</Project>
       <Name>DONDE_INVIERTO.Model</Name>

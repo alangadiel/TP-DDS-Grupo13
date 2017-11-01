@@ -1,17 +1,13 @@
-﻿using DONDE_INVIERTO.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DONDE_INVIERTO.DataStorage;
+using DONDE_INVIERTO.Model;
 
 namespace DONDE_INVIERTO.Service
 {
     public class CuentaService
     {
-        public int Save(Cuenta cuenta)
+        public void Save(Cuenta cuenta)
         {
-           return Entity.Cuenta.Instance.Save(cuenta);
+            StorageProvider<Cuenta>.Save(cuenta);
         }
 
     }

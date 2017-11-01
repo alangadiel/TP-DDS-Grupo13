@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DONDE_INVIERTO.DataStorage;
+using DONDE_INVIERTO.Model;
 
 namespace DONDE_INVIERTO.Service
 {
     public class PeriodoService
     {
-        public void Save(Model.Periodo periodo)
+        public void Save(Periodo periodo)
         {
-            Entity.Periodo.Instance.Save(periodo);
+            StorageProvider<Periodo>.Save(periodo);
         }
     }
 }

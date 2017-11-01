@@ -9,7 +9,7 @@ namespace DONDE_INVIERTO.Service
     public class EmpresaService
     {
 
-        public IEnumerable<Empresa> List()
+        public IList<Empresa> List()
         {
             return StorageProvider<Empresa>.ReadAll();
         }
@@ -24,9 +24,9 @@ namespace DONDE_INVIERTO.Service
             StorageProvider<Empresa>.Delete(empresa);
         }
 
-        public Empresa Get(int Id)
+        public Empresa Get(Empresa empresa)
         {
-            return Entity.Empresa.Instance.Get(Id);
+            return StorageProvider<Empresa>.Get(empresa);
         }
     }
 }

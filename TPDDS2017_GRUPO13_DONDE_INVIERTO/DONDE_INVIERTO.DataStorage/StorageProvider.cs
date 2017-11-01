@@ -13,7 +13,7 @@ namespace DONDE_INVIERTO.DataStorage
         {
             var configuration = new NHibernate.Cfg.Configuration();
             configuration.SetProperty(NHibernate.Cfg.Environment.ProxyFactoryFactoryClass,
-                    typeof(NHibernate.ByteCode.Castle.ProxyFactoryFactory).AssemblyQualifiedName);
+                    typeof(NHibernate.Bytecode.DefaultProxyFactoryFactory).AssemblyQualifiedName);
             configuration.SetProperty(
               NHibernate.Cfg.Environment.Dialect,
               typeof(NHibernate.Dialect.MsSql2012Dialect).AssemblyQualifiedName);
@@ -83,13 +83,13 @@ namespace DONDE_INVIERTO.DataStorage
             }
         }
 
-        public static void Get(T entity)
+        public static T Get(T entity)
         {
             using (var session = GetCurrentSession())
             {
                 using (var transaction = session.BeginTransaction())
                 {
-                    session.Get<T>(entity.Id);
+                    return session.Get<T>(entity.Id);
                 }
             }
         }

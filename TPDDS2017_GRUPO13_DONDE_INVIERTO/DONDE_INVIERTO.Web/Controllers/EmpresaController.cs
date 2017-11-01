@@ -39,15 +39,16 @@ namespace DONDE_INVIERTO.Web.Controllers
             return View(empresa);
         }
 
-        public ActionResult Edit(int id)
+        [HttpGet]
+        public ActionResult Edit(Empresa empresa)
         {
-            var model = Service.Get(id);
+            var model = Service.Get(empresa);
             return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id, Nombre")] Empresa empresa)
+        public ActionResult EditGet(Empresa empresa)
         {
             if (ModelState.IsValid)
             {
@@ -58,14 +59,14 @@ namespace DONDE_INVIERTO.Web.Controllers
         }
 
 
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Empresa empresa)
         {
-            var model = Service.Get(id);
-            return View(model);
+            var emp = Service.Get(empresa);
+            return View(emp);
         }
 
         [HttpPost]
-        public ActionResult Delete([Bind(Include = "Id, Nombre, Fecha_Creacion")] Empresa empresa)
+        public ActionResult DeleteGet(Empresa empresa)
         {
             try
             {
