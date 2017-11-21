@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CondicionService.cs" />
     <Compile Include="CuentaService.cs" />
     <Compile Include="EmpresaService.cs" />
     <Compile Include="IndicadorService.cs" />
