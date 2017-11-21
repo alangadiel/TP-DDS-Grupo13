@@ -4,28 +4,32 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Eliminar Empresa</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
-<h3>Esta seguro que desea eliminar esta empresa?</h3>
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Eliminar" class="btn btn-danger" /> 
-            <a id="btn-volver" onclick="location.href='@Url.Action("List", "Empresa")'" class="btn btn-default">Volver</a>
+    <div class="formholder-nueva-empresa">
+        <div class="row-title">
+            <label>Eliminar Empresa</label>
         </div>
-    }
-</div>
+
+        <div class="row-form col-md-offset-3">
+        </div>
+
+        <div class="row-form">
+                <div class="col-md-6 col-md-offset-5">
+                    <h1>
+                        @Html.DisplayFor(model => model.Nombre)
+                    </h1>
+                </div>
+        </div>
+        
+        <div class="row-form-footer">
+                <div class="alert alert-danger">
+                    <strong>¡Cuidado    !</strong> ¿Está seguro que desea eliminar esta empresa?
+                </div>
+                <a id="btn-volver" onclick="location.href='@Url.Action("List", "Empresa")'" class="btn btn-default">Volver</a>
+                <input type="submit" value="Eliminar" class="btn btn-danger" />
+            </div>
+   </div>
+}
