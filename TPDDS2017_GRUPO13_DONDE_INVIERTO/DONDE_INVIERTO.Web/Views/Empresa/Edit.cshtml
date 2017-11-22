@@ -4,38 +4,30 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Editar Empresa</h2>
-
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+    <div class="formholder-nueva-empresa">
+        <div class="row-title">
+            <label>Editar Empresa</label>
+        </div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                
+        <div class="row-form">
+            <div class="col-md-9">
+                @Html.HiddenFor(model => model.Id)
+                @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
                 @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
             </div>
+            
         </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Guardar" class="btn btn-success" />
-            </div>
+                    
+        <div class="row-form-footer col-md-9">
+            <a id="btn-volver" onclick="location.href='@Url.Action("List", "Empresa")'" class="btn btn-default">Volver</a>
+            <input type="submit" value="Guardar" class="btn btn-success" />
         </div>
-    </div>
-}
-
-<div>
-    <a id="btn-volver" onclick="location.href='@Url.Action("List", "Empresa")'" class="btn btn-default">Volver</a>
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+ 
+     </div>
 }
