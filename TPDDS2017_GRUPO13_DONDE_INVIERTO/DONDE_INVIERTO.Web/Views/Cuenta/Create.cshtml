@@ -1,113 +1,101 @@
-﻿
-
-
-
-
-
-
-
-
-
-
-@model DONDE_INVIERTO.Model.CuentaPeriodo
+﻿@model DONDE_INVIERTO.Model.CuentaPeriodo
 
 @{
     ViewBag.Title = "Create";
 }
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-  <div class="container">
-        <h4>Cargar Cuenta</h4>
-        <hr />
+    <div class="formholder-nueva-empresa">
+        <div class="row-title">
+            <label>Crear Cuenta</label>
+        </div>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-      
-      <div class="row">
-          <div class="form-group">
-              <div class="col-xs-12 col-md-5">
-                  <div class="row" style="margin-top: 30px">
-                      <label for="cuenta">Nombre de la Cuenta</label>
-                      <input type="text" class="form-control" id="idCuenta">
-                  </div>
-              </div>
-          </div>
+        <div class="row-form">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="cuenta">Nombre de la Cuenta</label>
+                    <input type="text" class="form-control" id="idCuenta">
+                </div>
+                <div class="form-group">
+                    <label for="valorCuenta">Valor de la Cuenta</label>
+                    <input type="text" class="form-control" id="valorCuenta">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="empresa">Elegir Empresa</label>
+                <div>
+                    <!-- Acá tendrían que ir el listado de empresas creadas
+                    <Html.DropDownListFor(Model => Model.Periodo.EmpresaId, new SelectList(ViewBag.Empresas, "Id", "Nombre"), new { id = "cboEmpresas", class = "form-control" })> -->
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+                            Nombre
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Empresa 1</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Empresa 2</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Empresa 3</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-          <div class="form-group">
-              <div class="row" style="margin-top: 30px">
-                  <div class="col-xs-12 col-md-5">
-                      <label for="empresa">Elegir empresa</label>
-                      <div>
-                          <!--Html.DropDownListFor(Model => Model.Periodo.EmpresaId, new SelectList(ViewBag.Empresas, "Id", "Nombre"), new { id = "cboEmpresas", class = "form-control" })-->
-                      </div>
-                  </div>
-              </div>
-          </div>
+        <div class="row">
+            <div class="clearfix col-sm-offset-12">
+            </div>
+        </div>
 
-          <div class="row">
-              <div class="clearfix col-sm-offset-12">
-                   
-              </div>
-          </div>
+        <div class="row-form">
+            <div class="clearfix col-md-6">
+                <label for="tipoperiodo">Tipo de Período</label>
+                <div class="radio">
+                    <label><input type="radio" name="optradio" value="">Semestral</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="optradio" value="">Anual</label>
+                </div>
+                <div class="form-group">
+                    <label for="periodo">Ingresar Período</label>
+                    <input type="text" class="form-control" id="periodo">
+                </div>
 
-          <div class="clearfix col-xs-12 col-md-5">
-              <label for="tipoperiodo">Tipo de Período</label>
-              <div class="radio">
-                  <label><input type="radio" name="optradio" value="">Semestral</label>
-              </div>
-              <div class="radio">
-                  <label><input type="radio" name="optradio" value="">Anual</label>
-              </div>
-              <div class="form-group">
-                  <label for="periodo">Ingresar Período</label>
-                  <input type="text" class="form-control" id="periodo">
-              </div>
-              <div class="form-group">
-                  <label for="valorCuenta">Valor de la Cuenta</label>
-                  <input type="text" class="form-control" id="valorCuenta">
-              </div>
-          </div>
+            </div>
 
-          <div class="col-xs-12 col-md-5">
-              <label for="valoresperiodo">Valores por cada Período</label>
-              <div class="table-responsive">
-                  <table class="table">
-                      <thead>
-                          <tr>
-                              <th>#</th>
-                              <th>Año/Semestre</th>
-                              <th>Valor</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr>
-                              <td>1</td>
-                              <td>2017</td>
-                              <td>50000</td>
-                          </tr>
-                      </tbody>
-                  </table>
-              </div>
-          </div>
+            <div class="col-md-6">
+                <label for="valoresperiodo">Valores por cada Período</label>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Año/Semestre</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>2017</td>
+                                <td>50000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
-      </div>
 
-      <div class="col-sm-2">
-          <a id="btn-add" onclick="" class="btn btn-success">Agregar Cuenta</a>
+        <<div class="row-form-footer">
+            <input type="submit" value="Crear" class="btn btn-success"/>
+        </div>
+    </div>
 
-          <a id="btn-back" onclick="" class="btn btn-link">Atrás</a>
-      </div>
-
-  </div>
-
-    
 }
 
 
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
-<!--talk that talk baby better walk better walk that walk baby-->
