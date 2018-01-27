@@ -10,8 +10,10 @@ GO
 CREATE TABLE [dbo].[condicion](
 	[cond_id] [int] IDENTITY(1,1),
 	[cond_indicador_id] [int] NOT NULL,
-	[cond_descartar] [nvarchar](200) NOT NULL,
-	[con_ordenar] [nvarchar](200) NOT NULL,
+	[cond_antiguedad] [int],
+	[cond_mayorOMenor] [bit] NOT NULL,
+	[cond_consistentementeCreciente] [bit],
+	[cond_valorAComparar] [decimal](12,2),
  CONSTRAINT [PK_condicion] PRIMARY KEY CLUSTERED 
 (
 	[cond_id] ASC
@@ -43,6 +45,7 @@ GO
 
 CREATE TABLE [dbo].[cuenta_periodo](
 	[cupe_id] [int] IDENTITY(1,1),
+	[cupe_valor] [decimal](12,2) NOT NULL,
 	[cupe_cuenta_id] [int] NOT NULL,
 	[cupe_periodo_id] [int] NOT NULL,
  CONSTRAINT [PK_CuentaXPeriodoSet] PRIMARY KEY CLUSTERED 
@@ -101,7 +104,7 @@ GO
 CREATE TABLE [dbo].[periodo](
 	[per_id] [int] IDENTITY(1,1),
 	[per_anio] [datetime] NOT NULL,
-	[semestre] [smallint] NOT NULL,
+	[per_semestre] [smallint] NOT NULL,
  CONSTRAINT [PK_periodo] PRIMARY KEY CLUSTERED 
 (
 	[per_id] ASC
@@ -198,5 +201,3 @@ GO
 
 ALTER TABLE [dbo].[condicion] CHECK CONSTRAINT [FK_condicion_indicador]
 GO
-
-
