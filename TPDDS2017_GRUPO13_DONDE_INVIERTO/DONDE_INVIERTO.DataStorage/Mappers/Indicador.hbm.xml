@@ -6,7 +6,7 @@
         column="ind_id">
       <generator class="native" />
     </id>
-    <property name="Nombre" column="cond_descartar" type="string" length="200" not-null="true"/>
-    <property name="Contenido" column="cond_ordenar" type="string" length="200" not-null="true"/>
+    <property name="Nombre" column="ind_nombre" type="string" length="200" not-null="true"/>
+    <property name="Contenido" column="ind_contenido" type="string" length="200" not-null="true"/>
   </class>
 </hibernate-mapping>
