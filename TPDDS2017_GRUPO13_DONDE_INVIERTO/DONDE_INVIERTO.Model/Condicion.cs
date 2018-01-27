@@ -4,8 +4,13 @@
     {
         public virtual Indicador Indicador { get; set; }
 
-        public virtual string Descartar { get; set; }
+        public virtual int Antiguedad { get; set; }
 
-        public virtual string Ordenar { get; set; }
+        public virtual bool Mayor { get; set; }
+
+        public virtual bool Creciente { get; set; }
+
+        public virtual double Valor { get; set; }
+
     }
 }

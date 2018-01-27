@@ -51,32 +51,39 @@ namespace ANTLR.Clases2
 
         private bool Resolver(out double resultado, BinaryTreeNode<IContenidoNodo> nodo)
         {
-            switch(nodo.Value)
+            if(nodo.Value is Operador)
             {
-                case Operador op:
-                    if (Resolver(out double izq, nodo.Left) && Resolver(out double der, nodo.Right))
-                    {
-                        resultado = op.Operar(izq, der);
-                        return true;
-                    }
-                    else
-                    {
-                        resultado = 0;
-                        return false;
-                    }
-                case Numero num:
-                    resultado = num.getResultado();
+                double izq, der;
+                if (Resolver(out izq, nodo.Left) && Resolver(out der, nodo.Right))
+                {
+                    resultado = ((Operador)nodo.Value).Operar(izq, der);
                     return true;
-                case Cuenta cuenta:
-                    resultado = cuenta.Valor;
-                    return true;
-                case Indicador ind:
-                    return ind.Calcular(out resultado);
-                default:
+                }
+                else
+                {
                     resultado = 0;
                     return false;
+                }
             }
-            
+            else if(nodo.Value is Numero)
+            {
+                resultado = ((Numero)nodo.Value).getResultado();
+                return true;
+            }
+            else if (nodo.Value is Cuenta)
+            {
+                resultado = ((Cuenta)nodo.Value).Valor;
+                return true;
+            }
+            else if (nodo.Value is Indicador)
+            {
+                return ((Indicador)nodo.Value).Calcular(out resultado);
+            }
+            else
+            {
+                resultado = 0;
+                return false;
+            }
         }
     }
 }
