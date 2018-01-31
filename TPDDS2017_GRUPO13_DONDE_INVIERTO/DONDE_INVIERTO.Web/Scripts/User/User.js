@@ -9,7 +9,7 @@
         traditional: true,
         contentType: "application/json; charset=utf-8",
         success: function (data) {
-            if (data.status == "Success") {
+            if (data.status === "Success") {
                 alert("Done");
                 $(element).closest("form").submit(); //<------------ submit form
             } else {
