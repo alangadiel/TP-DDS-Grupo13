@@ -7,13 +7,38 @@ GO
 USE [dondeinvierto]
 GO
 
-CREATE TABLE [dbo].[condicion](
+CREATE TABLE [dbo].[balances](
+	[bala_id] [int] IDENTITY(1,1) NOT NULL,
+	[bala_periodo] [int] NOT NULL,
+	[bala_valor] [decimal](12,2) NOT NULL,
+	[bala_empresa_id] [int] NOT NULL,
+ CONSTRAINT [PK_balances] PRIMARY KEY CLUSTERED 
+(
+	[bala_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[operandos](
+	[oper_id] [int] IDENTITY(1,1) NOT NULL,
+	[oper_nombre] [nvarchar](200),
+	[oper_valor] [decimal](12,2),
+	[oper_formula] [nvarchar](200),
+	[oper_discriminator] [nvarchar](200) NOT NULL,
+	[oper_indicadorPadre_id] [int],
+	[oper_balance_id] [int],
+ CONSTRAINT [PK_balances] PRIMARY KEY CLUSTERED 
+(
+	[oper_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[condiciones](
 	[cond_id] [int] IDENTITY(1,1),
-	[cond_indicador_id] [int] NOT NULL,
-	[cond_antiguedad] [int],
-	[cond_mayorOMenor] [bit] NOT NULL,
-	[cond_consistentementeCreciente] [bit],
-	[cond_valorAComparar] [decimal](12,2),
+	[cond_indicador_id] [int],
+	[cond_descripcion] [nvarchar](200),
+	[cond_discriminator] [nvarchar](200) NOT NULL,
  CONSTRAINT [PK_condicion] PRIMARY KEY CLUSTERED 
 (
 	[cond_id] ASC
@@ -21,7 +46,38 @@ CREATE TABLE [dbo].[condicion](
 ) ON [PRIMARY]
 GO
 
-CREATE TABLE [dbo].[condicion_metodologia](
+CREATE TABLE [dbo].[empresas](
+	[empr_id] [int] IDENTITY(1,1),
+	[empr_nombre] [nvarchar](200),
+ CONSTRAINT [PK_empresa] PRIMARY KEY CLUSTERED 
+(
+	[empr_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[metodologias](
+	[meto_id] [int] IDENTITY(1,1),
+	[meto_nombre] [nvarchar](200) NOT NULL,
+ CONSTRAINT [PK_metodologia] PRIMARY KEY CLUSTERED 
+(
+	[meto_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[metodologiacondicions](
+	[metcon_metodologia_id] [int] IDENTITY(1,1) NOT NULL,
+	[metcon_condicion_id] [int] IDENTITY(1,1) NOT NULL,
+ CONSTRAINT [PK_metodologiacondicion] PRIMARY KEY CLUSTERED 
+(
+	[metcon_metodologia_id] ASC,
+    [metcon_condicion_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/*CREATE TABLE [dbo].[condicion_metodologia](
 	[come_id] [int] IDENTITY(1,1),
 	[come_metodologia_id] [int] NOT NULL,
 	[come_condicion_id] [int] NOT NULL,
@@ -124,10 +180,55 @@ CREATE TABLE [dbo].[usuario](
 	[usu_id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
+GO*/
+
+
+ALTER TABLE [dbo].[balances]  WITH CHECK ADD  CONSTRAINT [FK_bala_empresa] FOREIGN KEY([bala_empresa_id])
+REFERENCES [dbo].[empresa] ([empr_id])
+GO
+
+ALTER TABLE [dbo].[balances] CHECK CONSTRAINT [FK_bala_empresa]
 GO
 
 
-ALTER TABLE [dbo].[metodologia]  WITH CHECK ADD  CONSTRAINT [FK_metodologia_usuario] FOREIGN KEY([met_usuario_id])
+ALTER TABLE [dbo].[operandos]  WITH CHECK ADD  CONSTRAINT [FK_oper_balance] FOREIGN KEY([oper_balance_id])
+REFERENCES [dbo].[balances] ([bala_id])
+GO
+
+ALTER TABLE [dbo].[operandos] CHECK CONSTRAINT [FK_oper_balance]
+GO
+
+ALTER TABLE [dbo].[operandos]  WITH CHECK ADD  CONSTRAINT [FK_oper_indicadorPadre] FOREIGN KEY([oper_indicadorPadre_id])
+REFERENCES [dbo].[operandos] ([oper_indicadorPadre_id])
+GO
+
+ALTER TABLE [dbo].[operandos] CHECK CONSTRAINT [FK_oper_indicadorPadre]
+GO
+
+
+ALTER TABLE [dbo].[condiciones]  WITH CHECK ADD  CONSTRAINT [FK_cond_indicador] FOREIGN KEY([cond_indicador_id])
+REFERENCES [dbo].[operandos] ([oper_id])
+GO
+
+ALTER TABLE [dbo].[condiciones] CHECK CONSTRAINT [FK_cond_indicador]
+GO
+
+ALTER TABLE [dbo].[metodologiacondicions]  WITH CHECK ADD  CONSTRAINT [FK_metcon_metodologia] FOREIGN KEY([metcon_metodologia_id])
+REFERENCES [dbo].[metodologias] ([meto_id])
+GO
+
+ALTER TABLE [dbo].[metodologiacondicions] CHECK CONSTRAINT [FK_metcon_metodologia]
+GO
+
+ALTER TABLE [dbo].[metodologiacondicions]  WITH CHECK ADD  CONSTRAINT [FK_metcon_condicion] FOREIGN KEY([metcon_condicion_id])
+REFERENCES [dbo].[condiciones] ([cond_id])
+GO
+
+ALTER TABLE [dbo].[metodologiacondicions] CHECK CONSTRAINT [FK_metcon_condicion]
+GO
+
+
+/*ALTER TABLE [dbo].[metodologia]  WITH CHECK ADD  CONSTRAINT [FK_metodologia_usuario] FOREIGN KEY([met_usuario_id])
 REFERENCES [dbo].[usuario] ([usu_id])
 GO
 
@@ -200,4 +301,4 @@ REFERENCES [dbo].[indicador] ([ind_id])
 GO
 
 ALTER TABLE [dbo].[condicion] CHECK CONSTRAINT [FK_condicion_indicador]
-GO
+GO*/
