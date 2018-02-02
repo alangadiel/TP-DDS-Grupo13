@@ -4,7 +4,20 @@
     ViewBag.Title = "Index";
 }
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-}
+<div class="col-md-12">
+    <h1>TP Anual - Diseño de Sistemas</h1>
+    
+    <div class="col-md-offset-1 col-md-4">
+        <h3> <label>Integrantes:</label></h3>
+        <ul class="list-group">
+            <li class="list-group-item">Alianiello Adriano</li>
+            <li class="list-group-item">Beccaceci Danilo</li>
+            <li class="list-group-item">Centurion Lucas</li>
+            <li class="list-group-item">Feldman Alan</li>
+            <li class="list-group-item">Janin Tomás</li>
+         </ul>
+    </div>
+
+</div>
+
+<h2>@ViewBag.Mensaje</h2>
