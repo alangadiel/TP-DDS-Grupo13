@@ -1,29 +1,24 @@
 ﻿using DONDE_INVIERTO.Model;
-using System;
+using DONDE_INVIERTO.Model.Views;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace DONDE_INVIERTO.ANTLR
 {
-    public class MargenesCreciente : Condicion
+    public class MargenesCreciente : ITipoCondicion
     {
-        public MargenesCreciente()
-        {
-        }
+        public TipoCondicion Tipo { get; set; }
+        public Indicador Indicador { get; set; }
 
-        public MargenesCreciente(string descripcion,int indicador_id) :base(descripcion,indicador_id)
-        {
-
-        }
-        public override bool Analizar(Empresa empresa ,List<ComponenteOperando> lista)
+        public bool Analizar(EmpresaView empresa, List<Indicador> indicadores)
         {
             bool result = true;
-            List<int> periodos = this.ObtenerPeriodosAConsultar(empresa);
-            int i=0;        
-            while(i<periodos.Count-1 && result)
+            List<int> periodos = empresa.Balances.Select(x => x.Periodo).OrderBy(x => x).ToList();
+            int i = 0;
+            var core = new IndicadorCore(Indicador);
+            while (i < periodos.Count - 1 && result)
             {
-                result= this.Indicador.ObtenerValor(empresa, periodos[i], lista) < this.Indicador.ObtenerValor(empresa, periodos[i+1], lista);
+                result = core.ObtenerValor(empresa, periodos[i], indicadores) < core.ObtenerValor(empresa, periodos[i + 1], indicadores);
                 i++;
             }
             return result;

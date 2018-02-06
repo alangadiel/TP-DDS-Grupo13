@@ -8,7 +8,7 @@ namespace DONDE_INVIERTO.Service
 {
     public class EmpresaService
     {
-
+        /*
         public IList<Empresa> List()
         {
             return StorageProvider<Empresa>.ReadAll();
@@ -27,6 +27,6 @@ namespace DONDE_INVIERTO.Service
         public Empresa Get(Empresa empresa)
         {
             return StorageProvider<Empresa>.Get(empresa);
-        }
+        }*/
     }
 }

@@ -6,12 +6,18 @@ namespace DONDE_INVIERTO.Model
     public class Condicion
     {
         [DataMember]
-        public int IndicadorId { get; set; }
+        public int Id { get; set; }
+
+        [DataMember]
+        public int? IndicadorId { get; set; }
 
         [DataMember]
         public string Descripcion { get; set; }
 
         [DataMember]
         public string Discriminador { get; set; }
+
+        [DataMember]
+        public int? TipoCondicionId { get; set; }
     }
 }

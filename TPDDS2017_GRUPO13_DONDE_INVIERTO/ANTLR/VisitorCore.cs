@@ -1,21 +1,23 @@
 ﻿using Antlr4.Runtime.Misc;
+using DONDE_INVIERTO.ANTLR.Gramatica;
 using DONDE_INVIERTO.Model;
-using System;
+using DONDE_INVIERTO.Model.Views;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace DONDE_INVIERTO.ANTLR
 {
-    class MyVisitor : gramaticaBaseVisitor<double>
+    public class VisitorCore : gramaticaBaseVisitor<double>
     {
-        public int periodo;
-        public Empresa empresa;
-        public List<ComponenteOperando> listaOperandos;
-        public MyVisitor(Empresa _empresa, int _periodo, List<ComponenteOperando> _listaOperandos)
+        protected readonly int _periodo;
+        protected readonly EmpresaView _empresa;
+        protected readonly List<Indicador> _indicadores;
+
+        public VisitorCore(EmpresaView empresa, int periodo, List<Model.Indicador> indicadores)
         {
-            this.empresa = _empresa;
-            this.periodo = _periodo;
-            this.listaOperandos = _listaOperandos;
+            _empresa = empresa;
+            _periodo = periodo;
+            _indicadores = indicadores;
         }
         public override double VisitParentesis([NotNull] gramaticaParser.ParentesisContext context)
         {
@@ -51,12 +53,9 @@ namespace DONDE_INVIERTO.ANTLR
         }
         public override double VisitIndicador([NotNull] gramaticaParser.IndicadorContext context)
         {
-            string indicadorBuscado = context.INDICADOR().GetText();
-            ComponenteOperando indicadorEncontrado = listaOperandos.FirstOrDefault(x => x.Nombre.ToLower() == indicadorBuscado.ToLower());
-            if (indicadorEncontrado != null)
-                return indicadorEncontrado.ObtenerValor(empresa, this.periodo, listaOperandos);
-            else
-                throw new Exception();
+            var aEncontrar = context.INDICADOR().GetText();
+            var encontrado = _indicadores.FirstOrDefault(ind => ind.Nombre.ToLower() == aEncontrar.ToLower());
+            return new IndicadorCore(encontrado).ObtenerValor(_empresa, _periodo, _indicadores);
         }
     }
 }

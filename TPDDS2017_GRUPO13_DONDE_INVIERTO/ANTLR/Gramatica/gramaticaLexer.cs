@@ -19,7 +19,7 @@
 // Ambiguous reference in cref attribute
 #pragma warning disable 419
 
-namespace DONDE_INVIERTO.ANTLR
+namespace DONDE_INVIERTO.ANTLR.Gramatica
 {
 using Antlr4.Runtime;
 using Antlr4.Runtime.Atn;

@@ -10,6 +10,7 @@ namespace DONDE_INVIERTO.Service
 {
     public class UserService
     {
+        /*
         public Usuario Login(Usuario usuario)
         {
             var loggedUser = StorageProvider<Usuario>.GetCurrentSession().QueryOver<Usuario>().Where(user => user.UserName == usuario.UserName
@@ -18,6 +19,6 @@ namespace DONDE_INVIERTO.Service
                 return loggedUser[0];
             return null;
 
-        }
+        }*/
     }
 }

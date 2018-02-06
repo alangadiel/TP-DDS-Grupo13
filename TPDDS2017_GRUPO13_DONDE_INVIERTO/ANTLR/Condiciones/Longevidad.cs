@@ -1,14 +1,17 @@
 ﻿using DONDE_INVIERTO.Model;
+using DONDE_INVIERTO.Model.Views;
 using System;
 using System.Collections.Generic;
 
 namespace DONDE_INVIERTO.ANTLR
 {
-    public class Longevidad : Condicion
+    public class Longevidad : ITipoCondicion
     {
-        public override bool Analizar(Empresa empresa, List<ComponenteOperando> lista)
+        public TipoCondicion Tipo { get; set; }
+        public Indicador Indicador { get; set; }
+
+        public bool Analizar(EmpresaView empresa, List<Indicador> lista)
         {
-            //sólo vale la pena invertir en empresas con más de 10 años.
             return empresa.FechaFundacion <= DateTime.Now.AddYears(-10);
         }
     }

@@ -1,21 +1,23 @@
-﻿using ANTLR.Condiciones;
-using DONDE_INVIERTO.Model;
+﻿using DONDE_INVIERTO.Model;
 using System.Collections.Generic;
 
 namespace DONDE_INVIERTO.ANTLR
 {
-    public class CondicionesFactory
+    public static class CondicionesFactory
     {
         private static List<ITipoCondicion> tiposCondicion =
-            new List<ITipoCondicion>();
-        public static CondicionView CreateCondicion(Condicion condicion, TipoCondicion tipoCondicion)
-        {
-            var type = tiposCondicion.Find(tcond => tcond.Tipo.Equals(tipoCondicion));
-            return new CondicionView()
+            new List<ITipoCondicion>()
             {
-                Condicion = condicion,
-                TipoCondicion = type
+                new Longevidad(),
+                new MargenesCreciente(),
+                new MayorAUno(),
+                new MinimizarDeuda(),
+                new RoeConsistente()
             };
+
+        public static ITipoCondicion FindCondicion(TipoCondicion tipoCondicion)
+        {
+            return tiposCondicion.Find(tcond => tcond.Tipo.Equals(tipoCondicion));
         }
     }
 }
