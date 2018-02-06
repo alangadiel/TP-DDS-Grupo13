@@ -1,101 +1,107 @@
-﻿@model DONDE_INVIERTO.Model.CuentaPeriodo
+﻿@model DONDE_INVIERTO.Model.Cuenta
+
+@using DONDE_INVIERTO.Model
 
 @{
-    ViewBag.Title = "Create";
-}
-
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="formholder-nueva-empresa">
-        <div class="row-title">
-            <label>Crear Cuenta</label>
-        </div>
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="row-form">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="cuenta">Nombre de la Cuenta</label>
-                    <input type="text" class="form-control" id="idCuenta">
-                </div>
-                <div class="form-group">
-                    <label for="valorCuenta">Valor de la Cuenta</label>
-                    <input type="text" class="form-control" id="valorCuenta">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <label for="empresa">Elegir Empresa</label>
-                <div>
-                    <!-- Acá tendrían que ir el listado de empresas creadas
-                    <Html.DropDownListFor(Model => Model.Periodo.EmpresaId, new SelectList(ViewBag.Empresas, "Id", "Nombre"), new { id = "cboEmpresas", class = "form-control" })> -->
-                    <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
-                            Nombre
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Empresa 1</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Empresa 2</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Empresa 3</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="clearfix col-sm-offset-12">
-            </div>
-        </div>
-
-        <div class="row-form">
-            <div class="clearfix col-md-6">
-                <label for="tipoperiodo">Tipo de Período</label>
-                <div class="radio">
-                    <label><input type="radio" name="optradio" value="">Semestral</label>
-                </div>
-                <div class="radio">
-                    <label><input type="radio" name="optradio" value="">Anual</label>
-                </div>
-                <div class="form-group">
-                    <label for="periodo">Ingresar Período</label>
-                    <input type="text" class="form-control" id="periodo">
-                </div>
-
-            </div>
-
-            <div class="col-md-6">
-                <label for="valoresperiodo">Valores por cada Período</label>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Año/Semestre</th>
-                                <th>Valor</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>2017</td>
-                                <td>50000</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-
-        <<div class="row-form-footer">
-            <input type="submit" value="Crear" class="btn btn-success"/>
-        </div>
-    </div>
+    ViewBag.Title = "Cargar Cuenta";
+    List<SelectListItem> listEmpresas = new List<SelectListItem>();
+    List<SelectListItem> _listEmpresas = ViewBag.Empresas as List<SelectListItem>;
+    listEmpresas.AddRange(_listEmpresas);
 
 }
+<style>
+    ul {
+        font-size: 14px;
+        color: indianred;
+    }
+</style>
+<script>
+    function agregarCuenta(){
+        var cantRows = $(".cuentasTable > tbody.cuerpo > tr").length;
+        var tr = '<tr>';
+        tr += '<td><input type="text" class="form-control nombre " name="Cuentas[' + cantRows + '].Nombre" required/></td>';
+        tr += '<td><input type="text" class="form-control valor "name="Cuentas[' + cantRows + '].Valor" required/></td>';
+        tr+= '<td> <a class="eliminar" href="#">X</a> </td>';
+        tr += '</tr>';
+        $(".cuentasTable > tbody.cuerpo").append(tr);
+    };
+    $(function () {
+        $('.cuentasTable > tbody.cuerpo').on('click', 'tr > td > a', function () {
+            $(this).closest('tr').remove();
+            $.each($(".cuentasTable > tbody.cuerpo > tr"), function (index, item) {
+                $(item).find("td>input.valor").attr("name", function (i) { return "Cuentas[" + index + "].Valor"; })
+                $(item).find("td>input.nombre").attr("name", function (i) { return "Cuentas[" + index + "].Nombre"; })
+            });
+        });
+    });
 
 
+
+</script>
+
+<div>
+    @if (Model != null)
+    {
+        @Html.ValidationSummary(false, "Errores:", new { @class = "alert alert-error" })
+    }
+
+</div>
+<h2>Cargar Cuenta</h2>
+<div class="col-md-5 col-md-offset-1">
+    <form method="post" action="@Url.Action("Create","Cuentas")">
+        <div class="form-group">
+            <label>Empresa</label>
+            @Html.DropDownList("Empresa_CUIT", listEmpresas, "Seleccione empresa..", new { @required = "true", @id = "selectEmpresas", @class = "form-control" })
+        </div>
+        <label>Período</label>
+        <div class="form-group" id="nuevoPer">
+            @if (Model != null)
+            {
+                <input type="number" value=@Model.Periodo class="form-control" name="Periodo" id="inputPer" min="1" oninput="validity.valid||(value='');" required />
+
+            }
+            else
+            {
+                <input type="number" class="form-control" name="Periodo" id="inputPer" min="1" oninput="validity.valid||(value='');" required />
+
+            }
+        </div>
+
+        <div>
+            <h4>Cuentas</h4>
+            <table class="cuentasTable table-condensed table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Valor</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody class="cuerpo"></tbody>
+                @if (Model != null)
+                {
+                    for (var i = 0; i < Model.Cuentas.Count(); i++)
+                    {
+                        var nameNombre = String.Concat("Cuentas[", i.ToString(), "].Nombre");
+                        var nameValor = String.Concat("Cuentas[", i.ToString(), "].Valor");
+                        <tr>
+                            <td><input type="text" class="form-control nombre " name=@nameNombre required value=@Model.Cuentas[i].Nombre></td>
+                            <td><input type="text" class="form-control valor " name=@nameValor required value=@Model.Cuentas[i].Valor></td>
+                            <td> <a class="eliminar" href="#">X</a> </td>
+                        </tr>
+                    }
+                }
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><a href="#" onclick="agregarCuenta()" value="+" id="agregarCuenta"> +</a></td>
+                </tr>
+            </table>
+        </div>
+        <br />
+        <input type="submit" class="btn btn-primary" value="Guardar" />
+    </form>
+</div>
 

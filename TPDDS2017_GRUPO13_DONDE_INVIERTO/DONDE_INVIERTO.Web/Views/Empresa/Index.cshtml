@@ -1,5 +1,5 @@
-﻿@model List<DONDE_INVIERTO.Model.Empresa>
-
+﻿@model List<TpIntegradorDiuj.Models.Empresa>
+@using TpIntegradorDiuj.Models
 @{
     ViewBag.Title = "Empresas";
     List<SelectListItem> listEmpresas = Model.Select(x => new SelectListItem
@@ -42,7 +42,7 @@
                         var texto = '<div class="col-md-5 col-md-offset-1">	<table class="table table-striped table-bordered">	<thead> ';
                         texto += '<tr> 		<th>Cuenta</th>	<th>Valor</th>	</tr>	</thead>	<tbody>';
                         $.each(data.Cuentas,function(index,item){
-                             texto+= '<tr><td>'+item.Nombre+'</td><td>'+item.Valor +'</td></tr> '
+                             texto+= '<tr><td>'+item.Nombre+'</td><td>'+item.Valor +'</td></tr> ' 
                         });
                         texto += '</tbody> </table></div>';
                         $("#cuentas").html(texto);
@@ -53,7 +53,7 @@
                         $("#cuentas").html("");
                     }
                 }
-
+                
             });
         });
 
@@ -63,7 +63,7 @@
             var url = '@Url.Action("ObtenerEmpresasYPeriodos", "Empresas")';
             $.ajax({
                 type: "POST",
-                url: url,
+                url: url,           
                 data: file,
                 dataType: 'json',
                 contentType: false,
@@ -91,8 +91,9 @@
             });
         });
         });
-</script>
 
+   
+</script>
 
 <div class="col-md-5 row" style="margin-top:10px">
     <a class="btn btn-primary" href="@Url.Action("Create")"><i class="fa fa-plus"></i> Crear Empresa</a>
@@ -125,32 +126,32 @@
     </tbody>
 </table>
 
-
 @*<div class="form-group">
-    @using (Html.BeginForm("ObtenerEmpresasYPeriodos", "Empresas", FormMethod.Post, new { enctype = "multipart/form-data", id = "form" }))
-    {
+@using (Html.BeginForm("ObtenerEmpresasYPeriodos", "Empresas", FormMethod.Post, new { enctype = "multipart/form-data", id = "form" }))
+{
 
-        <input type="file" name="fileEmpresas" id="fileEmpresas" />
-        <input type="submit" value="Cargar" />
-     }
+    <input type="file" name="fileEmpresas" id="fileEmpresas" />
+    <input type="submit" value="Cargar" />
+ }
 
 
-    </div>*@
+</div>*@
 @*<div>
-        <div class="col-md-4">
-            @Html.DropDownList("Empresas", listEmpresas, "Seleccione empresa..", new { @class = "form-control", @id = "selectEmpresas" })
-            <br />
-           <select id="selectPeriodo" class="form-control">
-               @for (int i = 2012; i < 2018; i++)
-               {
-                   <option value="@i">@i</option>
-               }
-           </select>
-            <br />
-            <input type="submit" value="Mostrar Cuentas" id="btnMostrarCuentas" />
-        </div>
+    <div class="col-md-4">
+        @Html.DropDownList("Empresas", listEmpresas, "Seleccione empresa..", new { @class = "form-control", @id = "selectEmpresas" })
+        <br />
+       <select id="selectPeriodo" class="form-control">
+           @for (int i = 2012; i < 2018; i++)
+           {
+               <option value="@i">@i</option>
+           }
+       </select>
+        <br />
+        <input type="submit" value="Mostrar Cuentas" id="btnMostrarCuentas" />
+    </div>
+ 
+    <div id="cuentas" class="col-md-8">
 
-        <div id="cuentas" class="col-md-8">
+    </div>
+</div>*@
 
-        </div>
-    </div>*@

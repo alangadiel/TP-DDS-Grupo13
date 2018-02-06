@@ -1,0 +1,82 @@
+﻿@model List<TpIntegradorDiuj.Models.Balance>
+@{
+    ViewBag.Title = "Cuentas";
+}
+
+<script>
+    function getFile() {
+        var $file = document.getElementById('fileBalances'),
+               $formData = new FormData();
+
+        if ($file.files.length > 0) {
+            for (var i = 0; i < $file.files.length; i++) {
+                $formData.append('file-' + i, $file.files[i]);
+            }
+        }
+        return $formData;
+    }
+    $(function () {
+        $("#tabla").dataTable();
+        $("#btnCargarBalances").click(function () {
+            var file = getFile();
+            var url = '@Url.Action("CargarBalancesDesdeArchivo")';
+            $.ajax({
+                type: "POST",
+                url: url,
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+                data: file,
+                success: function (data) {
+                    if (data.Success) {
+                        bootbox.alert("Los balances y sus cuentas que habían en el archivo fueron cargados correctamente");
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 5000);
+                    }
+                    else {
+                        bootbox.alert(data.Error);
+
+                    }
+                }
+
+            });
+        });
+    });
+</script>
+<div style="margin-top: 10px;" class="col-md-6">
+    <a class="btn btn-primary" href="@Url.Action("Create","Cuentas")"><i class="fa fa-plus"></i> Crear balance</a>
+    @*<a class="btn btn-primary" href="@Url.Action("Edit","Balances")"><i class="fa fa-pencil"></i> Editar balances</a>*@
+</div>
+
+<h2>Balances</h2>
+<table id="tabla" class="dataTable table table-bordered table-condensed">
+    <thead>
+        <tr>
+            @*<th>Id</th>*@
+            <th>Periodo</th>
+            <th>Empresa</th>
+            <th>Total en cuentas</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<td>@item.Id</td>*@
+                <td>@item.Periodo</td>
+                <td>@item.Empresa.Nombre</td>
+                <td>$@item.Total</td>
+                <td>
+                    <a href="@Url.Action("Details","Cuentas",new { id = item.Id })" ><i class="fa fa-eye"></i> Detalle </a><br />
+                    <a href="@Url.Action("Edit","Cuentas",new { id = item.Id })"><i class="fa fa-pencil"></i> Editar </a><br />
+                    <a href="@Url.Action("Delete","Cuentas",new { id = item.Id })" onclick="return confirm('¿Está seguro que desea eliminar este registro?')"><i class="fa fa-remove"></i> Eliminar </a><br />
+
+
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

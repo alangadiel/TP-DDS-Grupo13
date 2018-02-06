@@ -1,73 +1,60 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - DONDE INVIERTO</title>
-
-    <div class="main-header">
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Donde Invierto</a>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Empresas<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="@Url.Action("List", "Empresa")">Listado</a></li>
-                                <li><a href="@Url.Action("Create", "Empresa")">Crear</a></li>
-                                <li><a href="@Url.Action("ConsultarValor", "Empresa")">Consultar Valor</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cuentas<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="@Url.Action("Create", "Cuenta")">Crear</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Indicadores<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="@Url.Action("List", "Indicador")">Listado</a></li>
-                                <li><a href="@Url.Action("Create", "Indicador")">Crear</a></li>
-                           
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Metodología<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="@Url.Action("Create", "Metodologia")">Crear</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
-
-
-
-</head>
-<body>
-    <div id="body-content" class="body-content">
-        @RenderBody()       
-    </div>
+    <title>@ViewBag.Title - DONDE_INVIERTO</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryval")
+    @*<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>*@
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    <script src="https://use.fontawesome.com/77f3f4b595.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/fc-3.2.3/fh-3.1.3/r-2.2.0/datatables.css" />
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/fc-3.2.3/fh-3.1.3/r-2.2.0/datatables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+    @*<script src="~/Scripts/DataTables/jquery.dataTables.js"></script>
+        <link href="~/Content/DataTables/css/jquery.dataTables.css" rel="stylesheet" />*@
+</head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Software de inversión", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        @*<footer>
+                <p>&copy; @DateTime.Now.Year - Mi app</p>
+            </footer>*@
+    </div>
+
+    @*@Scripts.Render("~/bundles/jquery")*@
     @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/datetimepicker")
-    @Scripts.Render("~/bundles/datatable")
-    @Scripts.Render("~/bundles/bootstrap-dialog")
-    @Scripts.Render("~/bundles/chosen")
-    @Scripts.Render("~/bundles/fileupload")
-    @Scripts.Render("~/bundles/switch")
-    @Scripts.Render("~/bundles/loginjs")
     @RenderSection("scripts", required: false)
 </body>
 </html>
-

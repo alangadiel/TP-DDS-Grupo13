@@ -1,11 +1,12 @@
-﻿@{
-    ViewBag.Title = "Crear Indicador";
+﻿@model DONDE_INVIERTO.Model.Indicador
+@{
+    ViewBag.Title = "Editar Indicador";
 }
 <script>
-    function validaciones() {
+    function validaciones(){
         var nombreCheck = /^[a-zA-Z]{1,15}$/.test($("#nombre").val());
         var formulaCheck = /^\-?([0-9]+|[a-zA-Z]+)((([-+/*][0-9]+)?([.,][0-9]+)?)|([-+/*][a-zA-Z]+))*?$/.test($("#formula").val());
-        var errores = "";
+        var errores="";
         if (!nombreCheck)
             errores += "<li>El nombre es obligatorio y solo puede contener minusculas y mayusculas, con un maximo de 15 caracteres.</li>";
         if (!formulaCheck)
@@ -23,33 +24,34 @@
     }
 </script>
 
-<style>
-    .modal-dialog {
-        margin-left: -200px;
-    }
-</style>
-
-<h2>Crear Indicador</h2>
-@Html.ValidationSummary()
-@using (Html.BeginForm("Create", "Indicador", FormMethod.Post, new { @id = "form" }))
+<h2>Editar indicador</h2>
+@using (Html.BeginForm("Edit", "Indicador", FormMethod.Post, new { @id="form"}))
 {
     <div class="form-horizontal">
 
         <div class="alert alert-danger divErrores" style="display: none;">
             <strong>Errores:<br></strong> <ul id="listaErrores"></ul>
         </div>
-        <div class="form-group"><label>Nombre </label><input type="text" name="Nombre" placeholder="Nombre" id="nombre" class="form-control" required /> </div>
 
-        <div class="form-group"><label>Formula</label><input type="text" name="Formula" placeholder="Formula" id="formula" class="form-control" required /> </div>
+                @Html.HiddenFor(x => x.Id)
+                @Html.HiddenFor(x => x.UsuarioCreador_Id)
+
+        <div class="form-group">
+            <label>Nombre</label>
+            @Html.TextBoxFor(x => x.Nombre, new { @id="nombre", @class = "form-control", @required = true , @disabled = true})
+        </div>
+        <div class="form-group">
+            <label>Formula</label>
+            @Html.TextBoxFor(x => x.Formula, new { @id="formula", @class = "form-control", @required = true, @Value = Model.Formula })
+        </div>
         <ul style="color:orange">
-            <li>La formula a ingresar acepta las operaciones +,-,/ y * </li>
+            <li>La fórmula a ingresar acepta las operaciones +,-,/ y * </li>
             <li>Para Cuentas e Indicadores, debe ingresar la cadena de caracteres correspondiente (Sin espacios ni números)</li>
             <li>Se permite el ingreso de parentesis en la expresión de la fórmula</li>
             <li>La fórmula no debe contener espacios</li>
             <li>Ejemplo: EBITDA*(3+ROE) siendo ROE un indicador y EBITDA una cuenta</li>
         </ul>
-        <div class="form-group"> <input type="button" class="btn btn-primary" value="Guardar" onclick="javascript:validaciones()" /></div>
+        <input type="button" onclick="validaciones()" value="Editar" class="btn btn-primary" />
     </div>
-
 }
 
