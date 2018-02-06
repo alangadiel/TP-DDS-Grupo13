@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace DONDE_INVIERTO.Model
 {
-    public class Empresa : Model
+    public class Empresa
     {
-        [Required]
-        public virtual string Nombre { get; set; }
+        public string Nombre { get; set; }
 
-        public virtual DateTime Fecha_Creacion { get; set; }
+        public string Cuit { get; set; }
 
-        public virtual List<Periodo> Periodos { get; set; }
+        public DateTime FechaFundacion { get; set; }
     }
 }

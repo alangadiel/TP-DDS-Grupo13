@@ -63,7 +63,7 @@
     <Compile Include="ComponenteOperando.cs" />
     <Compile Include="Condiciones\Condicion.cs" />
     <Compile Include="Condiciones\CondicionesFactory.cs" />
-    <Compile Include="Condiciones\CondicionModel.cs" />
+    <Compile Include="Condiciones\ITipoCondicion.cs" />
     <Compile Include="Condiciones\Longevidad.cs" />
     <Compile Include="Condiciones\MargenesCreciente.cs" />
     <Compile Include="Condiciones\MayorAUno.cs" />
@@ -78,6 +78,7 @@
     <Compile Include="Indicador.cs" />
     <Compile Include="MyVisitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\CondicionView.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

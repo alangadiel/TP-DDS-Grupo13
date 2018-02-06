@@ -1,12 +1,15 @@
-﻿using DONDE_INVIERTO.Model;
+﻿using ANTLR.Condiciones;
+using DONDE_INVIERTO.Model;
 using System;
 using System.Collections.Generic;
 
 namespace DONDE_INVIERTO.ANTLR
 {
-    public class MinimizarDeuda : Condicion
+    public class MinimizarDeuda : ITipoCondicion
     {
-        public override bool Analizar(Empresa empresa, List<ComponenteOperando> lista)
+        public TipoCondicion Tipo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public bool Analizar(Empresa empresa, List<ComponenteOperando> componentesOperandos)
         {
             throw new NotImplementedException();
         }

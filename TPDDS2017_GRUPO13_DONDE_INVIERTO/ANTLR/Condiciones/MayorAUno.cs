@@ -1,4 +1,5 @@
-﻿using DONDE_INVIERTO.Model;
+﻿using ANTLR.Condiciones;
+using DONDE_INVIERTO.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,24 +7,20 @@ using System.Web;
 
 namespace DONDE_INVIERTO.ANTLR
 {
-    public class MayorAUno : Condicion
+    public class MayorAUno : ITipoCondicion
     {
-        public MayorAUno()
-        {
-        }
+        public TipoCondicion Tipo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public MayorAUno(string descripcion,int indicador_id): base(descripcion,indicador_id)
-        {
+        public Indicador Indicador { get; set; }
 
-        }
-        public override bool Analizar(Empresa empresa, List<ComponenteOperando> lista)
+        public bool Analizar(Empresa empresa, List<ComponenteOperando> componentesOperandos)
         {
             bool result = true;
             List<int> periodos = this.ObtenerPeriodosAConsultar(empresa);
             int i = 0;
             while (i < periodos.Count && result)
             {
-                result = this.Indicador.ObtenerValor(empresa, i,lista)>1;
+                result = this.Indicador.ObtenerValor(empresa, i, lista) > 1;
                 i++;
             }
             return result;

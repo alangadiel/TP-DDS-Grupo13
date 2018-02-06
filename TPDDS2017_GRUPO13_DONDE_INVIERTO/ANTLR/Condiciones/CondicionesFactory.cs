@@ -1,34 +1,21 @@
-﻿using System;
+﻿using ANTLR.Condiciones;
+using DONDE_INVIERTO.Model;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace DONDE_INVIERTO.ANTLR
 {
     public class CondicionesFactory
     {
-        public static Condicion CreateCondicion(CondicionModel model)
+        private static List<ITipoCondicion> tiposCondicion =
+            new List<ITipoCondicion>();
+        public static CondicionView CreateCondicion(Condicion condicion, TipoCondicion tipoCondicion)
         {
-            Condicion condi;
-            switch (model.Tipo)
+            var type = tiposCondicion.Find(tcond => tcond.Tipo.Equals(tipoCondicion));
+            return new CondicionView()
             {
-                case TipoCondicion.Creciente:
-                    condi = new MargenesCreciente();
-                break;
-                case TipoCondicion.MayorAUno:
-                    condi = new MayorAUno();
-                break;
-                case TipoCondicion.Longevidad:
-                    condi = new Longevidad();
-                break;
-                default:
-                    condi = new MayorAUno();
-                break;
-            }
-            condi.Tipo = model.Tipo;
-            condi.Indicador_Id = model.Indicador_Id;
-            condi.Descripcion = model.Descripcion;
-            return condi;
+                Condicion = condicion,
+                TipoCondicion = type
+            };
         }
     }
 }

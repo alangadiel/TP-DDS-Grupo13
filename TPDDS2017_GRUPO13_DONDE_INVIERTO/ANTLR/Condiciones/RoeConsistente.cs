@@ -1,4 +1,5 @@
-﻿using DONDE_INVIERTO.Model;
+﻿using ANTLR.Condiciones;
+using DONDE_INVIERTO.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,17 +7,11 @@ using System.Web;
 
 namespace DONDE_INVIERTO.ANTLR
 {
-    public class RoeConsistente : Condicion
+    public class RoeConsistente : ITipoCondicion
     {
-        public RoeConsistente()
-        {
-        }
+        public TipoCondicion Tipo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public RoeConsistente(string descripcion, int indicador_id): base(descripcion,indicador_id)
-        {
-
-        }
-        public override bool Analizar(Empresa empresa, List<ComponenteOperando> lista)
+        public bool Analizar(Empresa empresa, List<ComponenteOperando> componentesOperandos)
         {
             throw new NotImplementedException();
         }

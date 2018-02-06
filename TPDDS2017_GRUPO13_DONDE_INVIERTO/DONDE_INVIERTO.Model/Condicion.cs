@@ -1,16 +1,17 @@
-﻿namespace DONDE_INVIERTO.Model
+﻿using System.Runtime.Serialization;
+
+namespace DONDE_INVIERTO.Model
 {
-    public class Condicion : Model
+    [DataContract]
+    public class Condicion
     {
-        public virtual Indicador Indicador { get; set; }
+        [DataMember]
+        public int IndicadorId { get; set; }
 
-        public virtual int Antiguedad { get; set; }
+        [DataMember]
+        public string Descripcion { get; set; }
 
-        public virtual bool Mayor { get; set; }
-
-        public virtual bool Creciente { get; set; }
-
-        public virtual double Valor { get; set; }
-
+        [DataMember]
+        public string Discriminador { get; set; }
     }
 }

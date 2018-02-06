@@ -4,20 +4,13 @@ using System.Linq;
 
 namespace DONDE_INVIERTO.ANTLR
 {
-    public enum TipoCondicion
+   public abstract class Cond
     {
-        Creciente = 0,
-        MayorAUno = 1,
-        Longevidad = 2,
-
-    }
-   public abstract class Condicion
-    {
-        public Condicion()
+        public Cond()
         {
 
         }
-        public Condicion(string descripcion,int indicador_id)
+        public Cond(string descripcion,int indicador_id)
         {
             this.Descripcion = descripcion;
             this.Indicador_Id = indicador_id;
