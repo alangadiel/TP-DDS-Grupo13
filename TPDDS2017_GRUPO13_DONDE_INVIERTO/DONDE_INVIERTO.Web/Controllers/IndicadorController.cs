@@ -15,7 +15,7 @@ namespace DONDE_INVIERTO.Web.Controllers
 
         public ActionResult List()
         {
-            return View(Service.List());
+            return View();
         }
 
 
@@ -44,7 +44,7 @@ namespace DONDE_INVIERTO.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                Service.Save(indicador.Nombre, indicador.Contenido);
+                //Service.Save(indicador.Nombre, indicador.Contenido);
                 return RedirectToAction("List");
             }
             return View(indicador);

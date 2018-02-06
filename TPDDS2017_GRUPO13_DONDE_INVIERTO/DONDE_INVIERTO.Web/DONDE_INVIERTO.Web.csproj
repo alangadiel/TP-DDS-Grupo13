@@ -283,7 +283,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DONDE_INVIERTO.Model\DONDE_INVIERTO.Model.csproj">
-      <Project>{aaf7b17c-85dd-4d78-ae53-0b0392e7e82b}</Project>
+      <Project>{2027f090-dff6-4c66-b400-1c3a8f03210e}</Project>
       <Name>DONDE_INVIERTO.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\DONDE_INVIERTO.Service\DONDE_INVIERTO.Service.csproj">
