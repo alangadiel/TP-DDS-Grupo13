@@ -12,7 +12,7 @@ CREATE TABLE [dbo].[balances](
 	[bala_periodo] [int] NOT NULL,
 	[bala_valor] [decimal](12,2) NOT NULL,
 	[bala_empresa_id] [int] NOT NULL,
- CONSTRAINT [PK_balances] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_balance] PRIMARY KEY CLUSTERED 
 (
 	[bala_id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
@@ -27,7 +27,7 @@ CREATE TABLE [dbo].[operandos](
 	[oper_discriminator] [nvarchar](200) NOT NULL,
 	[oper_indicadorPadre_id] [int],
 	[oper_balance_id] [int],
- CONSTRAINT [PK_balances] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_operando] PRIMARY KEY CLUSTERED 
 (
 	[oper_id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
