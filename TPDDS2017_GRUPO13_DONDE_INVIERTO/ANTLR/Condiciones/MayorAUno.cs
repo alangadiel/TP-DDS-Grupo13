@@ -23,5 +23,10 @@ namespace DONDE_INVIERTO.ANTLR
             }
             return result;
         }
+
+        public bool Analizar(EmpresaView empresa1, EmpresaView empresa2, List<Indicador> indicadores)
+        {
+            return true;
+        }
     }
 }

@@ -10,6 +10,11 @@ namespace DONDE_INVIERTO.ANTLR
 
         Indicador Indicador { get; set; }
 
-        bool Analizar(EmpresaView empresa, List<Indicador> indicadores);
+        //En los Analizar, retornar true cuando no haya criterio
+
+        bool Analizar(EmpresaView empresa, List<Indicador> indicadores);//True si no hay que descartar a la empresa
+
+        bool Analizar(EmpresaView empresa1, EmpresaView empresa2, List<Indicador> indicadores); //True si empresa1>empresa2
+
     }
 }

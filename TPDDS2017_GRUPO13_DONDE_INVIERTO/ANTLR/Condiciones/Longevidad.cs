@@ -14,5 +14,10 @@ namespace DONDE_INVIERTO.ANTLR
         {
             return empresa.FechaFundacion <= DateTime.Now.AddYears(-10);
         }
+
+        public bool Analizar(EmpresaView empresa1, EmpresaView empresa2, List<Indicador> indicadores)
+        {
+            return empresa1.FechaFundacion > empresa2.FechaFundacion;
+        }
     }
 }
