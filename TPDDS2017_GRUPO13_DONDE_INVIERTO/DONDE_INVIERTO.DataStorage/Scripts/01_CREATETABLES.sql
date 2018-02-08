@@ -1,6 +1,8 @@
 DROP DATABASE IF EXISTS dondeinvierto
 GO
 
+
+
 CREATE DATABASE dondeinvierto
 GO
 
@@ -67,8 +69,8 @@ CREATE TABLE [dbo].[metodologias](
 GO
 
 CREATE TABLE [dbo].[metodologiacondicions](
-	[metcon_metodologia_id] [int] IDENTITY(1,1) NOT NULL,
-	[metcon_condicion_id] [int] IDENTITY(1,1) NOT NULL,
+	[metcon_metodologia_id] [int] NOT NULL,
+	[metcon_condicion_id] [int] NOT NULL,
  CONSTRAINT [PK_metodologiacondicion] PRIMARY KEY CLUSTERED 
 (
 	[metcon_metodologia_id] ASC,
@@ -184,7 +186,7 @@ GO*/
 
 
 ALTER TABLE [dbo].[balances]  WITH CHECK ADD  CONSTRAINT [FK_bala_empresa] FOREIGN KEY([bala_empresa_id])
-REFERENCES [dbo].[empresa] ([empr_id])
+REFERENCES [dbo].[empresas] ([empr_id])
 GO
 
 ALTER TABLE [dbo].[balances] CHECK CONSTRAINT [FK_bala_empresa]
@@ -199,7 +201,7 @@ ALTER TABLE [dbo].[operandos] CHECK CONSTRAINT [FK_oper_balance]
 GO
 
 ALTER TABLE [dbo].[operandos]  WITH CHECK ADD  CONSTRAINT [FK_oper_indicadorPadre] FOREIGN KEY([oper_indicadorPadre_id])
-REFERENCES [dbo].[operandos] ([oper_indicadorPadre_id])
+REFERENCES [dbo].[operandos] ([oper_id])
 GO
 
 ALTER TABLE [dbo].[operandos] CHECK CONSTRAINT [FK_oper_indicadorPadre]
