@@ -1,9 +1,7 @@
-﻿@model DONDE_INVIERTO.Model.Cuenta
-
+﻿@model DONDE_INVIERTO.Model.Balance
 @using DONDE_INVIERTO.Model
-
 @{
-    ViewBag.Title = "Editar Cuenta";
+    ViewBag.Title = "Editar balance";
     List<SelectListItem> listEmpresas = new List<SelectListItem>();
     List<SelectListItem> _listEmpresas = ViewBag.Empresas as List<SelectListItem>;
     listEmpresas.AddRange(_listEmpresas);
@@ -110,10 +108,10 @@
 </div>
 
 
-<h2>Editar Cuenta</h2>
+<h2>Editar balance</h2>
 <div class="row " style="margin-top: 90px;">
     <div class="col-md-5 col-md-offset-1">
-        <form method="post" id="form" action="@Url.Action("Edit","Cuentas")">
+        <form method="post" id="form" action="@Url.Action("Edit","Balance")">
           <label>Periodo</label>  <input type="number" class="form-control" value="@Model.Periodo" id="inputPer" min="1" oninput="validity.valid||(value='');" disabled/>
           <label>Empresa</label>  <input type="text" class="form-control" value="@Model.Empresa.Nombre" disabled/>
 

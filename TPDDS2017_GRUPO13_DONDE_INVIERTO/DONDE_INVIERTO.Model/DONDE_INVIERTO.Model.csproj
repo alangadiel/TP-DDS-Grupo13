@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DONDE_INVIERTO.Model</RootNamespace>
     <AssemblyName>DONDE_INVIERTO.Model</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,14 +44,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Balance.cs" />
+    <Compile Include="ComponenteOperando.cs" />
     <Compile Include="Condicion.cs" />
+    <Compile Include="Condiciones\Condicion.cs" />
+    <Compile Include="Condiciones\CondicionesFactory.cs" />
+    <Compile Include="Condiciones\CondicionModel.cs" />
+    <Compile Include="Condiciones\Longevidad.cs" />
+    <Compile Include="Condiciones\MargenesCreciente.cs" />
+    <Compile Include="Condiciones\MayorAUno.cs" />
+    <Compile Include="Condiciones\MinimizarDeuda.cs" />
+    <Compile Include="Condiciones\RoeConsistente.cs" />
+    <Compile Include="Cuenta.cs" />
     <Compile Include="Empresa.cs" />
+    <Compile Include="Excepciones\BalancesRepetidosException.cs" />
     <Compile Include="Indicador.cs" />
     <Compile Include="Metodologia.cs" />
-    <Compile Include="MetodologiaCondicion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TipoCondicion.cs" />
+    <Compile Include="UserViewModel.cs" />
     <Compile Include="Views\EmpresaView.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

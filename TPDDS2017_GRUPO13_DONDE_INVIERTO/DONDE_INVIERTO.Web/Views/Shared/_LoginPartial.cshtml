@@ -13,12 +13,12 @@
             <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-toggle-off"></i> Salir</a></li>
         </ul>
         <ul class="nav navbar-nav">
-            <li>@Html.ActionLink("Empresas", "Index", "Empresas")</li>
-            <li>@Html.ActionLink("Indicadores", "Index", "Indicadores")</li>
-            <li>@Html.ActionLink("Cuentas", "Index", "Cuentas")</li>
-            <li>@Html.ActionLink("Archivos", "UploadFile", "Upload")</li>
-            <li>@Html.ActionLink("Metodologias", "Index", "Metodologias")</li>
-            <li>@Html.ActionLink("Condiciones", "Index", "Condiciones")</li>
+            <li>@Html.ActionLink("Empresa", "Index", "Empresa")</li>
+            <li>@Html.ActionLink("Indicador", "Index", "Indicador")</li>
+            <li>@Html.ActionLink("Balance", "Index", "Balance")</li>
+            <li>@Html.ActionLink("Cargar", "CargarArchivo", "Cargar")</li>
+            <li>@Html.ActionLink("Metodologia", "Index", "Metodologia")</li>
+            <li>@Html.ActionLink("Condicion", "Index", "Condicion")</li>
         </ul>
     }
 }
@@ -26,6 +26,6 @@ else
 {
         <ul class="nav navbar-nav navbar-right">
         <li>@Html.ActionLink("Register", "Register", "User", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "User", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("Log in", "Log in", "User", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }

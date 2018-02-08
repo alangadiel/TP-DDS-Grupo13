@@ -1,6 +1,6 @@
-﻿@model List<TpIntegradorDiuj.Models.Balance>
+﻿@model List<DONDE_INVIERTO.Model.Balance>
 @{
-    ViewBag.Title = "Cuentas";
+    ViewBag.Title = "Balances";
 }
 
 <script>
@@ -45,7 +45,7 @@
     });
 </script>
 <div style="margin-top: 10px;" class="col-md-6">
-    <a class="btn btn-primary" href="@Url.Action("Create","Cuentas")"><i class="fa fa-plus"></i> Crear balance</a>
+    <a class="btn btn-primary" href="@Url.Action("Create","Balance")"><i class="fa fa-plus"></i> Crear balance</a>
     @*<a class="btn btn-primary" href="@Url.Action("Edit","Balances")"><i class="fa fa-pencil"></i> Editar balances</a>*@
 </div>
 
@@ -69,9 +69,9 @@
                 <td>@item.Empresa.Nombre</td>
                 <td>$@item.Total</td>
                 <td>
-                    <a href="@Url.Action("Details","Cuentas",new { id = item.Id })" ><i class="fa fa-eye"></i> Detalle </a><br />
-                    <a href="@Url.Action("Edit","Cuentas",new { id = item.Id })"><i class="fa fa-pencil"></i> Editar </a><br />
-                    <a href="@Url.Action("Delete","Cuentas",new { id = item.Id })" onclick="return confirm('¿Está seguro que desea eliminar este registro?')"><i class="fa fa-remove"></i> Eliminar </a><br />
+                    <a href="@Url.Action("Details","Balance",new { id = item.Id })" ><i class="fa fa-eye"></i> Detalle </a><br />
+                    <a href="@Url.Action("Edit","Balance",new { id = item.Id })"><i class="fa fa-pencil"></i> Editar </a><br />
+                    <a href="@Url.Action("Delete","Balance",new { id = item.Id })" onclick="return confirm('¿Está seguro que desea eliminar este registro?')"><i class="fa fa-remove"></i> Eliminar </a><br />
 
 
                 </td>

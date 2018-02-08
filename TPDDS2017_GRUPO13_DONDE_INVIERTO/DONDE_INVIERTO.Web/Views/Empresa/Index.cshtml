@@ -1,5 +1,5 @@
-﻿@model List<TpIntegradorDiuj.Models.Empresa>
-@using TpIntegradorDiuj.Models
+﻿@model List<DONDE_INVIERTO.Model.Empresa>
+@using DONDE_INVIERTO.Model
 @{
     ViewBag.Title = "Empresas";
     List<SelectListItem> listEmpresas = Model.Select(x => new SelectListItem
@@ -60,7 +60,7 @@
 
            $("#fileEmpresas").change(function () {
                var file = getFile();
-            var url = '@Url.Action("ObtenerEmpresasYPeriodos", "Empresas")';
+            var url = '@Url.Action("ObtenerEmpresasYPeriodos", "Empresa")';
             $.ajax({
                 type: "POST",
                 url: url,           
@@ -117,8 +117,8 @@
                 <td>@item.CUIT</td>
                 <td>@item.FechaFundacion.ToString("dd/MM/yyyy")</td>
                 <td>
-                    <a href="@Url.Action("Edit","Empresas",new { cuit = item.CUIT })"> <i class="fa fa-pencil"></i> Editar</a><br />
-                    <a href="@Url.Action("Delete","Empresas",new { cuit = item.CUIT})" onclick="return confirm('¿Está seguro que desea eliminar este registro?')"> <i class="fa fa-trash"></i> Eliminar</a>
+                    <a href="@Url.Action("Edit","Empresa",new { cuit = item.CUIT })"> <i class="fa fa-pencil"></i> Editar</a><br />
+                    <a href="@Url.Action("Delete","Empresa",new { cuit = item.CUIT})" onclick="return confirm('¿Está seguro que desea eliminar este registro?')"> <i class="fa fa-trash"></i> Eliminar</a>
                 </td>
 
             </tr>

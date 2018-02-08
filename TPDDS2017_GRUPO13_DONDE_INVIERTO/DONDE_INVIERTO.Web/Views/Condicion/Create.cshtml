@@ -6,14 +6,14 @@
     listIndicadores.AddRange(_listIndicadores);
 }
 
-<h2>Crear condición</h2>
+<h2>Crear condicion</h2>
 <form method="post" action="@Url.Action("Create")">
     <div class="form-group">
-        <label>Descripción</label>
+        <label>Descripcion</label>
         @Html.TextBoxFor(Model => Model.Descripcion, new { @class = "form-control",@required="true" })
     </div>
     <div class="form-group">
-        <label>Tipo de condición</label>
+        <label>Tipo de condicion</label>
         @Html.EnumDropDownListFor(Model=>Model.Tipo,new { @class="form-control",@required="true"})
     </div>
     <div class="form-group">

@@ -76,8 +76,8 @@
                 <td>@item.Formula</td>
                 <td>
                     <a href="#" onclick="javascript: mostrarFiltrosEvaluacion(@item.Id)"><i class="fa fa-usd"></i> Evaluar</a><br/>
-                    <a href="@Url.Action("Edit","Indicadores",new { idInd = item.Id })"> <i class="fa fa-pencil"></i> Editar</a><br />
-                    <a href="@Url.Action("Delete","Indicadores",new { idInd = item.Id})" onclick="return confirm('¿Está seguro que desea eliminar este registro?')"> <i class="fa fa-trash"></i> Eliminar</a> <br/>
+                    <a href="@Url.Action("Edit","Indicador",new { idInd = item.Id })"> <i class="fa fa-pencil"></i> Editar</a><br />
+                    <a href="@Url.Action("Delete","Indicador",new { idInd = item.Id})" onclick="return confirm('¿Está seguro que desea eliminar este registro?')"> <i class="fa fa-trash"></i> Eliminar</a> <br/>
                 </td>
 
             </tr>

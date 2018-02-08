@@ -1,21 +1,35 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
+using System.Web.Script.Serialization;
 
 namespace DONDE_INVIERTO.Model
 {
-    [DataContract]
     public class Balance
     {
-        [DataMember]
+        public Balance()
+        {
+            Cuentas = new List<Cuenta>();
+        }
         public int Id { get; set; }
-
-        [DataMember]
+        public virtual List<Cuenta> Cuentas { get; set; }
         public int Periodo { get; set; }
+        //public int Empresa_Id { get; set; }
 
-        [DataMember]
-        public decimal Valor { get; set; }
+        public string Empresa_CUIT { get; set; }
 
-        [DataMember]
-        public int EmpresaId { get; set; }
+        [NotMapped]
+        [ScriptIgnore]
+        public  Empresa Empresa { get; set; }
+
+        public double Total {
+            get {
+                return this.Cuentas.Sum(x => x.Valor);
+            }
+        }
+
 
     }
 }
