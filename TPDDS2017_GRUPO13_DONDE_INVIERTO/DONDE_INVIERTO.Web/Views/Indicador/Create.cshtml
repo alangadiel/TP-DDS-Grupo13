@@ -2,10 +2,10 @@
     ViewBag.Title = "Crear Indicador";
 }
 <script>
-    function validaciones() {
+    function validaciones(){
         var nombreCheck = /^[a-zA-Z]{1,15}$/.test($("#nombre").val());
         var formulaCheck = /^\-?([0-9]+|[a-zA-Z]+)((([-+/*][0-9]+)?([.,][0-9]+)?)|([-+/*][a-zA-Z]+))*?$/.test($("#formula").val());
-        var errores = "";
+        var errores="";
         if (!nombreCheck)
             errores += "<li>El nombre es obligatorio y solo puede contener minusculas y mayusculas, con un maximo de 15 caracteres.</li>";
         if (!formulaCheck)
@@ -43,9 +43,9 @@
         <div class="form-group"><label>Formula</label><input type="text" name="Formula" placeholder="Formula" id="formula" class="form-control" required /> </div>
         <ul style="color:orange">
             <li>La formula a ingresar acepta las operaciones +,-,/ y * </li>
-            <li>Para Cuentas e Indicadores, debe ingresar la cadena de caracteres correspondiente (Sin espacios ni números)</li>
-            <li>Se permite el ingreso de parentesis en la expresión de la fórmula</li>
-            <li>La fórmula no debe contener espacios</li>
+            <li>Para Cuentas e Indicadores, debe ingresar la cadena de caracteres correspondiente (Sin espacios ni numeros)</li>
+            <li>Se permite el ingreso de parentesis en la expresión de la formula</li>
+            <li>La formula no debe contener espacios</li>
             <li>Ejemplo: EBITDA*(3+ROE) siendo ROE un indicador y EBITDA una cuenta</li>
         </ul>
         <div class="form-group"> <input type="button" class="btn btn-primary" value="Guardar" onclick="javascript:validaciones()" /></div>
