@@ -1,8 +1,6 @@
 DROP DATABASE IF EXISTS dondeinvierto
 GO
 
-
-
 CREATE DATABASE dondeinvierto
 GO
 

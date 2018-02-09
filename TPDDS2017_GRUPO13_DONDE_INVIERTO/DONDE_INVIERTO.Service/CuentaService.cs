@@ -2,6 +2,7 @@
 using System.Linq;
 using DONDE_INVIERTO.DataStorage;
 using DONDE_INVIERTO.Model;
+using DONDE_INVIERTO.Model.Views;
 
 namespace DONDE_INVIERTO.Service
 {
@@ -12,9 +13,9 @@ namespace DONDE_INVIERTO.Service
             StorageProvider<Cuenta>.Save(cuenta);
         }*/
 
-        public Cuenta Cuenta { get; set; }
+        public ComponenteOperando Cuenta { get; set; }
 
-        public double ObtenerValor(Empresa empresa, int periodo, List<ComponenteOperando> listaOperandos)
+        public double ObtenerValor(EmpresaView empresa, int periodo, List<ComponenteOperando> listaOperandos)
         {
             List<Balance> balances = empresa.Balances;
             Balance balanceBuscado = balances.FirstOrDefault(x => x.Periodo == periodo);

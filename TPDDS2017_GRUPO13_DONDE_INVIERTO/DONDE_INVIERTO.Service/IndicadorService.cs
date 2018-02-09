@@ -1,8 +1,8 @@
 ﻿using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
 using DONDE_INVIERTO.ANTLR;
-using DONDE_INVIERTO.ANTLR.Gramatica;
 using DONDE_INVIERTO.Model;
+using DONDE_INVIERTO.Model.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace DONDE_INVIERTO.Service
 {
-    public class IndicadorService
+    public class IndicadorService 
     {
         const string pattern = @"((\b([A-z]*[0-9]*|[0-9]*[A-z]*)[a-z0-9]*\b)([+\-\*\/]\(?(\b([a-z]*[0-9]*|[0-9]*[a-z]*)[a-z0-9]*\b)\)?)+)";
 
-        public Indicador Indicador { get; set; }
-        public double ObtenerValor(Empresa empresa, int periodo, List<ComponenteOperando> listaOperandos)
+        public ComponenteOperando Indicador { get; set; }
+        public double ObtenerValor(EmpresaView empresa, int periodo, List<ComponenteOperando> listaOperandos)
         {
             AntlrInputStream input = new AntlrInputStream(Indicador.Formula);
             gramaticaLexer lexer = new gramaticaLexer(input);

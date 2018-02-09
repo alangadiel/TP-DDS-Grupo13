@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace DONDE_INVIERTO.Model
 {
-    public enum TipoCondicion
-    {
-        Creciente = 0,
-        MayorAUno = 1,
-        Longevidad = 2,
-
-    }
+   
     public abstract class Condicion
     {
         public Condicion()

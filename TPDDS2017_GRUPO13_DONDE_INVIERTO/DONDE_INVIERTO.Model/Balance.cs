@@ -3,33 +3,24 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
-//using System.Web.Script.Serialization;
+using System.Runtime.Serialization;
 
 namespace DONDE_INVIERTO.Model
 {
+    [DataContract]
     public class Balance
     {
-        public Balance()
-        {
-            Cuentas = new List<Cuenta>();
-        }
+        [DataMember]
         public int Id { get; set; }
-        public virtual List<Cuenta> Cuentas { get; set; }
+
+        [DataMember]
         public int Periodo { get; set; }
-        //public int Empresa_Id { get; set; }
 
-        public string Empresa_CUIT { get; set; }
+        [DataMember]
+        public decimal Valor { get; set; }
 
-        [NotMapped]
-        //[ScriptIgnore]
-        public  Empresa Empresa { get; set; }
-
-        public double Total {
-            get {
-                return this.Cuentas.Sum(x => x.Valor);
-            }
-        }
-
+        [DataMember]
+        public int EmpresaId { get; set; }
 
     }
 }

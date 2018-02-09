@@ -1,7 +1,7 @@
 ﻿using Antlr4.Runtime.Misc;
-using DONDE_INVIERTO.ANTLR.Gramatica;
 using DONDE_INVIERTO.Model;
 using DONDE_INVIERTO.Model.Views;
+using DONDE_INVIERTO.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +11,10 @@ namespace DONDE_INVIERTO.ANTLR
     public class VisitorCore : gramaticaBaseVisitor<double>
     {
         protected readonly int _periodo;
-        protected readonly Empresa  _empresa;
+        protected readonly EmpresaView  _empresa;
         protected readonly List<ComponenteOperando> _componentes;
 
-        public VisitorCore(Empresa empresa, int periodo, List<ComponenteOperando> componentes)
+        public VisitorCore(EmpresaView empresa, int periodo, List<ComponenteOperando> componentes)
         {
             _empresa = empresa;
             _periodo = periodo;
@@ -60,9 +60,8 @@ namespace DONDE_INVIERTO.ANTLR
             string indicadorBuscado = context.INDICADOR().GetText();
             ComponenteOperando indicadorEncontrado = _componentes.FirstOrDefault(x => x.Nombre.ToLower() == indicadorBuscado.ToLower());
             if (indicadorEncontrado == null) throw new Exception("No se encontro el indicador: " + indicadorBuscado);
-            //var serv = new IndicadorService();
+            var serv = new IndicadorService { Indicador = indicadorEncontrado };
             //return indicadorEncontrado.ObtenerValor(this.empresa, this.periodo, _componentes);
-            return 1;
         }
     }
 }

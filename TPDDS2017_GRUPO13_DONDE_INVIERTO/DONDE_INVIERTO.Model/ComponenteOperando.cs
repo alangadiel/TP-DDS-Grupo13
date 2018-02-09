@@ -8,5 +8,7 @@ namespace DONDE_INVIERTO.Model
         public int? IndicadorPadre_Id { get; set; }
         public string Nombre { get; set; }
         //public abstract double ObtenerValor(Empresa empresa, int periodo, List<ComponenteOperando> listaOperandos);
+        public string Formula { get; set; }
+        public decimal? Valor { get; set; }
     }
 }
