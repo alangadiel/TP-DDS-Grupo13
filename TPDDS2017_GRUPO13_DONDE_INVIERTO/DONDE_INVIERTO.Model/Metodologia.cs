@@ -13,8 +13,8 @@ namespace DONDE_INVIERTO.Model
         }
         public int Id { get; set; }
         public string Nombre { get; set; }
-        //TODO: Fijarse si hay que agregar los indicadores o no
         public virtual List<Condicion> Condiciones { get; set; }
+
         public bool EsDeseableInvertir(Empresa emp, List<ComponenteOperando> lista)
         {
             //Me fijo que se cumplan todas las condiciones de esta metodologia

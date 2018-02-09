@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
-using System.Web.Script.Serialization;
+//using System.Web.Script.Serialization;
 
 namespace DONDE_INVIERTO.Model
 {
@@ -21,7 +21,7 @@ namespace DONDE_INVIERTO.Model
         public string Empresa_CUIT { get; set; }
 
         [NotMapped]
-        [ScriptIgnore]
+        //[ScriptIgnore]
         public  Empresa Empresa { get; set; }
 
         public double Total {

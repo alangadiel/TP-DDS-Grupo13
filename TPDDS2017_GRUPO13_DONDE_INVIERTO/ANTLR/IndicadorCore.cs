@@ -16,7 +16,7 @@ namespace DONDE_INVIERTO.ANTLR
             _indicador = indicador;
         }
 
-        public double ObtenerValor(EmpresaView empresa, int periodo, List<Indicador> indicadores)
+        public double ObtenerValor(Empresa empresa, int periodo, List<Indicador> indicadores)
         {
             var input = new AntlrInputStream(_indicador.Formula);
             var lexer = new gramaticaLexer(input);

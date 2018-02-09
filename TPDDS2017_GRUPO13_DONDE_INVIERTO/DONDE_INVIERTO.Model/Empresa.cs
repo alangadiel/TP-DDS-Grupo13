@@ -12,6 +12,7 @@ namespace DONDE_INVIERTO.Model
         {
             this.Balances = new List<Balance>();
         }
+        public int Id { get; set; }
         public string Nombre { get; set; }
         public string CUIT { get; set; }
         public virtual List<Balance> Balances { get; set; }

@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,14 +48,6 @@
     <Compile Include="Balance.cs" />
     <Compile Include="ComponenteOperando.cs" />
     <Compile Include="Condicion.cs" />
-    <Compile Include="Condiciones\Condicion.cs" />
-    <Compile Include="Condiciones\CondicionesFactory.cs" />
-    <Compile Include="Condiciones\CondicionModel.cs" />
-    <Compile Include="Condiciones\Longevidad.cs" />
-    <Compile Include="Condiciones\MargenesCreciente.cs" />
-    <Compile Include="Condiciones\MayorAUno.cs" />
-    <Compile Include="Condiciones\MinimizarDeuda.cs" />
-    <Compile Include="Condiciones\RoeConsistente.cs" />
     <Compile Include="Cuenta.cs" />
     <Compile Include="Empresa.cs" />
     <Compile Include="Excepciones\BalancesRepetidosException.cs" />
@@ -63,6 +57,5 @@
     <Compile Include="UserViewModel.cs" />
     <Compile Include="Views\EmpresaView.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

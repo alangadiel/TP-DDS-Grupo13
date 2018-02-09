@@ -10,10 +10,10 @@ namespace DONDE_INVIERTO.ANTLR
     public class VisitorCore : gramaticaBaseVisitor<double>
     {
         protected readonly int _periodo;
-        protected readonly EmpresaView _empresa;
+        protected readonly Empresa  _empresa;
         protected readonly List<Indicador> _indicadores;
 
-        public VisitorCore(EmpresaView empresa, int periodo, List<Model.Indicador> indicadores)
+        public VisitorCore(Empresa empresa, int periodo, List<Model.Indicador> indicadores)
         {
             _empresa = empresa;
             _periodo = periodo;

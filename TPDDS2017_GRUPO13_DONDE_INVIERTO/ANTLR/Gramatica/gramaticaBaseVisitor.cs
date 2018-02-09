@@ -8,7 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from C:\Users\adria\OneDrive\Documentos\TpDiuj\TpIntegradorDiuj\gramatica.g4 by ANTLR 4.6.4
 
 // Unreachable code detected
 #pragma warning disable 0162
