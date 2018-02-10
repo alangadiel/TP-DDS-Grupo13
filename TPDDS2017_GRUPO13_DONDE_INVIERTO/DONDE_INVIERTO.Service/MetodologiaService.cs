@@ -19,11 +19,20 @@ namespace DONDE_INVIERTO.Service
             return this.Condiciones.All(x => x.Analizar(emp, lista));
         }
 
+        public bool EsMejorParaInvertir(EmpresaView emp1, EmpresaView emp2, List<ComponenteOperando> lista)
+        {
+            return this.Condiciones.All(x => x.Analizar(emp1, emp2, lista));
+        }
+
         public List<EmpresaView> ObtenerEmpresasDeseables(List<EmpresaView> empresas, List<ComponenteOperando> lista)
         {
-            var deseables = new List<EmpresaView>();
-            deseables = empresas.Where(x => this.EsDeseableInvertir(x, lista)).ToList();
-            return deseables;
+            return empresas.Where(x => this.EsDeseableInvertir(x, lista)).ToList();
+        }
+
+        public List<EmpresaView> OrdenarEmpresas(List<EmpresaView> empresas, List<ComponenteOperando> lista)
+        {
+            empresas.Sort((emp1, emp2) => EsMejorParaInvertir(emp1, emp2, lista) ? 1 : 0 );
+            return empresas;
         }
     }
 }

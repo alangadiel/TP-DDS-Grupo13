@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="IndicadoresTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MetodologiasTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -27,7 +27,7 @@ namespace DONDE_INVIERTO.ANTLR
 
         public bool Analizar(EmpresaView empresa1, EmpresaView empresa2, List<ComponenteOperando> componentes)
         {
-            return true; //no hay criterio de descarte, solo de ordenamiento
+            return true; //no hay criterio de ordenamiento, solo de descarte
         }
     }
 }

@@ -21,7 +21,8 @@ namespace DONDE_INVIERTO.ANTLR
         {
             int periodoActual = DateTime.Now.Year;
             var service = new ComponenteService() { Componente = Componente };
-            return service.ObtenerValor(empresa1, periodoActual, componentes) < service.ObtenerValor(empresa2, periodoActual, componentes);
+            return service.ObtenerValor(empresa1, periodoActual, componentes) > service.ObtenerValor(empresa2, periodoActual, componentes);
+            //ponemos el signo > y no < para que lo ordene de forma ascendente
         }
     }
 }

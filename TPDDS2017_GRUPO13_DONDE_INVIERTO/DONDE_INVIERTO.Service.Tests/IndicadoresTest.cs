@@ -38,9 +38,11 @@ namespace DONDE_INVIERTO.Service.Tests
             //bal.Cuentas.Add(cuenta);
             empresa.Balances.Add(bal);
 
-            List<ComponenteOperando> lista = new List<ComponenteOperando>();
-            lista.Add(cuenta);
-            lista.Add(indicadorTest);
+            List<ComponenteOperando> lista = new List<ComponenteOperando>
+            {
+                cuenta,
+                indicadorTest
+            };
             int periodo = 2017;
             var serv = new IndicadorService() { Indicador = indicador2 };
             double result = serv.ObtenerValor(empresa, periodo, lista);
@@ -72,9 +74,11 @@ namespace DONDE_INVIERTO.Service.Tests
             };
             empresa.Balances.Add(bal);
 
-            List<ComponenteOperando> lista = new List<ComponenteOperando>();
-            lista.Add(cuenta);
-            lista.Add(indicadorTest);
+            List<ComponenteOperando> lista = new List<ComponenteOperando>
+            {
+                cuenta,
+                indicadorTest
+            };
             int periodo = 2017;
             var serv = new IndicadorService() { Indicador = indicador2 };
             double result = serv.ObtenerValor(empresa, periodo, lista);
@@ -83,12 +87,16 @@ namespace DONDE_INVIERTO.Service.Tests
         [TestMethod]
         public void SumaSoloCuenta()
         {
-            ComponenteOperando indicadorTest = new ComponenteOperando();
-            indicadorTest.Formula = "18 + terd";
-            indicadorTest.Nombre = "ind";
-            ComponenteOperando cuenta = new ComponenteOperando();
-            cuenta.Nombre = "terd";
-            cuenta.Valor = 50;
+            ComponenteOperando indicadorTest = new ComponenteOperando
+            {
+                Formula = "18 + terd",
+                Nombre = "ind"
+            };
+            ComponenteOperando cuenta = new ComponenteOperando
+            {
+                Nombre = "terd",
+                Valor = 50
+            };
             EmpresaView empresa = new EmpresaView() { Id = 4 };
             Balance bal = new Balance
             {
@@ -97,9 +105,11 @@ namespace DONDE_INVIERTO.Service.Tests
             };
             empresa.Balances.Add(bal);
 
-            List<ComponenteOperando> lista = new List<ComponenteOperando>();
-            lista.Add(cuenta);
-            lista.Add(indicadorTest);
+            List<ComponenteOperando> lista = new List<ComponenteOperando>
+            {
+                cuenta,
+                indicadorTest
+            };
             int periodo = 2017;
             var serv = new IndicadorService() { Indicador = indicadorTest };
             double result = serv.ObtenerValor(empresa, periodo, lista);
@@ -108,12 +118,16 @@ namespace DONDE_INVIERTO.Service.Tests
         [TestMethod]
         public void MultiplicacionCuentaValor()
         {
-            ComponenteOperando indicadorTest = new ComponenteOperando();
-            indicadorTest.Formula = "10 * terd";
-            indicadorTest.Nombre = "ind";
-            ComponenteOperando cuenta = new ComponenteOperando();
-            cuenta.Nombre = "terd";
-            cuenta.Valor = 50;
+            ComponenteOperando indicadorTest = new ComponenteOperando
+            {
+                Formula = "10 * terd",
+                Nombre = "ind"
+            };
+            ComponenteOperando cuenta = new ComponenteOperando
+            {
+                Nombre = "terd",
+                Valor = 50
+            };
 
             EmpresaView empresa = new EmpresaView() { Id = 4 };
             Balance bal = new Balance
@@ -123,9 +137,11 @@ namespace DONDE_INVIERTO.Service.Tests
             };
             empresa.Balances.Add(bal);
 
-            List<ComponenteOperando> lista = new List<ComponenteOperando>();
-            lista.Add(cuenta);
-            lista.Add(indicadorTest);
+            List<ComponenteOperando> lista = new List<ComponenteOperando>
+            {
+                cuenta,
+                indicadorTest
+            };
             int periodo = 2017;
             var serv = new IndicadorService() { Indicador = indicadorTest };
 
