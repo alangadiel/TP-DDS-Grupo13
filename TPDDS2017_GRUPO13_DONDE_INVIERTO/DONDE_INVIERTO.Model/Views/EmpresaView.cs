@@ -5,6 +5,11 @@ namespace DONDE_INVIERTO.Model.Views
 {
     public class EmpresaView
     {
+        public EmpresaView()
+        {
+            Balances = new List<Balance>();
+        }
+
         public int Id { get; set; }
 
         public string Nombre { get; set; }

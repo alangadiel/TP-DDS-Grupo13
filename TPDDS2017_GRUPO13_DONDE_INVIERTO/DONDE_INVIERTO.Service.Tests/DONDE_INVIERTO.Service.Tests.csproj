@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DONDE_INVIERTO.Service.Tests</RootNamespace>
     <AssemblyName>DONDE_INVIERTO.Service.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
@@ -19,6 +19,7 @@
     <TestProjectType>UnitTest</TestProjectType>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,6 +54,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DONDE_INVIERTO.DataStorage\DONDE_INVIERTO.DataStorage.csproj">
+      <Project>{cb9ed814-1947-49b5-b481-07c15b3f3a6a}</Project>
+      <Name>DONDE_INVIERTO.DataStorage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DONDE_INVIERTO.Model\DONDE_INVIERTO.Model.csproj">
+      <Project>{2027f090-dff6-4c66-b400-1c3a8f03210e}</Project>
+      <Name>DONDE_INVIERTO.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DONDE_INVIERTO.Service\DONDE_INVIERTO.Service.csproj">
+      <Project>{09717102-7d62-4726-8c15-5d6ee9ee708d}</Project>
+      <Name>DONDE_INVIERTO.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

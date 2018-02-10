@@ -1,4 +1,5 @@
 ﻿using Antlr4.Runtime.Misc;
+using DONDE_INVIERTO.ANTLR.Gramatica;
 using DONDE_INVIERTO.Model;
 using DONDE_INVIERTO.Model.Views;
 using DONDE_INVIERTO.Service;
@@ -57,7 +58,7 @@ namespace DONDE_INVIERTO.ANTLR
             var indicadorBuscado = context.INDICADOR().GetText();
             var indicadorEncontrado = _componentes.FirstOrDefault(x => x.Nombre.ToLower() == indicadorBuscado.ToLower());
             if (indicadorEncontrado == null) throw new Exception("No se encontro el indicador: " + indicadorBuscado);
-            var serv = new IndicadorService { Indicador = indicadorEncontrado };
+            var serv = new ComponenteService { Componente = indicadorEncontrado };
             return serv.ObtenerValor(_empresa, _periodo, _componentes);
         }
     }

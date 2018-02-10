@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS dondeinvierto
+DROP DATABASE dondeinvierto
 GO
 
 CREATE DATABASE dondeinvierto

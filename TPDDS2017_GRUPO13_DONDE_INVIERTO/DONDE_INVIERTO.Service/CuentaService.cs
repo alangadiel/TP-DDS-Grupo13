@@ -15,8 +15,8 @@ namespace DONDE_INVIERTO.Service
         {
             var balances = empresa.Balances;
             var balanceBuscado = balances.FirstOrDefault(x => x.Periodo == periodo);
-            var componentes = Context.Session.Query<ComponenteOperando>().Where(comp => comp.BalanceId == balanceBuscado.Id).ToList();
-            var cuentaBuscada = componentes.FirstOrDefault(x => x.Nombre.ToLower() == Cuenta.Nombre.ToLower());
+            //var componentes = Context.Session.Query<ComponenteOperando>().Where(comp => comp.BalanceId == balanceBuscado.Id).ToList();
+            var cuentaBuscada = listaOperandos.FirstOrDefault(x => x.Nombre.ToLower() == Cuenta.Nombre.ToLower());
             return cuentaBuscada != null ? (double) cuentaBuscada.Valor.Value : 0;
         }
     }
