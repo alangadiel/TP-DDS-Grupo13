@@ -13,7 +13,6 @@ namespace DONDE_INVIERTO.Service
             if (loggedUser.Count > 0)
                 return loggedUser[0];
             return null;
-
         }
     }
 }

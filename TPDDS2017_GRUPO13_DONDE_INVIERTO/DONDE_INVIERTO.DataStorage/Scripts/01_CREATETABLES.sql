@@ -257,6 +257,12 @@ INSERT INTO [dbo].[tipocondiciones]
 		   ('ROEC', 'Roe consistente');
 GO
 
+INSERT INTO [dbo].[usuarios]
+			(usu_usuario, usu_contrasenia)
+			VALUES
+			('admin', 'admin');
+GO
+
 
 /*ALTER TABLE [dbo].[metodologia]  WITH CHECK ADD  CONSTRAINT [FK_metodologia_usuario] FOREIGN KEY([met_usuario_id])
 REFERENCES [dbo].[usuario] ([usu_id])
