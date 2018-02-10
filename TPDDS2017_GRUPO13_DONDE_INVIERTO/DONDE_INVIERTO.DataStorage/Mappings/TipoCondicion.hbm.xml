@@ -1,0 +1,9 @@
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="DONDE_INVIERTO.Model" assembly="DONDE_INVIERTO.DataStorage">
+	<class name="TipoCondicion" table="tipocondiciones" lazy="false">
+		<id name="Id" column="tcon_id" unsaved-value="0">
+			<generator class="native" />
+		</id>
+		<property name="Codigo" column="tcon_codigo" not-null="false" length="5" />
+		<property name="Descripcion" column="tcon_descripcion" not-null="false" length="20" />
+	</class>
+</hibernate-mapping>

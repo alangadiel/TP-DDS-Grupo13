@@ -1,0 +1,13 @@
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="DONDE_INVIERTO.Model" assembly="DONDE_INVIERTO.DataStorage">
+	<class name="ComponenteOperando" table="operandos" lazy="false">
+		<id name="Id" column="oper_id" unsaved-value="0">
+			<generator class="native" />
+		</id>
+		<property name="BalanceId" column="oper_balance_id" not-null="false" />
+		<property name="Discriminador" column="oper_discriminator" not-null="true" length="200" />
+		<property name="Formula" column="oper_formula" not-null="false" length="200" />
+		<property name="Nombre" column="oper_nombre" not-null="false" length="200" />
+		<property name="PadreId" column="oper_indicadorpadre_id" not-null="false" />
+		<property name="Valor" column="oper_valor" not-null="false" />
+	</class>
+</hibernate-mapping>

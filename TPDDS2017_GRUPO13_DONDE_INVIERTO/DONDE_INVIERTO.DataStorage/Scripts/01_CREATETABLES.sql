@@ -49,6 +49,7 @@ GO
 CREATE TABLE [dbo].[empresas](
 	[empr_id] [int] IDENTITY(1,1),
 	[empr_nombre] [nvarchar](200),
+	[empr_fecba_fundacion] [datetime]
  CONSTRAINT [PK_empresa] PRIMARY KEY CLUSTERED 
 (
 	[empr_id] ASC
@@ -66,16 +67,37 @@ CREATE TABLE [dbo].[metodologias](
 ) ON [PRIMARY]
 GO
 
-CREATE TABLE [dbo].[metodologiacondicions](
+CREATE TABLE [dbo].[metodologiacondiciones](
+	[metcon_id] [int] NOT NULL IDENTITY(1,1),
 	[metcon_metodologia_id] [int] NOT NULL,
 	[metcon_condicion_id] [int] NOT NULL,
  CONSTRAINT [PK_metodologiacondicion] PRIMARY KEY CLUSTERED 
 (
-	[metcon_metodologia_id] ASC,
-    [metcon_condicion_id] ASC
+	[metcon_id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+
+CREATE TABLE [dbo].[tipocondiciones](
+	[tcon_id] [int] NOT NULL IDENTITY(1,1),
+	[tcon_codigo] [nvarchar](5) NULL,
+	[tcon_descripcion] [nvarchar](20) NULL,
+ CONSTRAINT [PK_tipocondiciones] PRIMARY KEY CLUSTERED 
+(
+	[tcon_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[usuarios](
+	[usu_id] [int] IDENTITY(1,1) NOT NULL,
+	[usu_usuario] [nvarchar](20) NOT NULL,
+	[usu_contrasenia] [nvarchar](20) NOT NULL
+ CONSTRAINT [PK_usuario] PRIMARY KEY CLUSTERED 
+(
+	[usu_id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 
 /*CREATE TABLE [dbo].[condicion_metodologia](
 	[come_id] [int] IDENTITY(1,1),
@@ -171,10 +193,7 @@ GO
 CREATE TABLE [dbo].[usuario](
 	[usu_id] [int] IDENTITY(1,1) NOT NULL,
 	[usu_usuario] [nvarchar](20) NOT NULL,
-	[usu_contrasenia] [nvarchar](20) NOT NULL,
-	[usu_nombre] [nvarchar](50) NOT NULL,
-	[usu_apellido] [nvarchar](50) NOT NULL,
-	[usu_fecha_alta] [datetime] NOT NULL
+	[usu_contrasenia] [nvarchar](20) NOT NULL
  CONSTRAINT [PK_usuario] PRIMARY KEY CLUSTERED 
 (
 	[usu_id] ASC
@@ -213,18 +232,35 @@ GO
 ALTER TABLE [dbo].[condiciones] CHECK CONSTRAINT [FK_cond_indicador]
 GO
 
-ALTER TABLE [dbo].[metodologiacondicions]  WITH CHECK ADD  CONSTRAINT [FK_metcon_metodologia] FOREIGN KEY([metcon_metodologia_id])
+ALTER TABLE [dbo].[metodologiacondiciones]  WITH CHECK ADD  CONSTRAINT [FK_metcon_metodologia] FOREIGN KEY([metcon_metodologia_id])
 REFERENCES [dbo].[metodologias] ([meto_id])
 GO
 
-ALTER TABLE [dbo].[metodologiacondicions] CHECK CONSTRAINT [FK_metcon_metodologia]
+ALTER TABLE [dbo].[metodologiacondiciones] CHECK CONSTRAINT [FK_metcon_metodologia]
 GO
 
-ALTER TABLE [dbo].[metodologiacondicions]  WITH CHECK ADD  CONSTRAINT [FK_metcon_condicion] FOREIGN KEY([metcon_condicion_id])
+ALTER TABLE [dbo].[metodologiacondiciones]  WITH CHECK ADD  CONSTRAINT [FK_metcon_condicion] FOREIGN KEY([metcon_condicion_id])
 REFERENCES [dbo].[condiciones] ([cond_id])
 GO
 
-ALTER TABLE [dbo].[metodologiacondicions] CHECK CONSTRAINT [FK_metcon_condicion]
+ALTER TABLE [dbo].[metodologiacondiciones] CHECK CONSTRAINT [FK_metcon_condicion]
+GO
+
+INSERT INTO [dbo].[tipocondiciones]
+           ([tcon_codigo]
+           ,[tcon_descripcion])
+     VALUES
+           ('LONG','Longevidad'),
+		   ('MCRE', 'Margenes crecientes'),
+		   ('MUNO', 'Mayor a uno'),
+		   ('MDEU', 'Minimizar deuda'),
+		   ('ROEC', 'Roe consistente');
+GO
+
+INSERT INTO [dbo].[usuarios]
+			(usu_usuario, usu_contrasenia)
+			VALUES
+			('admin', 'admin');
 GO
 
 

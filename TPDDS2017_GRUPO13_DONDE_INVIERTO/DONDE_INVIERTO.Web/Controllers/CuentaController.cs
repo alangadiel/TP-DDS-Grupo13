@@ -26,7 +26,8 @@ namespace DONDE_INVIERTO.Web.Controllers
         public ActionResult Create()
         {
             ViewBag.Empresas = new EmpresaService().List().OrderBy(x => x.Nombre);
-            Model.Periodo periodo = new Model.Periodo();
+            /*
+            Model.Periodo periodo = new Model.Periodo();*/
             /*
             periodo.Inicio = DateTime.Today.AddYears(-1);
             periodo.Fin = DateTime.Today;*/
@@ -34,20 +35,22 @@ namespace DONDE_INVIERTO.Web.Controllers
             /*
             model.Periodo = periodo;
             model.Cuenta = new Cuenta();*/
-            CuentaPeriodo model = new CuentaPeriodo();
-            return View(model);
+            /*
+            CuentaPeriodo model = new CuentaPeriodo();*/
+            //return View(model);
+            return View();
         }
 
         // POST: Cuenta/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CuentaPeriodo model)
+        public ActionResult Create(object o)
         {
             if (ModelState.IsValid)
             {
                 return RedirectToAction("List");
             }
-            return View(model);
+            return View();
         }
 
         // GET: Cuenta/Edit/5

@@ -5,16 +5,11 @@ using DONDE_INVIERTO.Model;
 using DONDE_INVIERTO.Model.Views;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DONDE_INVIERTO.Service
 {
     public class IndicadorService 
     {
-        const string pattern = @"((\b([A-z]*[0-9]*|[0-9]*[A-z]*)[a-z0-9]*\b)([+\-\*\/]\(?(\b([a-z]*[0-9]*|[0-9]*[a-z]*)[a-z0-9]*\b)\)?)+)";
-
         public ComponenteOperando Indicador { get; set; }
         public double ObtenerValor(EmpresaView empresa, int periodo, List<ComponenteOperando> listaOperandos)
         {

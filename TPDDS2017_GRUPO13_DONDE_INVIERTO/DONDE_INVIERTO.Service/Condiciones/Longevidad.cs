@@ -10,7 +10,6 @@ namespace DONDE_INVIERTO.ANTLR
         public TipoCondicion Tipo { get; set; }
         public ComponenteOperando Componente { get; set; }
 
-+
         public bool Analizar(EmpresaView empresa, List<ComponenteOperando> componentes)
         {
             return empresa.FechaFundacion <= DateTime.Now.AddYears(-10);

@@ -1,0 +1,9 @@
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="DONDE_INVIERTO.Model" assembly="DONDE_INVIERTO.DataStorage">
+	<class name="MetodologiaCondicion" table="metodologiacondiciones" lazy="false">
+		<id name="Id" column="metcon_id" unsaved-value="0">
+			<generator class="native" />
+		</id>
+		<property name="CondicionId" column="metcon_condicion_id" not-null="true" />
+		<property name="MetodologiaId" column="metcon_metodologia_id" not-null="true" />
+	</class>
+</hibernate-mapping>

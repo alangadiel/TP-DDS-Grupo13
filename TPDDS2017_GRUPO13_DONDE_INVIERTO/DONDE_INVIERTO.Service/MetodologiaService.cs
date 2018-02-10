@@ -19,9 +19,9 @@ namespace DONDE_INVIERTO.Service
             return this.Condiciones.All(x => x.Analizar(emp, lista));
         }
 
-        public List<Empresa> ObtenerEmpresasDeseables(List<Empresa> empresas, List<ComponenteOperando> lista)
+        public List<EmpresaView> ObtenerEmpresasDeseables(List<EmpresaView> empresas, List<ComponenteOperando> lista)
         {
-            List<Empresa> deseables = new List<Empresa>();
+            var deseables = new List<EmpresaView>();
             deseables = empresas.Where(x => this.EsDeseableInvertir(x, lista)).ToList();
             return deseables;
         }

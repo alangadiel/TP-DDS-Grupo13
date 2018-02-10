@@ -63,40 +63,31 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="TrailHealth.Integration">
+      <HintPath>..\Libraries\TrailHealth.Integration.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="StorageProvider.cs" />
+    <Compile Include="Context.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mappers\Condicion.hbm.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Mappers\Cuenta.hbm.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Mappers\Indicador.hbm.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Mappers\Periodo.hbm.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Mappers\Usuario.hbm.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Mappings\Balance.hbm.xml" />
+    <EmbeddedResource Include="Mappings\ComponenteOperando.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Condicion.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Empresa.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Metodologia.hbm.xml" />
+    <EmbeddedResource Include="Mappings\MetodologiaCondicion.hbm.xml" />
+    <EmbeddedResource Include="Mappings\TipoCondicion.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Usuario.hbm.xml" />
     <Content Include="Scripts\01_CREATETABLES.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappers\Empresa.hbm.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DONDE_INVIERTO.Model\DONDE_INVIERTO.Model.csproj">

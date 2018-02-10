@@ -40,14 +40,14 @@ namespace DONDE_INVIERTO.Web.Controllers
         // POST: Indicador/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Nombre, Contenido")] Indicador indicador)
+        public ActionResult Create([Bind(Include = "Nombre, Contenido")]object o)
         {
             if (ModelState.IsValid)
             {
                 //Service.Save(indicador.Nombre, indicador.Contenido);
                 return RedirectToAction("List");
             }
-            return View(indicador);
+            return View();
         }
 
         // GET: Indicador/Edit/5
