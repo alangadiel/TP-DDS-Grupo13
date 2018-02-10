@@ -54,14 +54,11 @@ namespace DONDE_INVIERTO.ANTLR
         }
         public override double VisitIndicador([NotNull] gramaticaParser.IndicadorContext context)
         {
-            /*var aEncontrar = context.INDICADOR().GetText();
-            var encontrado = _indicadores.FirstOrDefault(ind => ind.Nombre.ToLower() == aEncontrar.ToLower());
-            return new IndicadorCore(encontrado).ObtenerValor(_empresa, _periodo, _indicadores);*/
-            string indicadorBuscado = context.INDICADOR().GetText();
-            ComponenteOperando indicadorEncontrado = _componentes.FirstOrDefault(x => x.Nombre.ToLower() == indicadorBuscado.ToLower());
+            var indicadorBuscado = context.INDICADOR().GetText();
+            var indicadorEncontrado = _componentes.FirstOrDefault(x => x.Nombre.ToLower() == indicadorBuscado.ToLower());
             if (indicadorEncontrado == null) throw new Exception("No se encontro el indicador: " + indicadorBuscado);
             var serv = new IndicadorService { Indicador = indicadorEncontrado };
-            //return indicadorEncontrado.ObtenerValor(this.empresa, this.periodo, _componentes);
+            return serv.ObtenerValor(_empresa, _periodo, _componentes);
         }
     }
 }

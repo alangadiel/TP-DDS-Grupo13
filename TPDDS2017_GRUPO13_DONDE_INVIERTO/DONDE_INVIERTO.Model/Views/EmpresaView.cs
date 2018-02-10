@@ -9,7 +9,7 @@ namespace DONDE_INVIERTO.Model.Views
 
         public string Nombre { get; set; }
 
-        public DateTime FechaFundacion { get; set; }
+        public DateTime? FechaFundacion { get; set; }
 
         public List<Balance> Balances { get; set; }
 

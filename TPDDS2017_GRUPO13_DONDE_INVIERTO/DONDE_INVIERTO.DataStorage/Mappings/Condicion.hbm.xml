@@ -1,0 +1,10 @@
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="DONDE_INVIERTO.Model" assembly="DONDE_INVIERTO.DataStorage">
+	<class name="Condicion" table="condiciones" lazy="false">
+		<id name="Id" column="cond_id" unsaved-value="0">
+			<generator class="native" />
+		</id>
+		<property name="Descripcion" column="cond_descripcion" not-null="false" length="200" />
+		<property name="Discriminador" column="cond_discriminator" not-null="true" length="200" />
+		<property name="IndicadorId" column="cond_indicador_id" not-null="false" />
+	</class>
+</hibernate-mapping>

@@ -1,5 +1,6 @@
 ﻿using DONDE_INVIERTO.Model;
 using DONDE_INVIERTO.Model.Views;
+using DONDE_INVIERTO.Service;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,10 +16,10 @@ namespace DONDE_INVIERTO.ANTLR
             bool result = true;
             List<int> periodos = empresa.Balances.Select(x => x.Periodo).OrderBy(x => x).ToList();
             int i = 0;
-            var core = new IndicadorCore(Componente);
+            var service = new ComponenteService() { Componente = Componente };
             while (i < periodos.Count - 1 && result)
             {
-                result = core.ObtenerValor(empresa, periodos[i], componentes) < core.ObtenerValor(empresa, periodos[i + 1], componentes);
+                result = service.ObtenerValor(empresa, periodos[i], componentes) < service.ObtenerValor(empresa, periodos[i + 1], componentes);
                 i++;
             }
             return result;
