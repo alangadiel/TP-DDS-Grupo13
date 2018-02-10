@@ -2,7 +2,7 @@
 
 namespace DONDE_INVIERTO.Model
 {
-    public abstract class ComponenteOperando
+    public class ComponenteOperando
     {
         public int Id { get; set; }
         public int? IndicadorPadre_Id { get; set; }

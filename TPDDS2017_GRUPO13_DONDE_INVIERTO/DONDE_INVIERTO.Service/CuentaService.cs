@@ -19,7 +19,7 @@ namespace DONDE_INVIERTO.Service
         {
             List<Balance> balances = empresa.Balances;
             Balance balanceBuscado = balances.FirstOrDefault(x => x.Periodo == periodo);
-            Cuenta cuentaBuscada = balanceBuscado.Cuentas.FirstOrDefault(x => x.Nombre.ToLower() == Cuenta.Nombre.ToLower());
+            ComponenteOperando cuentaBuscada = balanceBuscado.Cuentas.FirstOrDefault(x => x.Nombre.ToLower() == Cuenta.Nombre.ToLower());
             return cuentaBuscada != null ? cuentaBuscada.Valor : 0;
         }
     }
