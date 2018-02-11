@@ -1,0 +1,13 @@
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\b\DONDE_INVIERTO.DataStorage\bin\Debug\Mappers\Condicion.hbm.xml
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\b\DONDE_INVIERTO.DataStorage\bin\Debug\Mappers\Cuenta.hbm.xml
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\b\DONDE_INVIERTO.DataStorage\bin\Debug\Mappers\Indicador.hbm.xml
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\b\DONDE_INVIERTO.DataStorage\bin\Debug\Mappers\Periodo.hbm.xml
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\b\DONDE_INVIERTO.DataStorage\bin\Debug\Mappers\Usuario.hbm.xml
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\b\DONDE_INVIERTO.DataStorage\bin\Debug\Mappers\Empresa.hbm.xml
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\b\DONDE_INVIERTO.DataStorage\bin\Debug\DONDE_INVIERTO.DataStorage.dll.config
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\b\DONDE_INVIERTO.DataStorage\bin\Debug\DONDE_INVIERTO.DataStorage.dll
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\b\DONDE_INVIERTO.DataStorage\bin\Debug\DONDE_INVIERTO.DataStorage.pdb
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\i\DONDE_INVIERTO.DataStorage\Debug\DONDE_INVIERTO.DataStorage.csprojResolveAssemblyReference.cache
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\i\DONDE_INVIERTO.DataStorage\Debug\DONDE_INVIERTO.DataStorage.csproj.CoreCompileInputs.cache
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\i\DONDE_INVIERTO.DataStorage\Debug\DONDE_INVIERTO.DataStorage.dll
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\i\DONDE_INVIERTO.DataStorage\Debug\DONDE_INVIERTO.DataStorage.pdb

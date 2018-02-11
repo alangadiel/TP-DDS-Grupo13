@@ -1,0 +1,11 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="DONDE_INVIERTO.Model"
+                   namespace="DONDE_INVIERTO.Model">
+  <class name="Cuenta"  table="cuenta">
+    <id name="Id"
+        column="cue_id">
+      <generator class="native" />
+    </id>
+    <property name="Nombre" column="cue_nombre" type="string" length="200" not-null="true"/>
+  </class>
+</hibernate-mapping>

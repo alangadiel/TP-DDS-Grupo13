@@ -1,0 +1,10 @@
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\ANTLR\bin\Debug\ANTLR.dll
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\ANTLR\bin\Debug\ANTLR.pdb
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\ANTLR\bin\Debug\Antlr4.Runtime.dll
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\ANTLR\bin\Debug\Antlr4.Runtime.xml
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\ANTLR\obj\Debug\ANTLR.csprojResolveAssemblyReference.cache
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\ANTLR\obj\Debug\ANTLR.Properties.Resources.resources
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\ANTLR\obj\Debug\ANTLR.csproj.GenerateResource.Cache
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\ANTLR\obj\Debug\ANTLR.csproj.CoreCompileInputs.cache
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\ANTLR\obj\Debug\ANTLR.dll
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\ANTLR\obj\Debug\ANTLR.pdb

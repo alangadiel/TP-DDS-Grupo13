@@ -1,0 +1,13 @@
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\b\DONDE_INVIERTO.Service\bin\Debug\Mappers\Condicion.hbm.xml
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\b\DONDE_INVIERTO.Service\bin\Debug\Mappers\Cuenta.hbm.xml
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\b\DONDE_INVIERTO.Service\bin\Debug\Mappers\Indicador.hbm.xml
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\b\DONDE_INVIERTO.Service\bin\Debug\Mappers\Periodo.hbm.xml
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\b\DONDE_INVIERTO.Service\bin\Debug\Mappers\Usuario.hbm.xml
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\b\DONDE_INVIERTO.Service\bin\Debug\Mappers\Empresa.hbm.xml
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\b\DONDE_INVIERTO.Service\bin\Debug\DONDE_INVIERTO.Service.dll.config
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\b\DONDE_INVIERTO.Service\bin\Debug\DONDE_INVIERTO.Service.dll
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\b\DONDE_INVIERTO.Service\bin\Debug\DONDE_INVIERTO.Service.pdb
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\i\DONDE_INVIERTO.Service\Debug\DONDE_INVIERTO.Service.csprojResolveAssemblyReference.cache
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\i\DONDE_INVIERTO.Service\Debug\DONDE_INVIERTO.Service.csproj.CoreCompileInputs.cache
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\i\DONDE_INVIERTO.Service\Debug\DONDE_INVIERTO.Service.dll
+C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\.vs\TPDDS2017_GRUPO13_DONDE_INVIERTO\lut\0\i\DONDE_INVIERTO.Service\Debug\DONDE_INVIERTO.Service.pdb

@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DONDE_INVIERTO.Web", "DONDE_INVIERTO.Web\DONDE_INVIERTO.Web.csproj", "{477666BD-BB7B-4CAF-B657-F8FE9F857E56}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CB9ED814-1947-49B5-B481-07C15B3F3A6A} = {CB9ED814-1947-49B5-B481-07C15B3F3A6A}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DONDE_INVIERTO.Web.Tests", "DONDE_INVIERTO.Web.Tests\DONDE_INVIERTO.Web.Tests.csproj", "{871FD0C7-0A18-495A-B987-96154734F077}"
 EndProject

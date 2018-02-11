@@ -23,7 +23,8 @@ namespace DONDE_INVIERTO.Service.Tests
             ComponenteOperando cuenta = new ComponenteOperando
             {
                 Nombre = "cuenta",
-                Valor = 50
+                Valor = 50,
+                BalanceId = 1
             };
             ComponenteOperando indicador2 = new ComponenteOperando
             {
@@ -32,6 +33,7 @@ namespace DONDE_INVIERTO.Service.Tests
             EmpresaView empresa = new EmpresaView() { Id=4 } ;
             Balance bal = new Balance
             {
+                Id = 1,
                 EmpresaId = empresa.Id,
                 Periodo = 2017
             };
@@ -60,7 +62,8 @@ namespace DONDE_INVIERTO.Service.Tests
             ComponenteOperando cuenta = new ComponenteOperando
             {
                 Nombre = "cuenta",
-                Valor = 50
+                Valor = 50,
+                BalanceId=1
             };
             ComponenteOperando indicador2 = new ComponenteOperando
             {
@@ -69,6 +72,7 @@ namespace DONDE_INVIERTO.Service.Tests
             EmpresaView empresa = new EmpresaView() { Id = 4 };
             Balance bal = new Balance
             {
+                Id=1,
                 EmpresaId = empresa.Id,
                 Periodo = 2017
             };
@@ -95,11 +99,13 @@ namespace DONDE_INVIERTO.Service.Tests
             ComponenteOperando cuenta = new ComponenteOperando
             {
                 Nombre = "terd",
-                Valor = 50
+                Valor = 50,
+                BalanceId = 1
             };
             EmpresaView empresa = new EmpresaView() { Id = 4 };
             Balance bal = new Balance
             {
+                Id =1, 
                 EmpresaId = empresa.Id,
                 Periodo = 2017
             };
@@ -126,12 +132,14 @@ namespace DONDE_INVIERTO.Service.Tests
             ComponenteOperando cuenta = new ComponenteOperando
             {
                 Nombre = "terd",
-                Valor = 50
+                Valor = 50,
+                BalanceId = 1
             };
 
             EmpresaView empresa = new EmpresaView() { Id = 4 };
             Balance bal = new Balance
             {
+                Id=1,
                 EmpresaId = empresa.Id,
                 Periodo = 2017
             };

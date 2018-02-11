@@ -12,7 +12,7 @@ namespace DONDE_INVIERTO.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            if (HttpContext.Session["LoggedSession"] == null)
+            if (!HttpContext.User.Identity.IsAuthenticated)
             {
                 return View("../User/Login", new Usuario());
             }

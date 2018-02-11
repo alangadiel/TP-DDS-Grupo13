@@ -25,7 +25,7 @@
           <StartPageUrl>
           </StartPageUrl>
           <StartAction>CurrentPage</StartAction>
-          <AspNetDebugging>False</AspNetDebugging>
+          <AspNetDebugging>True</AspNetDebugging>
           <SilverlightDebugging>False</SilverlightDebugging>
           <NativeDebugging>False</NativeDebugging>
           <SQLDebugging>False</SQLDebugging>

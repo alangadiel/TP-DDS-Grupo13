@@ -38,7 +38,7 @@ namespace DONDE_INVIERTO.DataStorage
                         typeof(NHibernate.Bytecode.DefaultProxyFactoryFactory).AssemblyQualifiedName);
                 configuration.SetProperty(
                   NHibernate.Cfg.Environment.Dialect,
-                  typeof(NHibernate.Dialect.MySQLDialect).AssemblyQualifiedName);
+                  typeof(NHibernate.Dialect.MsSql2012Dialect).AssemblyQualifiedName);
                 configuration.SetProperty(
                   NHibernate.Cfg.Environment.ConnectionString, GetConectionString());
                 configuration.SetProperty(

@@ -1,0 +1,15 @@
+﻿<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="DONDE_INVIERTO.Model"
+                   namespace="DONDE_INVIERTO.Model">
+  <class name="Usuario"  table="usuario">
+    <id name="Id"
+        column="usu_id">
+      <generator class="native" />
+    </id>
+    <property name="UserName" column="usu_usuario" type="string" length="20" not-null="true"/>
+    <property name="Contrasenia" column="usu_contrasenia" type="string" length="20" not-null="true"/>
+    <property name="Nombre" column="usu_nombre" type="string" length="50" not-null="true"/>
+    <property name="Apellido" column="usu_apellido" type="string" length="50" not-null="true"/>
+    <property name="FechaAlta" column="usu_fecha_alta" type="date" not-null="true"/>
+  </class>
+</hibernate-mapping>
