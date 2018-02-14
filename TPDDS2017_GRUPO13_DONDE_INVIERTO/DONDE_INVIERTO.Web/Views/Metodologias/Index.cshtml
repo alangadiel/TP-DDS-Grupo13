@@ -1,0 +1,46 @@
+﻿@model List<TpIntegradorDiuj.Models.Metodologia>
+@{
+    ViewBag.Title = "Metodologias";
+}
+<script>
+    $(function () {
+        $("#tabla").dataTable();
+    });
+</script>
+<div class="col-md-5 row" style="margin-top:10px">
+    <a class="btn btn-primary" href="@Url.Action("Create")"><i class="fa fa-plus"></i> Crear Metodologia</a>
+</div>
+<h2>Metodologias</h2>
+
+<table id="tabla" class="dataTable table table-bordered table-condensed">
+    <thead>
+        <tr>
+            @*<th>Id</th>*@
+            <th>Nombre</th>
+            <th>Condiciones</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<td>@item.Id</td>*@
+                <td>@item.Nombre</td>
+                <td>
+                    <ul>
+                        @foreach (var elem in item.Condiciones)
+                        {
+                            <li>@elem.Descripcion</li>
+                        }
+                    </ul>
+                </td>
+                <td>
+                    <a title="Empresas deseables para invertir" href="@Url.Action("ObtenerEmpresasDeseables","Metodologias",new { idMetodologia = item.Id })"><i class="fa fa-line-chart"></i> Ver empresas deseables</a>
+                    <a href="@Url.Action("Delete","Metodologias",new { id = item.Id})" onclick="return confirm('¿Está seguro que desea eliminar este registro?')"> <i class="fa fa-trash"></i> Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

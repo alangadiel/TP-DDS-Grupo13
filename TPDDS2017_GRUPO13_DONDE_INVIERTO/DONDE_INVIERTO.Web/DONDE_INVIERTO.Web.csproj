@@ -269,20 +269,24 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Empresa\List.cshtml" />
-    <Content Include="Views\Empresa\Create.cshtml" />
-    <Content Include="Views\Empresa\Delete.cshtml" />
-    <Content Include="Views\Empresa\Edit.cshtml" />
-    <Content Include="Views\Cuenta\Create.cshtml" />
-    <Content Include="Views\Indicador\Create.cshtml" />
-    <Content Include="Views\Indicador\List.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Metodologia\Create.cshtml" />
-    <Content Include="Views\Empresa\ConsultarValor.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Balances\Create.cshtml" />
+    <Content Include="Views\Balances\Details.cshtml" />
+    <Content Include="Views\Balances\Edit.cshtml" />
+    <Content Include="Views\Balances\Index.cshtml" />
+    <Content Include="Views\Condiciones\Create.cshtml" />
+    <Content Include="Views\Condiciones\Index.cshtml" />
+    <Content Include="Views\Empresas\Create.cshtml" />
+    <Content Include="Views\Empresas\Edit.cshtml" />
+    <Content Include="Views\Empresas\Index.cshtml" />
+    <Content Include="Views\Indicadores\Create.cshtml" />
+    <Content Include="Views\Indicadores\Edit.cshtml" />
+    <Content Include="Views\Indicadores\Index.cshtml" />
+    <Content Include="Views\Metodologias\Create.cshtml" />
+    <Content Include="Views\Metodologias\Index.cshtml" />
+    <Content Include="Views\Metodologias\ObtenerEmpresasDeseables.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

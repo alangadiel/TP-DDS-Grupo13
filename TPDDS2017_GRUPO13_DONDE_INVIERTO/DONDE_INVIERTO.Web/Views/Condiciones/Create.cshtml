@@ -1,0 +1,27 @@
+﻿@model TpIntegradorDiuj.Models.Condicion
+@{
+    ViewBag.Title = "Create";
+    List<SelectListItem> listIndicadores = new List<SelectListItem>();
+    List<SelectListItem> _listIndicadores = ViewBag.ListIndicadores as List<SelectListItem>;
+    listIndicadores.AddRange(_listIndicadores);
+}
+
+<h2>Crear condicion</h2>
+<form method="post" action="@Url.Action("Create")">
+    <div class="form-group">
+        <label>Descripcion</label>
+        @Html.TextBoxFor(Model => Model.Descripcion, new { @class = "form-control",@required="true" })
+    </div>
+    <div class="form-group">
+        <label>Tipo de condicion</label>
+        @Html.EnumDropDownListFor(Model=>Model.Tipo,new { @class="form-control",@required="true"})
+    </div>
+    <div class="form-group">
+        <label>Indicador</label>
+        @Html.DropDownListFor(Model => Model.Indicador_Id, listIndicadores,"Seleccione indicador..", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Guardar" class="btn btn-primary"/>
+    </div>
+</form>
+

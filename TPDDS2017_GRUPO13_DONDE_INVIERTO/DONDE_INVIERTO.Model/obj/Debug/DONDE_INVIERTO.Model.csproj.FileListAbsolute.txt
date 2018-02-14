@@ -4,3 +4,8 @@ C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIER
 C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Model\obj\Debug\DONDE_INVIERTO.Model.csproj.CoreCompileInputs.cache
 C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Model\obj\Debug\DONDE_INVIERTO.Model.dll
 C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Model\obj\Debug\DONDE_INVIERTO.Model.pdb
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Model\bin\Debug\DONDE_INVIERTO.Model.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Model\bin\Debug\DONDE_INVIERTO.Model.pdb
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Model\obj\Debug\DONDE_INVIERTO.Model.csproj.CoreCompileInputs.cache
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Model\obj\Debug\DONDE_INVIERTO.Model.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Model\obj\Debug\DONDE_INVIERTO.Model.pdb

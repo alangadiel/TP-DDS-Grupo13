@@ -12,7 +12,7 @@ namespace DONDE_INVIERTO.Web.Controllers
     {
         private EmpresaService Service = new EmpresaService();
 
-        public ActionResult List()
+        public ActionResult Index()
         {
             return View(Service.List());
         }

@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "Crear Indicador";
+}
+<script>
+    function validaciones(){
+        var nombreCheck = /^[a-zA-Z]{1,15}$/.test($("#nombre").val());
+        var formulaCheck = /^\-?([0-9]+|[a-zA-Z]+)((([-+/*][0-9]+)?([.,][0-9]+)?)|([-+/*][a-zA-Z]+))*?$/.test($("#formula").val());
+        var errores="";
+        if (!nombreCheck)
+            errores += "<li>El nombre es obligatorio y solo puede contener minusculas y mayusculas, con un maximo de 15 caracteres.</li>";
+        if (!formulaCheck) 
+            errores += "<li>La formula es obligatoria y debe respetar los puntos detallados abajo.</li>";
+        var recursiveCheck = !($("#formula").val().indexOf($("#nombre").val()) !== -1);
+        if (!recursiveCheck)
+            errores += "<li>La formula no puede ser recursiva.</li>";
+        if (nombreCheck && formulaCheck && recursiveCheck)
+            $("#form").submit();
+        else {
+            $("#listaErrores").html(errores);
+            $(".divErrores").show();
+        }
+
+    }
+</script>
+
+<style>
+    .modal-dialog {
+        margin-left: -200px;
+    }
+</style>
+
+<h2>Crear Indicador</h2>
+@Html.ValidationSummary()
+@using (Html.BeginForm("Create", "Indicadores", FormMethod.Post,new { @id="form"}))
+{
+    <div class="form-horizontal">
+
+        <div class="alert alert-danger divErrores" style="display: none;">
+            <strong>Errores:<br></strong> <ul id="listaErrores"></ul>
+        </div>
+        <div class="form-group"><label>Nombre </label><input type="text" name="Nombre" placeholder="Nombre" id="nombre" class="form-control" required /> </div>     
+
+        <div class="form-group"><label>Formula</label><input type="text" name="Formula" placeholder="Formula" id="formula" class="form-control" required /> </div>
+        <ul style="color:orange">
+            <li>La formula a ingresar acepta las operaciones +,-,/ y * </li>
+            <li>Para Cuentas e Indicadores, debe ingresar la cadena de caracteres correspondiente (Sin espacios ni numeros)</li>
+            <li>Se permite el ingreso de parentesis en la expresión de la formula</li>
+            <li>La formula no debe contener espacios</li>
+            <li>Ejemplo: EBITDA*(3+ROE) siendo ROE un indicador y EBITDA una cuenta</li>
+        </ul>
+        <div class="form-group"> <input type="button" class="btn btn-primary" value="Guardar" onclick="javascript:validaciones()" /></div>
+    </div>
+
+}
+

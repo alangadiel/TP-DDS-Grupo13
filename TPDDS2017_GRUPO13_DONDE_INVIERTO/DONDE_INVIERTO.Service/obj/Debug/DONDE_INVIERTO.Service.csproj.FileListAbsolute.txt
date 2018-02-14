@@ -23,3 +23,27 @@ C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIER
 C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\obj\Debug\DONDE_INVIERTO.Service.csproj.CoreCompileInputs.cache
 C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\obj\Debug\DONDE_INVIERTO.Service.dll
 C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\obj\Debug\DONDE_INVIERTO.Service.pdb
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\bin\Debug\DONDE_INVIERTO.Service.dll.config
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\bin\Debug\DONDE_INVIERTO.Service.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\bin\Debug\DONDE_INVIERTO.Service.pdb
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\bin\Debug\Antlr3.Runtime.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\bin\Debug\Antlr4.Runtime.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\bin\Debug\DONDE_INVIERTO.DataStorage.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\bin\Debug\DONDE_INVIERTO.Model.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\bin\Debug\Iesi.Collections.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\bin\Debug\NHibernate.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\bin\Debug\Remotion.Linq.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\bin\Debug\Remotion.Linq.EagerFetching.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\bin\Debug\DONDE_INVIERTO.DataStorage.pdb
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\bin\Debug\DONDE_INVIERTO.DataStorage.dll.config
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\bin\Debug\DONDE_INVIERTO.Model.pdb
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\bin\Debug\Antlr3.Runtime.xml
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\bin\Debug\Antlr4.Runtime.xml
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\bin\Debug\Iesi.Collections.xml
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\bin\Debug\NHibernate.xml
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\bin\Debug\Remotion.Linq.xml
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\bin\Debug\Remotion.Linq.EagerFetching.xml
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\obj\Debug\DONDE_INVIERTO.Service.csprojResolveAssemblyReference.cache
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\obj\Debug\DONDE_INVIERTO.Service.csproj.CoreCompileInputs.cache
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\obj\Debug\DONDE_INVIERTO.Service.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service\obj\Debug\DONDE_INVIERTO.Service.pdb

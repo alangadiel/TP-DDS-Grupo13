@@ -92,7 +92,7 @@
                 @using (Html.BeginForm("Login", "User", new { ReturnUrl = Url.Action("Index", "Home") }, FormMethod.Post, new { @class = "form-signin", role = "form" }))
                 {
                     @Html.AntiForgeryToken()
-                    <a href="@Url.Action("Register")" class="text-center new-account" style="margin-bottom:15px;">Crear usuario</a>
+                    <!--<a href="Url.Action("Register")" class="text-center new-account" style="margin-bottom:15px;">Crear usuario</a>-->
                     <input type="text" name="UserName" class="form-control" placeholder="Usuario" required autofocus>
                     <!--Html.ValidationMessageFor(m => m.UserName, "", new { class = "text-danger" })-->
 
