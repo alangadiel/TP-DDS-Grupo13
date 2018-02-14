@@ -1,156 +1,63 @@
-﻿@model List<DONDE_INVIERTO.Model.Empresa>
+﻿@model DONDE_INVIERTO.Model.Empresa
 
 @{
-    ViewBag.Title = "Empresas";
-    List<SelectListItem> listEmpresas = Model.Select(x => new SelectListItem
-    {
-        Text = x.Nombre,
-        Value = x.CUIT
-    }).ToList();
+    ViewBag.Title = "Crear Empresa";
+}
+
+<h2>Crear Empresa</h2>
+@using (Html.BeginForm("Create", "Empresa", FormMethod.Post, new { @id = "form" }))
+{
+    <div class="form-horizontal">
+        <div class="alert alert-danger divErrores" style="display: none;">
+            <strong>Errores:<br></strong> <ul id="listaErrores"></ul>
+        </div>
+        <div class="form-group">
+            <div class="col-md-3">
+                <label>Nombre</label>
+                <input id="nombre" type="text" name="Nombre" placeholder="Nombre" class="form-control" required />
+            </div>
+          
+        </div>
+        <div class="form-group">
+            <div class="col-md-3">
+                <label>Cuit</label>
+                <input id="cuit" type="text" name="Cuit" placeholder="CUIT (sin puntos ni guiones)" class="form-control" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-3">
+                <label>Fecha de fundación</label>
+                <input id="fecha" type="date" name="FechaFundacion" class="form-control" required />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-3">
+                <input type="button" class="btn btn-success" value="Guardar" onclick="submitear()" />
+            </div>        
+        </div>
+    </div>
+
 }
 
 <script>
-    function getFile(){
-        var $file = document.getElementById('fileEmpresas'),
-               $formData = new FormData();
-
-        if ($file.files.length > 0) {
-            for (var i = 0; i < $file.files.length; i++) {
-                $formData.append('file-' + i, $file.files[i]);
-            }
+    function submitear() {
+        var nombreCheck = /^[a-zA-Z0-9\s]{1,30}$/.test($("#nombre").val());
+        var cuitCheck = /^[0-9\s]{1,11}$/.test($("#cuit").val());
+        fechaForm = new Date(Date.parse($("#fecha").val()) + 3600000 * 3);
+        fechaActual = new Date();
+        var fechaCheck = fechaForm < fechaActual;
+        var errores = "";
+        if (!nombreCheck)
+            errores += "<li>El nombre es obligatorio y solo puede contener numeros, minusculas, mayusculas y espacios, con un maximo de 30 caracteres.</li>";
+        if (!cuitCheck)
+            errores += "<li>El cuit es obligatorio y solo puede contener numeros, con un maximo de 11 caracteres.</li>";
+        if (!fechaCheck)
+            errores += "<li>La fecha es obligatoria y no puede ser futura.</li>";
+        if (nombreCheck && cuitCheck && fechaCheck)
+            $("#form").submit();
+        else {
+            $("#listaErrores").html(errores);
+            $(".divErrores").show();
         }
-        return $formData;
     }
-    $(document).ready(function () {
-        $("#tabla").dataTable();
-        $("#btnMostrarCuentas").click(function () {
-            var file = getFile();
-            var idEmpresa = $("#selectEmpresas").val();
-            var periodo = $("#selectPeriodo").val();
-          //  new {idEmpresa="__idEmpresa__",anio="____" }
-            var url = '@Url.Action("ObtenerBalancesDeEmpresaPorPeriodo","Empresas",new { idEmpresa="__idEmpresa__",anio="__anio__"})';
-            url = url.replace("__idEmpresa__", idEmpresa).replace("amp;", "").replace("__anio__", periodo);
-            $.ajax({
-                type: "POST",
-                url: url,
-                dataType: 'json',
-                contentType: false,
-                processData: false,
-                data: file,
-                success: function (data) {
-                    if (data.Success) {
-                        var texto = '<div class="col-md-5 col-md-offset-1">	<table class="table table-striped table-bordered">	<thead> ';
-                        texto += '<tr> 		<th>Cuenta</th>	<th>Valor</th>	</tr>	</thead>	<tbody>';
-                        $.each(data.Cuentas,function(index,item){
-                             texto+= '<tr><td>'+item.Nombre+'</td><td>'+item.Valor +'</td></tr> '
-                        });
-                        texto += '</tbody> </table></div>';
-                        $("#cuentas").html(texto);
-                    }
-                    else
-                    {
-                        bootbox.alert(data.Mensaje);
-                        $("#cuentas").html("");
-                    }
-                }
-
-            });
-        });
-
-
-           $("#fileEmpresas").change(function () {
-               var file = getFile();
-            var url = '@Url.Action("ObtenerEmpresasYPeriodos", "Empresas")';
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: file,
-                dataType: 'json',
-                contentType: false,
-                processData: false,
-                success: function (data) {
-                    if (data.Success) {
-                        var texto = '<option value="0" selected disabled>Seleccione empresa...</option>';
-                        var textoPeriodo = '<option value="0" selected disabled>Seleccione periodo...</option>';
-
-                        $.each(data.Empresas, function (index,item){
-                            texto += '<option value="' + item.Id + '">' + item.Nombre + '</option>'
-                        });
-                        $.each(data.Periodos, function (index, item) {
-                            textoPeriodo += '<option value="' + item + '">' + item + '</option>'
-                        });
-                        $("#selectEmpresas").html(texto);
-                        $("#selectPeriodo").html(textoPeriodo);
-                        alert("Empresas cargadas");
-                    }
-                    else {
-                        alert("Hubo un error");
-                    }
-                }
-
-            });
-        });
-        });
 </script>
-
-
-<div class="col-md-5 row" style="margin-top:10px">
-    <a class="btn btn-primary" href="@Url.Action("Create")"><i class="fa fa-plus"></i> Crear Empresa</a>
-</div>
-<h2>Empresas</h2>
-<table id="tabla" class="table table-bordered table-striped table-condensed">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>CUIT</th>
-            <th>Fecha de fundación</th>
-            <th>Acciones</th>
-
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Nombre</td>
-                <td>@item.CUIT</td>
-                <td>@item.FechaFundacion.ToString("dd/MM/yyyy")</td>
-                <td>
-                    <a href="@Url.Action("Edit","Empresa",new { cuit = item.CUIT })"> <i class="fa fa-pencil"></i> Editar</a><br />
-                    <a href="@Url.Action("Delete","Empresa",new { cuit = item.CUIT})" onclick="return confirm('¿Está seguro que desea eliminar este registro?')"> <i class="fa fa-trash"></i> Eliminar</a>
-                </td>
-
-            </tr>
-        }
-    </tbody>
-</table>
-
-
-@*<div class="form-group">
-    @using (Html.BeginForm("ObtenerEmpresasYPeriodos", "Empresas", FormMethod.Post, new { enctype = "multipart/form-data", id = "form" }))
-    {
-
-        <input type="file" name="fileEmpresas" id="fileEmpresas" />
-        <input type="submit" value="Cargar" />
-     }
-
-
-    </div>*@
-@*<div>
-        <div class="col-md-4">
-            @Html.DropDownList("Empresas", listEmpresas, "Seleccione empresa..", new { @class = "form-control", @id = "selectEmpresas" })
-            <br />
-           <select id="selectPeriodo" class="form-control">
-               @for (int i = 2012; i < 2018; i++)
-               {
-                   <option value="@i">@i</option>
-               }
-           </select>
-            <br />
-            <input type="submit" value="Mostrar Cuentas" id="btnMostrarCuentas" />
-        </div>
-
-        <div id="cuentas" class="col-md-8">
-
-        </div>
-    </div>*@

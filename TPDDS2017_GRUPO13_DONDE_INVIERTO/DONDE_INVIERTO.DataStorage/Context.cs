@@ -57,85 +57,79 @@ namespace DONDE_INVIERTO.DataStorage
             _sessionFactory = null;
         }
 
-        public static IList<T> ReadAll<T>() where T: EditableEntity
+        public static IList<T> ReadAll<T>() where T : EditableEntity
         {
-            using (var session = OpenSession())
+
+            using (var transaction = Session.BeginTransaction())
             {
-                using (var transaction = session.BeginTransaction())
-                {
-                    return session.QueryOver<T>().List();
-                }
+                return Session.QueryOver<T>().List();
             }
+
         }
 
-        public static void Save<T>(T entity) where T: EditableEntity
+        public static void Save<T>(T entity) where T : EditableEntity
         {
-            using (var session = OpenSession())
+
+            using (var transaction = Session.BeginTransaction())
             {
-                using (var transaction = session.BeginTransaction())
+                try
                 {
-                    try
-                    {
-                        session.SaveOrUpdate(entity);
-                        transaction.Commit();
-                    }
-                    catch
-                    {
-                        transaction.Rollback();
-                    }
+                    Session.SaveOrUpdate(entity);
+                    transaction.Commit();
+                }
+                catch
+                {
+                    transaction.Rollback();
                 }
             }
+
         }
 
         public static void Save<T>(IList<T> entities) where T : EditableEntity
         {
-            using (var session = OpenSession())
+            using (var transaction = Session.BeginTransaction())
             {
-                using (var transaction = session.BeginTransaction())
+                try
                 {
-                    try
-                    {
-                        entities.ToList().ForEach(entity => session.SaveOrUpdate(entity));
-                        transaction.Commit();
-                    }
-                    catch
-                    {
-                        transaction.Rollback();
-                    }
+                    entities.ToList().ForEach(entity => Session.SaveOrUpdate(entity));
+                    transaction.Commit();
+                }
+                catch
+                {
+                    transaction.Rollback();
                 }
             }
+
         }
 
-        public static void Delete<T>(T entity) where T: EditableEntity
+        public static void Delete<T>(T entity) where T : EditableEntity
         {
-            using (var session = OpenSession())
-            {
-                using (var transaction = session.BeginTransaction())
-                {
-                    try
-                    {
-                        session.Delete(entity);
-                        session.Flush();
-                        transaction.Commit();
-                    }
-                    catch
-                    {
-                        transaction.Rollback();
-                    }
 
+            using (var transaction = Session.BeginTransaction())
+            {
+                try
+                {
+                Session.Delete(entity);
+                Session.Flush();
+                    transaction.Commit();
                 }
+                catch
+                {
+                    transaction.Rollback();
+                }
+
             }
+   
         }
 
-        public static T Get<T>(T entity) where T: EditableEntity
+        public static T Get<T>(T entity) where T : EditableEntity
         {
-            using (var session = OpenSession())
+
+            using (var transaction = Session.BeginTransaction())
             {
-                using (var transaction = session.BeginTransaction())
-                {
-                    return session.Get<T>(entity.Id);
-                }
+                return Session.Get<T>(entity.Id);
             }
+      
         }
     }
 }

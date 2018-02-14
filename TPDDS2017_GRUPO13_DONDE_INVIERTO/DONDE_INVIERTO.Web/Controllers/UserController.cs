@@ -1,5 +1,6 @@
 ﻿using DONDE_INVIERTO.Model;
 using DONDE_INVIERTO.Service;
+using DONDE_INVIERTO.Web.Models;
 using System;
 using System.Web;
 using System.Web.Mvc;
@@ -9,7 +10,6 @@ namespace DONDE_INVIERTO.Web.Controllers
 {
     public class UserController : Controller
     {
-
         [HttpGet]
         public ActionResult Login()
         {
@@ -18,15 +18,21 @@ namespace DONDE_INVIERTO.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(Usuario user, string returnUrl)
+        public ActionResult Login(Login login, string returnUrl)
         {
 
             if (!ModelState.IsValid)
             {
-                return View(user);
+                return View(login);
             }
             else
             {
+                var user = new Usuario()
+                {
+                    Username = login.UserName,
+                    Contrasenia = login.Password
+                };
+
                 var service = new UserService().Login(user);
                 if (user != null)
                 {
@@ -49,13 +55,10 @@ namespace DONDE_INVIERTO.Web.Controllers
           
         }
 
-
-        // POST: /Account/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            //AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }

@@ -1,5 +1,5 @@
 ﻿
-@model DONDE_INVIERTO.Model.Usuario
+@model DONDE_INVIERTO.Web.Models.Login
 
 @{ ViewBag.Title = "Log in";}
 <style>
@@ -94,10 +94,10 @@
                     @Html.AntiForgeryToken()
                     <a href="@Url.Action("Register")" class="text-center new-account" style="margin-bottom:15px;">Crear usuario</a>
                     <input type="text" name="UserName" class="form-control" placeholder="Usuario" required autofocus>
-                    <!--Html.ValidationMessageFor(m => m.UserName, "", new { class = "text-danger" })-->
+                    @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
 
-                    <input type="password" name="Contrasenia" class="form-control" placeholder="Contraseña" required>
-                    <!--Html.ValidationMessageFor(m => m.Password, "", new { class = "text-danger" })-->
+                    <input type="password" name="Password" class="form-control" placeholder="Contraseña" required>
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
 
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Ingresar</button>
                 }

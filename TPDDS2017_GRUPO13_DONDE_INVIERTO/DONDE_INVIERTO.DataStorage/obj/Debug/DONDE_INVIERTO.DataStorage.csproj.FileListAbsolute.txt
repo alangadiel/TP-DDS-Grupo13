@@ -9,7 +9,6 @@ C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIER
 C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\NHibernate.dll
 C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\Remotion.Linq.dll
 C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\Remotion.Linq.EagerFetching.dll
-C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\TrailHealth.Integration.dll
 C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\DONDE_INVIERTO.Model.pdb
 C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\Antlr3.Runtime.xml
 C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\Castle.Core.xml

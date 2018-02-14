@@ -1,11 +1,12 @@
-﻿@model List<DONDE_INVIERTO.Model.Empresa>
-@using DONDE_INVIERTO.Model
+﻿@using DONDE_INVIERTO.Model
+@model List<Empresa>
+
 @{
     ViewBag.Title = "Empresas";
     List<SelectListItem> listEmpresas = Model.Select(x => new SelectListItem
     {
         Text = x.Nombre,
-        Value = x.CUIT
+        Value = x.Cuit
     }).ToList();
 }
 
@@ -60,7 +61,7 @@
 
            $("#fileEmpresas").change(function () {
                var file = getFile();
-            var url = '@Url.Action("ObtenerEmpresasYPeriodos", "Empresa")';
+            var url = '@Url.Action("ObtenerEmpresasYPeriodos", "Empresas")';
             $.ajax({
                 type: "POST",
                 url: url,           
@@ -94,37 +95,60 @@
 
    
 </script>
-
-<div class="col-md-5 row" style="margin-top:10px">
-    <a class="btn btn-primary" href="@Url.Action("Create")"><i class="fa fa-plus"></i> Crear Empresa</a>
+<div class="row">
+    <div class="col-md-4">
+        <h3>Empresas</h3>
+    </div>
+    <div class="col-md-2">
+        <a class="btn btn-primary" href="@Url.Action("Create")"><i class="fa fa-plus"></i> Crear Empresa</a>
+    </div>
 </div>
-<h2>Empresas</h2>
-<table id="tabla" class="table table-bordered table-striped table-condensed">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>CUIT</th>
-            <th>Fecha de fundación</th>
-            <th>Acciones</th>
+<div class="row">
+    <div class="col-md-6">
+        <table id="tabla" class="table table-bordered table-striped table-condensed">
+            <thead>
+                <tr>
+                    <th>Cuit</th>
+                    <th>Nombre</th>
+                    <th>Fecha de fundación</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Cuit</td>
+                        <td>@item.Nombre</td>
+                        <td>@item.FechaFundacion.GetValueOrDefault().ToString("dd/MM/yyyy")</td>
+                        <td>
+                            <a href="@Url.Action("Edit","Empresa",new { id = item.Id })"> <i class="fa fa-pencil"></i> Editar</a><br />
+                            <a href="@Url.Action("Delete","Empresa",new { id = item.Id })" onclick="return confirm('¿Está seguro que desea eliminar este registro?')"> <i class="fa fa-trash"></i> Eliminar</a>
+                        </td>
 
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Nombre</td>
-                <td>@item.CUIT</td>
-                <td>@item.FechaFundacion.ToString("dd/MM/yyyy")</td>
-                <td>
-                    <a href="@Url.Action("Edit","Empresa",new { cuit = item.CUIT })"> <i class="fa fa-pencil"></i> Editar</a><br />
-                    <a href="@Url.Action("Delete","Empresa",new { cuit = item.CUIT})" onclick="return confirm('¿Está seguro que desea eliminar este registro?')"> <i class="fa fa-trash"></i> Eliminar</a>
-                </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
 
-            </tr>
-        }
-    </tbody>
-</table>
+<style>
+    .btn {
+        margin: 15px 0 0 0;
+        float: right;
+    }
+    td:nth-child(1) {
+        width: 20%;
+    }
+    td:nth-child(2) {
+        width: 30%;
+    }
+    td:nth-child(3) {
+        width: 25%;
+    }
+</style>
+
 
 @*<div class="form-group">
 @using (Html.BeginForm("ObtenerEmpresasYPeriodos", "Empresas", FormMethod.Post, new { enctype = "multipart/form-data", id = "form" }))

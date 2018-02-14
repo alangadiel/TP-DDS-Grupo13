@@ -8,81 +8,51 @@ using DONDE_INVIERTO.Model;
 
 namespace DONDE_INVIERTO.Web.Controllers
 {
+    [Authorize]
     public class EmpresaController : Controller
     {
-        private EmpresaService Service = new EmpresaService();
+        private EmpresaService service = new EmpresaService();
 
-        public ActionResult List()
+        [HttpGet]
+        public ActionResult Index()
         {
-            return View(Service.List());
+            var empresas = service.List();
+            return View(empresas);
         }
 
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Nombre, Fecha_Creacion")] Empresa empresa)
+        public ActionResult Create(Empresa empresa)
         {
-            if (ModelState.IsValid)
-            {
-                Service.Save(empresa);
-                return RedirectToAction("List");
-            }
-            return View(empresa);
+            service.Save(empresa);
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var empresa = service.Get(id);
+            return View(empresa);
+        }
+        [HttpPost]
         public ActionResult Edit(Empresa empresa)
         {
-            var model = Service.Get(empresa);
-            return View(model);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult EditGet(Empresa empresa)
-        {
-            if (ModelState.IsValid)
-            {
-                Service.Save(empresa);
-                return RedirectToAction("List");
-            }
-            return View(empresa);
-        }
-
-
-        public ActionResult Delete(Empresa empresa)
-        {
-            var emp = Service.Get(empresa);
-            return View(emp);
-        }
-
-        [HttpPost]
-        public ActionResult DeleteGet(Empresa empresa)
-        {
-            try
-            {
-                Service.Delete(empresa);
-                return RedirectToAction("List");
-            }
-            catch
-            {
-                return View();
-            }
+            service.Save(empresa);
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public ActionResult ConsultarValor()
+        public ActionResult Delete(int id)
         {
-            return View();
+            service.Delete(id);
+            return RedirectToAction("Index");
         }
+
+
     }
 }

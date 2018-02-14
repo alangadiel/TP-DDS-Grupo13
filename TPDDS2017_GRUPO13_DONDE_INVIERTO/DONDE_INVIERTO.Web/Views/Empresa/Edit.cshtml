@@ -3,27 +3,36 @@
     ViewBag.Title = "Editar empresa";
 }
 
-<h2>Editar empresa</h2>
-@using (Html.BeginForm("Edit", "Empresa", FormMethod.Post, new { @id = "form" }))
+<h3>Editar empresa</h3>
+@using (Html.BeginForm("Edit", "Empresa", FormMethod.Post,new { @id="form"}))
 {
     <div class="form-horizontal">
         <div class="alert alert-danger divErrores" style="display: none;">
             <strong>Errores:<br></strong> <ul id="listaErrores"></ul>
         </div>
-        @Html.HiddenFor(x => x.CUIT)
+        @Html.HiddenFor(x => x.Id)
         <div class="form-group">
-            <label>Nombre</label>
-            @Html.TextBoxFor(x => x.Nombre, new { @class = "form-control", @id = "nombre" })
+            <div class="col-md-3">
+                <label>Nombre</label>
+                @Html.TextBoxFor(x => x.Nombre, new { @class = "form-control", @id = "nombre" })
+            </div>
+
         </div>
         <div class="form-group">
-            <label>CUIT</label>
-            @Html.TextBoxFor(x => x.CUIT, new { @class = "form-control", @disabled = true, @id = "cuit" })
+            <div class="col-md-3">
+                <label>CUIT</label>
+                @Html.TextBoxFor(x => x.Cuit, new { @class = "form-control", @id = "cuit" })
+            </div>
+
         </div>
         <div class="form-group">
-            <label>Fecha de fundacion</label>
-            @Html.TextBoxFor(x => x.FechaFundacion, new { @id = "fecha", @class = "form-control", @type = "date", @required = true, @Value = Model.FechaFundacion.ToString("yyyy-MM-dd") })
+            <div class="col-md-3">
+                <label>Fecha de fundacion</label>
+                @Html.TextBoxFor(x => x.FechaFundacion.Value, new { @id = "fechaFundacion", @class = "form-control", @type = "date", @required = true })
+            </div>
+
         </div>
-        <input type="button" value="Editar" class="btn btn-primary" onclick="submitear()" />
+        <input type="button" value="Editar" class="btn btn-success" onclick="submitear()" />
     </div>
 }
 
@@ -32,7 +41,7 @@
     function submitear() {
         var nombreCheck = /^[a-zA-Z0-9\s]{1,30}$/.test($("#nombre").val());
         var cuitCheck = /^[0-9\s]{1,11}$/.test($("#cuit").val());
-        fechaForm = new Date(Date.parse($("#fecha").val())+3600000*3);
+        fechaForm = new Date(Date.parse($("#fechaFundacion").val())+3600000*3);
         fechaActual=new Date();
         var fechaCheck = fechaForm < fechaActual;
         var errores="";

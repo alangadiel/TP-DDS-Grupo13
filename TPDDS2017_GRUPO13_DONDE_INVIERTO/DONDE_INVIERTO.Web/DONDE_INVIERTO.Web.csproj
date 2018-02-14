@@ -164,7 +164,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\UserViewModel.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -269,10 +269,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Empresa\List.cshtml" />
-    <Content Include="Views\Empresa\Create.cshtml" />
-    <Content Include="Views\Empresa\Delete.cshtml" />
-    <Content Include="Views\Empresa\Edit.cshtml" />
     <Content Include="Views\Cuenta\Create.cshtml" />
     <Content Include="Views\Indicador\Create.cshtml" />
     <Content Include="Views\Indicador\List.cshtml" />
@@ -281,8 +277,10 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Metodologia\Create.cshtml" />
-    <Content Include="Views\Empresa\ConsultarValor.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Empresa\Create.cshtml" />
+    <Content Include="Views\Empresa\Edit.cshtml" />
+    <Content Include="Views\Empresa\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

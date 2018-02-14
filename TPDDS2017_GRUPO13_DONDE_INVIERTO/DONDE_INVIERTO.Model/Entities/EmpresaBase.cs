@@ -11,6 +11,7 @@ namespace DONDE_INVIERTO.Model
 		private int _id;
 		private DateTime? _fechaFundacion;
 		private string _nombre;
+        private string _cuit;
 		[DataMember]
 		public virtual DateTime? FechaFundacion
 		{
@@ -29,7 +30,13 @@ namespace DONDE_INVIERTO.Model
 			get { return _nombre; }
 			set { _nombre = value; }
 		}
-		public override int GetHashCode()
+        [DataMember]
+        public virtual string Cuit
+        {
+            get { return _cuit; }
+            set { _cuit = value; }
+        }
+        public override int GetHashCode()
 		{
 			return this.Id;
 		}

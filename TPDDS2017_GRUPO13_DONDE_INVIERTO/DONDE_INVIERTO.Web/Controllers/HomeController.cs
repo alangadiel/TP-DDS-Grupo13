@@ -1,8 +1,4 @@
-﻿using DONDE_INVIERTO.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using DONDE_INVIERTO.Web.Models;
 using System.Web.Mvc;
 
 namespace DONDE_INVIERTO.Web.Controllers
@@ -14,7 +10,7 @@ namespace DONDE_INVIERTO.Web.Controllers
         {
             if (!HttpContext.User.Identity.IsAuthenticated)
             {
-                return View("../User/Login", new Usuario());
+                return View("../User/Login", new Login());
             }
 
             return View();
