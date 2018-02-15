@@ -23,7 +23,7 @@ namespace DONDE_INVIERTO.Web.Controllers
         // GET: Balances/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(Service.GetView(id));
         }
 
         private void setViewBagEmpresa()
@@ -81,7 +81,6 @@ namespace DONDE_INVIERTO.Web.Controllers
         // GET: Balances/Edit/5
         public ActionResult Edit(int id)
         {
-            setViewBagEmpresa();
             return View(Service.GetView(id));
         }
 
@@ -113,23 +112,23 @@ namespace DONDE_INVIERTO.Web.Controllers
         // GET: Balances/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            Service.Delete(id);
+            return RedirectToAction("Index");
         }
 
-        // POST: Balances/Delete/5
+       /* // POST: Balances/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                
                 return RedirectToAction("Index");
             }
             catch
             {
                 return View();
             }
-        }
+        }*/
     }
 }

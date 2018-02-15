@@ -2,10 +2,6 @@
 @using DONDE_INVIERTO.Model;
 @{
     ViewBag.Title = "Editar balance";
-    List<SelectListItem> listEmpresas = new List<SelectListItem>();
-    List<SelectListItem> _listEmpresas = ViewBag.Empresas as List<SelectListItem>;
-    listEmpresas.AddRange(_listEmpresas);
-
 }
 
 <script>
@@ -100,6 +96,11 @@
             });
         });
     });
+
+
+    function deleteRow(id) {
+        $("#" + id).remove();
+    }
 </script>
 
 @Html.ValidationSummary()
@@ -112,19 +113,19 @@
 <div class="row " style="margin-top: 90px;">
     <div class="col-md-5 col-md-offset-1">
         <form method="post" id="form" action="@Url.Action("Edit","Balance")">
-          <label>Periodo</label>  <input type="number" class="form-control" value="@Model.Periodo" id="inputPer" min="1" oninput="validity.valid||(value='');" disabled/>
-          <label>Empresa</label>  <input type="text" class="form-control" value="@Model.Empresa.Nombre" disabled/>
+            <label>Periodo</label>  <input type="number" class="form-control" value="@Model.Periodo" id="inputPer" min="1" oninput="validity.valid||(value='');" disabled />
+            <label>Empresa</label>  <input type="text" class="form-control" value="@Model.Empresa.Nombre" disabled />
 
             @*<div class="form-group">
-                <label>Empresa</label>
-                @Html.DropDownList("Empresa_Id", listEmpresas, "Seleccione empresa..", new { @id = "selectEmpresas", @class = "form-control", @name = "Empresa_Id", @onchange = "cargarPeriodos()" })
-            </div>
-            <div class="form-group" id="selectPer">
-                <label>Periodo</label>
-                <select class="form-control" name="Periodo" id="selectPeriodos" onchange="cargarCuentas()">
-                    <option value="" disabled selected>Seleccione un periodo...</option>
-                </select>
-            </div>*@
+                    <label>Empresa</label>
+                    @Html.DropDownList("Empresa_Id", listEmpresas, "Seleccione empresa..", new { @id = "selectEmpresas", @class = "form-control", @name = "Empresa_Id", @onchange = "cargarPeriodos()" })
+                </div>
+                <div class="form-group" id="selectPer">
+                    <label>Periodo</label>
+                    <select class="form-control" name="Periodo" id="selectPeriodos" onchange="cargarCuentas()">
+                        <option value="" disabled selected>Seleccione un periodo...</option>
+                    </select>
+                </div>*@
             @Html.HiddenFor(x => x.Id)
             @Html.HiddenFor(x => x.Empresa.Cuit)
             @Html.HiddenFor(x => x.Periodo)
@@ -142,6 +143,18 @@
                     </thead>
 
                     <tbody class="cuerpo"></tbody>
+                    @for (var i = 0; i < Model.Cuentas.Count(); i++)
+                    {
+                        var nameNombre = String.Concat("Cuentas[", i.ToString(), "].Nombre");
+                        var nameValor = String.Concat("Cuentas[", i.ToString(), "].Valor");
+                        
+                    <tr>
+                        @Html.HiddenFor(x => x.Cuentas[i].Id)
+                        <td><input type="text" class="form-control nombre " name=@nameNombre required value=@Model.Cuentas[i].Nombre></td>
+                        <td><input type="text" class="form-control valor " name=@nameValor required value=@Model.Cuentas[i].Valor></td>
+                        <td> <a class="eliminar" href="#">X</a> </td>
+                    </tr>
+                    }
                     <tr>
                         <td></td>
                         <td></td>
@@ -150,25 +163,20 @@
                 </table>
             </div>
             <br />
-            <input class="btn btn-primary" type="button" value="Guardar" onclick="validar()"/>
+            <input class="btn btn-primary" type="button" value="Guardar" onclick="validar()" />
         </form>
-    </div>
-    <div class="col-md-4 col-md-offset-1" style="display:none" id="divCuentas">
-        <h4>Cuentas</h4>
-        <!--aca van las cuentas existentes una vez seleccionados: empresa y periodo.
-            tambien se debe ir actualizando a medida que se agregan nuevas cuentas-->
     </div>
 </div>
 
 <script>
-    function validar(){
-        var resultado=true;
-        $(".valor").each(function(){
-            var check = /^[0-9]+$/.test($(this).val());
-            if(!check)
-                resultado=false;
+    function validar() {
+        var resultado = true;
+        $(".valor").each(function () {
+            var check = /^[0-9]+(,[0-9]+)?$/.test($(this).val());
+            if (!check)
+                resultado = false;
         });
-        if(resultado)
+        if (resultado)
             $("#form").submit();
         else
             $(".divErrores").show();

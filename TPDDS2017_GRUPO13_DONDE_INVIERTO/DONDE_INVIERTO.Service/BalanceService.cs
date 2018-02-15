@@ -29,33 +29,26 @@ namespace DONDE_INVIERTO.Service
                 .ConvertAll(balance => CreateView(balance));*/
         }
 
+        
+
         public void Save(BalanceView view, string username)
         {
             if (view.Empresa.Id == 0)
             {
                 view.Empresa = Context.Session.Query<Empresa>().First(emp => emp.Cuit == view.Empresa.Cuit);
             }
-            int id;
-
-            try
-            {
-                id = Context.Session.Query<Balance>().Max(bal => bal.Id);
-            }
-            catch
-            {
-                id = 0;
-            }
-
+            
             var balance = new Balance
             {
                 EmpresaId = view.Empresa.Id,
-                Id = id++,
+                Id = view.Id,
                 Periodo = view.Periodo,
                 Valor = view.Valor,
             };
             Context.Save(balance);
 
             var user = UserService.GetUserId(username);
+
             view.Cuentas.ForEach(cuenta =>
             {
                 cuenta.UsuarioCreador_Id = user;
@@ -66,6 +59,9 @@ namespace DONDE_INVIERTO.Service
 
         public void Delete(int id)
         {
+            Context.Session.Query<ComponenteOperando>()
+                .Where(comp => comp.BalanceId == id).ToList()
+                .ForEach(cuenta => Context.Delete(cuenta));
             var balance = Get(id);
             Context.Delete(balance);
         }
