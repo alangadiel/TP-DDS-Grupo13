@@ -17,7 +17,14 @@ namespace DONDE_INVIERTO.Service
 
         public static int GetUserId(string username)
         {
-            return Context.Session.Query<Usuario>().Where(user => user.Username == username).First().Id;
+            try
+            {
+                return Context.Session.Query<Usuario>().Where(user => user.Username == username).First().Id;
+            }
+            catch
+            {
+                throw new System.Exception("Inicie Sesion");
+            }
         }
     }
 }

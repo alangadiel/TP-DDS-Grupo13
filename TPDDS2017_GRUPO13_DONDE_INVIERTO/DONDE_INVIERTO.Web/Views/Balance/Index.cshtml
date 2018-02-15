@@ -1,6 +1,10 @@
-﻿@model List<DONDE_INVIERTO.Model.Balance>
+﻿@using DONDE_INVIERTO.Model.Views;
+@using DONDE_INVIERTO.Model;
+@using DONDE_INVIERTO.DataStorage;
+@model List<BalanceView>
 @{
     ViewBag.Title = "Balances";
+
 }
 
 <script>
@@ -56,7 +60,7 @@
             @*<th>Id</th>*@
             <th>Periodo</th>
             <th>Empresa</th>
-            <th>Total en cuentas</th>
+            @*<th>Total en cuentas</th>*@
             <th>Acciones</th>
         </tr>
     </thead>
@@ -67,16 +71,16 @@
                 @*<td>@item.Id</td>*@
                 <td>@item.Periodo</td>
                 <td>@item.Empresa.Nombre</td>
-                <td>$@item.Total</td>
-                <td>
-                    <a href="@Url.Action("Details","Balance",new { id = item.Id })" ><i class="fa fa-eye"></i> Detalle </a><br />
-                    <a href="@Url.Action("Edit","Balance",new { id = item.Id })"><i class="fa fa-pencil"></i> Editar </a><br />
-                    <a href="@Url.Action("Delete","Balance",new { id = item.Id })" onclick="return confirm('¿Está seguro que desea eliminar este registro?')"><i class="fa fa-remove"></i> Eliminar </a><br />
+            @*<td>$@item.Total</td>*@
+            <td>
+                <a href="@Url.Action("Details","Balance",new { id = item.Id })"><i class="fa fa-eye"></i> Detalle </a><br />
+                <a href="@Url.Action("Edit","Balance",new { id = item.Id })"><i class="fa fa-pencil"></i> Editar </a><br />
+                <a href="@Url.Action("Delete","Balance",new { id = item.Id })" onclick="return confirm('¿Está seguro que desea eliminar este registro?')"><i class="fa fa-remove"></i> Eliminar </a><br />
 
 
-                </td>
+            </td>
 
-            </tr>
-        }
+        </tr>
+    }
     </tbody>
 </table>

@@ -1,5 +1,5 @@
-﻿@model DONDE_INVIERTO.Model.Balance
-@using DONDE_INVIERTO.Model
+﻿@model DONDE_INVIERTO.Model.Views.BalanceView
+@using DONDE_INVIERTO.Model;
 @{
     ViewBag.Title = "Editar balance";
     List<SelectListItem> listEmpresas = new List<SelectListItem>();
@@ -126,7 +126,7 @@
                 </select>
             </div>*@
             @Html.HiddenFor(x => x.Id)
-            @Html.HiddenFor(x => x.Empresa_CUIT)
+            @Html.HiddenFor(x => x.Empresa.Cuit)
             @Html.HiddenFor(x => x.Periodo)
 
 

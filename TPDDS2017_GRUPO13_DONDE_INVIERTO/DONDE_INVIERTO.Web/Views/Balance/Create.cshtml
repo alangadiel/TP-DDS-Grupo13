@@ -1,25 +1,28 @@
-﻿@model DONDE_INVIERTO.Model.Balance
-@using DONDE_INVIERTO.Model
+﻿@using DONDE_INVIERTO.Model.Views;
+@using DONDE_INVIERTO.Model;
+@model BalanceView
+
 @{
     ViewBag.Title = "Cargar Balance";
+
     List<SelectListItem> listEmpresas = new List<SelectListItem>();
     List<SelectListItem> _listEmpresas = ViewBag.Empresas as List<SelectListItem>;
     listEmpresas.AddRange(_listEmpresas);
 
 }
 <style>
-    ul{
-        font-size:14px;
-        color:indianred;
+    ul {
+        font-size: 14px;
+        color: indianred;
     }
 </style>
 <script>
-    function agregarCuenta(){
+    function agregarCuenta() {
         var cantRows = $(".cuentasTable > tbody.cuerpo > tr").length;
         var tr = '<tr>';
         tr += '<td><input type="text" class="form-control nombre " name="Cuentas[' + cantRows + '].Nombre" required/></td>';
         tr += '<td><input type="text" class="form-control valor "name="Cuentas[' + cantRows + '].Valor" required/></td>';
-        tr+= '<td> <a class="eliminar" href="#">X</a> </td>';
+        tr += '<td> <a class="eliminar" href="#">X</a> </td>';
         tr += '</tr>';
         $(".cuentasTable > tbody.cuerpo").append(tr);
     };
@@ -32,7 +35,7 @@
             });
         });
     });
-   
+
 
 
 </script>
@@ -45,63 +48,61 @@
 
 </div>
 <h2>Cargar balance</h2>
-    <div class="col-md-5 col-md-offset-1">
-        <form method="post" action="@Url.Action("Create","Balance")">
-            <div class="form-group">
-                <label>Empresa</label>
-                @Html.DropDownList("Empresa_CUIT", listEmpresas, "Seleccione empresa..", new { @required="true", @id="selectEmpresas" , @class = "form-control"})
-             </div>
-            <label>Periodo</label>
-            <div class="form-group" id="nuevoPer">
+<div class="col-md-5 col-md-offset-1">
+    <form method="post" action="@Url.Action("Create","Balance")">
+        <div class="form-group">
+            <label>Empresa</label>
+            @Html.DropDownList("Empresa.Cuit", listEmpresas, "Seleccione empresa..", new { @required = "true", @id = "selectEmpresas", @class = "form-control" })
+        </div>
+        <label>Periodo</label>
+        <div class="form-group" id="nuevoPer">
+            @if (Model != null)
+            {
+                <input type="number" value=@Model.Periodo class="form-control" name="Periodo" id="inputPer" min="1" oninput="validity.valid||(value='');" required />
+
+            }
+            else
+            {
+                <input type="number" class="form-control" name="Periodo" id="inputPer" min="1" oninput="validity.valid||(value='');" required />
+
+            }
+        </div>
+
+        <div>
+            <h4>Cuentas</h4>
+            <table class="cuentasTable table-condensed table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Valor</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody class="cuerpo"></tbody>
                 @if (Model != null)
                 {
-                    <input type="number" value=@Model.Periodo class="form-control" name="Periodo" id="inputPer" min="1" oninput="validity.valid||(value='');" required />
-
-                }
-                else
-                {
-                    <input type="number" class="form-control" name="Periodo" id="inputPer" min="1" oninput="validity.valid||(value='');" required />
-
-                }
-            </div>
-           
-            <div>
-                <h4>Cuentas</h4>
-                <table  class="cuentasTable table-condensed table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Valor</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                  
-                    <tbody class="cuerpo">
-                       
-                    </tbody>
-                    @if (Model!=null)
+                    for (var i = 0; i < Model.Cuentas.Count(); i++)
                     {
-                        for (var i=0; i<Model.Cuentas.Count(); i++)
-                        {
-                            var nameNombre = String.Concat("Cuentas[", i.ToString(), "].Nombre");
-                            var nameValor = String.Concat("Cuentas[", i.ToString(), "].Valor");
-                            <tr>
-                                <td><input type="text" class="form-control nombre " name=@nameNombre required value=@Model.Cuentas[i].Nombre></td>
-                                <td><input type="text" class="form-control valor " name=@nameValor required value=@Model.Cuentas[i].Valor></td>
-                                <td> <a class="eliminar" href="#">X</a> </td>
-                            </tr>
-                        }
+                        var nameNombre = String.Concat("Cuentas[", i.ToString(), "].Nombre");
+                        var nameValor = String.Concat("Cuentas[", i.ToString(), "].Valor");
+                        <tr>
+                            <td><input type="text" class="form-control nombre " name=@nameNombre required value=@Model.Cuentas[i].Nombre></td>
+                            <td><input type="text" class="form-control valor " name=@nameValor required value=@Model.Cuentas[i].Valor></td>
+                            <td> <a class="eliminar" href="#">X</a> </td>
+                        </tr>
                     }
-                    
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td><a href="#" onclick="agregarCuenta()" value="+" id="agregarCuenta"> +</a></td>
-                    </tr>
-                </table>
-            </div>
-            <br />
-            <input type="submit" class="btn btn-primary" value="Guardar" />
+                }
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><a href="#" onclick="agregarCuenta()" value="+" id="agregarCuenta"> +</a></td>
+                </tr>
+            </table>
+        </div>
+        <br />
+        <input type="submit" class="btn btn-primary" value="Guardar" />
     </form>
 </div>
-   
+

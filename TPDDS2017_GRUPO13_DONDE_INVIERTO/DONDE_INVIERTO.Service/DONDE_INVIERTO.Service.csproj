@@ -73,6 +73,7 @@
     <Compile Include="ANTLR\gramaticaParser.cs" />
     <Compile Include="ANTLR\gramaticaVisitor.cs" />
     <Compile Include="ANTLR\VisitorCore.cs" />
+    <Compile Include="BalanceService.cs" />
     <Compile Include="ComponenteService.cs" />
     <Compile Include="Condiciones\CondicionesFactory.cs" />
     <Compile Include="Condiciones\ITipoCondicion.cs" />

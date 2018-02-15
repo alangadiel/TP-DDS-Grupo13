@@ -11,7 +11,7 @@ namespace DONDE_INVIERTO.Model
 		private int _id;
 		private int _empresaId;
 		private int _periodo;
-		private decimal _valor;
+		private decimal? _valor;
 		[DataMember]
 		public virtual int EmpresaId
 		{
@@ -31,7 +31,7 @@ namespace DONDE_INVIERTO.Model
 			set { _periodo = value; }
 		}
 		[DataMember]
-		public virtual decimal Valor
+		public virtual decimal? Valor
 		{
 			get { return _valor; }
 			set { _valor = value; }

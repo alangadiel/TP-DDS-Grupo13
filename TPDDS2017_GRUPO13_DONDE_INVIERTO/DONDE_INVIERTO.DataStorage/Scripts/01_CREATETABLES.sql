@@ -7,7 +7,7 @@ GO
 CREATE TABLE [dbo].[balances](
 	[bala_id] [int] IDENTITY(1,1) NOT NULL,
 	[bala_periodo] [int] NOT NULL,
-	[bala_valor] [decimal](12,2) NOT NULL,
+	[bala_valor] [decimal](12,2),
 	[bala_empresa_id] [int] NOT NULL,
  CONSTRAINT [PK_balance] PRIMARY KEY CLUSTERED 
 (

@@ -5,6 +5,6 @@
 		</id>
 		<property name="EmpresaId" column="bala_empresa_id" not-null="true" />
 		<property name="Periodo" column="bala_periodo" not-null="true" />
-		<property name="Valor" column="bala_valor" not-null="true" />
+		<property name="Valor" column="bala_valor" not-null="false" />
 	</class>
 </hibernate-mapping>
