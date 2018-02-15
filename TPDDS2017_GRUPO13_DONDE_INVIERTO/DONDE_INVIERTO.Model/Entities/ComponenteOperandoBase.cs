@@ -15,7 +15,16 @@ namespace DONDE_INVIERTO.Model
 		private int? _padreId;
 		private string _nombre;
 		private decimal? _valor;
-		[DataMember]
+        private int _usuarioCreadorId;
+
+
+        [DataMember]
+        public virtual int UsuarioCreador_Id
+        {
+            get { return _usuarioCreadorId; }
+            set { _usuarioCreadorId = value; }
+        }
+        [DataMember]
 		public virtual int? BalanceId
 		{
 			get { return _balanceId; }

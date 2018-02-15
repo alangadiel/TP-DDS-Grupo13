@@ -4,10 +4,11 @@
 			<generator class="native" />
 		</id>
 		<property name="BalanceId" column="oper_balance_id" not-null="false" />
-		<property name="Discriminador" column="oper_discriminator" not-null="true" length="200" />
+		<property name="Discriminador" column="oper_discriminator" not-null="false" length="200" />
 		<property name="Formula" column="oper_formula" not-null="false" length="200" />
 		<property name="Nombre" column="oper_nombre" not-null="false" length="200" />
 		<property name="PadreId" column="oper_indicadorpadre_id" not-null="false" />
 		<property name="Valor" column="oper_valor" not-null="false" />
+    <property name="UsuarioCreador_Id" column="oper_usuarioCreador_id" not-null="true" />
 	</class>
 </hibernate-mapping>

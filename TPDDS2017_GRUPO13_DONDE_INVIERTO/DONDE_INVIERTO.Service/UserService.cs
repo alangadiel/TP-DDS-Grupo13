@@ -14,5 +14,10 @@ namespace DONDE_INVIERTO.Service
                 return loggedUser[0];
             return null;
         }
+
+        public static int GetUserId(string username)
+        {
+            return Context.Session.Query<Usuario>().Where(user => user.Username == username).First().Id;
+        }
     }
 }

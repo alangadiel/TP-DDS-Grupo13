@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace DONDE_INVIERTO.Web.Controllers
 {
@@ -22,7 +23,7 @@ namespace DONDE_INVIERTO.Web.Controllers
         // GET: Indicador
         public ActionResult Index()
         {
-            var indicadores = Service.List();
+            var indicadores = Service.List(User.Identity.GetUserName());
             return View(indicadores);
         }
 
@@ -45,7 +46,8 @@ namespace DONDE_INVIERTO.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                Service.Save(indicador);
+                indicador.Discriminador = "Indicador";
+                Service.Save(indicador, User.Identity.GetUserName());
                 return RedirectToAction("Index");
             }
             return View();
@@ -54,45 +56,23 @@ namespace DONDE_INVIERTO.Web.Controllers
         // GET: Indicador/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var indicador = Service.Get(id);
+            return View(indicador);
         }
 
         // POST: Indicador/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(ComponenteOperando indicador)
         {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            Service.Save(indicador);
+            return RedirectToAction("Index");
         }
 
         // GET: Indicador/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        // POST: Indicador/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            Service.Delete(id);
+            return RedirectToAction("Index");
         }
     }
 }

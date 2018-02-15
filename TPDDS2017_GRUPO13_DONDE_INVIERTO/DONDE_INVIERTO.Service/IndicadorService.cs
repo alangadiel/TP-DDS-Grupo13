@@ -23,16 +23,23 @@ namespace DONDE_INVIERTO.Service
             VisitorCore visitor = new VisitorCore(empresa, periodo, listaOperandos);
             return Math.Round(visitor.Visit(tree), 2);
         }
-
-
-        public List<ComponenteOperando> List()
+        
+        public List<ComponenteOperando> List(string username)
         {
-            return Context.Session.Query<ComponenteOperando>().OrderBy(ind => ind.Nombre).ToList();
+            return Context.Session.Query<ComponenteOperando>()
+                .Where(ind => ind.UsuarioCreador_Id == UserService.GetUserId(username))
+                .OrderBy(ind => ind.Nombre).ToList();
+        }
+
+        public void Save(ComponenteOperando indicador, string username)
+        {
+            indicador.Discriminador = "Indicador";
+            indicador.UsuarioCreador_Id = UserService.GetUserId(username);
+            Context.Save(indicador);
         }
 
         public void Save(ComponenteOperando indicador)
         {
-            indicador.Discriminador = "Indicador";
             Context.Save(indicador);
         }
 

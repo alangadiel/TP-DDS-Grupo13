@@ -24,6 +24,7 @@ CREATE TABLE [dbo].[operandos](
 	[oper_discriminator] [nvarchar](200),
 	[oper_indicadorPadre_id] [int],
 	[oper_balance_id] [int],
+	[oper_usuarioCreador_Id] [int] NOT NULL,
  CONSTRAINT [PK_operando] PRIMARY KEY CLUSTERED 
 (
 	[oper_id] ASC
@@ -213,6 +214,13 @@ REFERENCES [dbo].[balances] ([bala_id])
 GO
 
 ALTER TABLE [dbo].[operandos] CHECK CONSTRAINT [FK_oper_balance]
+GO
+
+ALTER TABLE [dbo].[operandos]  WITH CHECK ADD  CONSTRAINT [FK_oper_usuarioCreador] FOREIGN KEY([oper_usuarioCreador_id])
+REFERENCES [dbo].[usuarios] ([usu_id])
+GO
+
+ALTER TABLE [dbo].[operandos] CHECK CONSTRAINT [FK_oper_usuarioCreador]
 GO
 
 ALTER TABLE [dbo].[operandos]  WITH CHECK ADD  CONSTRAINT [FK_oper_indicadorPadre] FOREIGN KEY([oper_indicadorPadre_id])
