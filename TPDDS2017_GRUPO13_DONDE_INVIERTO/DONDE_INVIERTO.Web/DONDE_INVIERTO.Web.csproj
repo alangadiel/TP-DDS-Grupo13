@@ -269,9 +269,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Cuenta\Create.cshtml" />
     <Content Include="Views\Indicador\Create.cshtml" />
-    <Content Include="Views\Indicador\List.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
@@ -281,6 +279,17 @@
     <Content Include="Views\Empresa\Create.cshtml" />
     <Content Include="Views\Empresa\Edit.cshtml" />
     <Content Include="Views\Empresa\Index.cshtml" />
+    <Content Include="Views\Indicador\Edit.cshtml" />
+    <Content Include="Views\Indicador\Index.cshtml" />
+    <Content Include="Views\Condicion\Create.cshtml" />
+    <Content Include="Views\Condicion\Index.cshtml" />
+    <Content Include="Views\Balance\Create.cshtml" />
+    <Content Include="Views\Balance\Details.cshtml" />
+    <Content Include="Views\Balance\Edit.cshtml" />
+    <Content Include="Views\Balance\Index.cshtml" />
+    <Content Include="Views\Cargar\CargarArchivo.cshtml" />
+    <Content Include="Views\Metodologia\Index.cshtml" />
+    <Content Include="Views\Metodologia\ObtenerEmpresasDeseables.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

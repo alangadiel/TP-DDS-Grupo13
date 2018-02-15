@@ -3,7 +3,7 @@
 		<id name="Id" column="empr_id" unsaved-value="0">
 			<generator class="native" />
 		</id>
-		<property name="FechaFundacion" column="empr_fecba_fundacion" not-null="false" />
+		<property name="FechaFundacion" column="empr_fecha_fundacion" not-null="false" />
 		<property name="Nombre" column="empr_nombre" not-null="false" length="200" />
     <property name="Cuit" column="empr_cuit" not-null="false" length="11" />
 	</class>

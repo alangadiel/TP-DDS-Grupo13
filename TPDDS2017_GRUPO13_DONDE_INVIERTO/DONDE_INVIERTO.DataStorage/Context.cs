@@ -77,7 +77,7 @@ namespace DONDE_INVIERTO.DataStorage
                     Session.SaveOrUpdate(entity);
                     transaction.Commit();
                 }
-                catch
+                catch (Exception ex)
                 {
                     transaction.Rollback();
                 }

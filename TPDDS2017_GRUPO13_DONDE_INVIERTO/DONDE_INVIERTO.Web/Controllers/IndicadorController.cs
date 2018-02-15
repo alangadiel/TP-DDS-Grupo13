@@ -22,7 +22,8 @@ namespace DONDE_INVIERTO.Web.Controllers
         // GET: Indicador
         public ActionResult Index()
         {
-            return View();
+            var indicadores = Service.List();
+            return View(indicadores);
         }
 
         // GET: Indicador/Details/5
@@ -39,13 +40,13 @@ namespace DONDE_INVIERTO.Web.Controllers
 
         // POST: Indicador/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Nombre, Contenido")]object o)
+        //[ValidateAntiForgeryToken]
+        public ActionResult Create(ComponenteOperando indicador)
         {
             if (ModelState.IsValid)
             {
-                //Service.Save(indicador.Nombre, indicador.Contenido);
-                return RedirectToAction("List");
+                Service.Save(indicador);
+                return RedirectToAction("Index");
             }
             return View();
         }

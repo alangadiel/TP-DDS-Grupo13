@@ -1,6 +1,3 @@
-DROP DATABASE dondeinvierto
-GO
-
 CREATE DATABASE dondeinvierto
 GO
 
@@ -24,7 +21,7 @@ CREATE TABLE [dbo].[operandos](
 	[oper_nombre] [nvarchar](200),
 	[oper_valor] [decimal](12,2),
 	[oper_formula] [nvarchar](200),
-	[oper_discriminator] [nvarchar](200) NOT NULL,
+	[oper_discriminator] [nvarchar](200),
 	[oper_indicadorPadre_id] [int],
 	[oper_balance_id] [int],
  CONSTRAINT [PK_operando] PRIMARY KEY CLUSTERED 
@@ -49,7 +46,8 @@ GO
 CREATE TABLE [dbo].[empresas](
 	[empr_id] [int] IDENTITY(1,1),
 	[empr_nombre] [nvarchar](200),
-	[empr_fecba_fundacion] [datetime]
+	[empr_fecha_fundacion] [datetime],
+	[empr_cuit] [nvarchar](200)
  CONSTRAINT [PK_empresa] PRIMARY KEY CLUSTERED 
 (
 	[empr_id] ASC

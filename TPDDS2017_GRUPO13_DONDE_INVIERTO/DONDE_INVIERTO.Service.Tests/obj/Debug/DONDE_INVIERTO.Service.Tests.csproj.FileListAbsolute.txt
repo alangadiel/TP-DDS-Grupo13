@@ -35,3 +35,40 @@ C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIER
 C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\obj\Debug\DONDE_INVIERTO.Service.Tests.csproj.CoreCompileInputs.cache
 C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\obj\Debug\DONDE_INVIERTO.Service.Tests.dll
 C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\obj\Debug\DONDE_INVIERTO.Service.Tests.pdb
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\DONDE_INVIERTO.Service.Tests.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\DONDE_INVIERTO.Service.Tests.pdb
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\DONDE_INVIERTO.DataStorage.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\DONDE_INVIERTO.Model.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\DONDE_INVIERTO.Service.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\NHibernate.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\TrailHealth.Integration.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\Antlr4.Runtime.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\Remotion.Linq.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\Remotion.Linq.EagerFetching.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\Antlr3.Runtime.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\Iesi.Collections.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\DONDE_INVIERTO.DataStorage.pdb
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\DONDE_INVIERTO.DataStorage.dll.config
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\DONDE_INVIERTO.Model.pdb
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\DONDE_INVIERTO.Service.pdb
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\DONDE_INVIERTO.Service.dll.config
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\NHibernate.xml
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\Antlr4.Runtime.xml
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\Remotion.Linq.xml
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\Remotion.Linq.EagerFetching.xml
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\Antlr3.Runtime.xml
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\bin\Debug\Iesi.Collections.xml
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\obj\Debug\DONDE_INVIERTO.Service.Tests.csprojResolveAssemblyReference.cache
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\obj\Debug\DONDE_INVIERTO.Service.Tests.csproj.CoreCompileInputs.cache
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\obj\Debug\DONDE_INVIERTO.Service.Tests.dll
+D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Service.Tests\obj\Debug\DONDE_INVIERTO.Service.Tests.pdb
