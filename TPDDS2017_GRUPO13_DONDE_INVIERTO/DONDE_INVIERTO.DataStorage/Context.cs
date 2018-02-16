@@ -60,29 +60,13 @@ namespace DONDE_INVIERTO.DataStorage
         public static IList<T> ReadAll<T>() where T : EditableEntity
         {
 
-            using (var transaction = Session.BeginTransaction())
-            {
-                return Session.QueryOver<T>().List();
-            }
+            return Session.QueryOver<T>().List();
 
         }
 
         public static void Save<T>(T entity) where T : EditableEntity
         {
-
-            using (var transaction = Session.BeginTransaction())
-            {
-                try
-                {
-                    Session.SaveOrUpdate(entity);
-                    transaction.Commit();
-                }
-                catch (Exception ex)
-                {
-                    transaction.Rollback();
-                }
-            }
-
+            Session.SaveOrUpdate(entity);
         }
 
         public static void Save<T>(IList<T> entities) where T : EditableEntity
@@ -105,31 +89,14 @@ namespace DONDE_INVIERTO.DataStorage
         public static void Delete<T>(T entity) where T : EditableEntity
         {
 
-            using (var transaction = Session.BeginTransaction())
-            {
-                try
-                {
-                Session.Delete(entity);
-                Session.Flush();
-                    transaction.Commit();
-                }
-                catch
-                {
-                    transaction.Rollback();
-                }
+            Session.Delete(entity);
+            Session.Flush();
 
-            }
-   
         }
 
         public static T Get<T>(T entity) where T : EditableEntity
         {
-
-            using (var transaction = Session.BeginTransaction())
-            {
-                return Session.Get<T>(entity.Id);
-            }
-      
+            return Session.Get<T>(entity.Id);
         }
     }
 }
