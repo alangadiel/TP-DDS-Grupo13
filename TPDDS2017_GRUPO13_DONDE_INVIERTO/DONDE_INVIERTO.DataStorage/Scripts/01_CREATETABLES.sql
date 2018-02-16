@@ -34,9 +34,9 @@ GO
 
 CREATE TABLE [dbo].[condiciones](
 	[cond_id] [int] IDENTITY(1,1),
-	[cond_indicador_id] [int],
+	[cond_indicador_id] [int] NOT NULL,
 	[cond_descripcion] [nvarchar](200),
-	[cond_discriminator] [nvarchar](200) NOT NULL,
+	[cond_tipoCond_id] [int] NOT NULL,
  CONSTRAINT [PK_condicion] PRIMARY KEY CLUSTERED 
 (
 	[cond_id] ASC
@@ -237,6 +237,15 @@ GO
 
 ALTER TABLE [dbo].[condiciones] CHECK CONSTRAINT [FK_cond_indicador]
 GO
+
+
+ALTER TABLE [dbo].[condiciones]  WITH CHECK ADD  CONSTRAINT [FK_cond_tipoCond] FOREIGN KEY([cond_tipoCond_id])
+REFERENCES [dbo].[tipocondiciones] ([tcon_id])
+GO
+
+ALTER TABLE [dbo].[condiciones] CHECK CONSTRAINT [FK_cond_tipoCond]
+GO
+
 
 ALTER TABLE [dbo].[metodologiacondiciones]  WITH CHECK ADD  CONSTRAINT [FK_metcon_metodologia] FOREIGN KEY([metcon_metodologia_id])
 REFERENCES [dbo].[metodologias] ([meto_id])

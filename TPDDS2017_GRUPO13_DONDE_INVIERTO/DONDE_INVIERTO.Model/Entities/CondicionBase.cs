@@ -10,8 +10,8 @@ namespace DONDE_INVIERTO.Model
 	{
 		private int _id;
 		private string _descripcion;
-		private string _discriminador;
-		private int? _indicadorId;
+		private int _tipoCondicionId;
+		private int _indicadorId;
 		[DataMember]
 		public virtual string Descripcion
 		{
@@ -19,10 +19,10 @@ namespace DONDE_INVIERTO.Model
 			set { _descripcion = value; }
 		}
 		[DataMember]
-		public virtual string Discriminador
+		public virtual int TipoCondicionId
 		{
-			get { return _discriminador; }
-			set { _discriminador = value; }
+			get { return _tipoCondicionId; }
+			set { _tipoCondicionId = value; }
 		}
 		[DataMember]
 		public override int Id
@@ -31,7 +31,7 @@ namespace DONDE_INVIERTO.Model
 			set { _id = value; }
 		}
 		[DataMember]
-		public virtual int? IndicadorId
+		public virtual int IndicadorId
 		{
 			get { return _indicadorId; }
 			set { _indicadorId = value; }

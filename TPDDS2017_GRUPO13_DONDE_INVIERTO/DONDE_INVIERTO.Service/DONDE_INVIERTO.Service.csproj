@@ -82,6 +82,7 @@
     <Compile Include="Condiciones\MayorAUno.cs" />
     <Compile Include="Condiciones\MinimizarDeuda.cs" />
     <Compile Include="Condiciones\RoeConsistente.cs" />
+    <Compile Include="CondicionService.cs" />
     <Compile Include="CuentaService.cs" />
     <Compile Include="EmpresaService.cs" />
     <Compile Include="IndicadorService.cs" />
