@@ -7,18 +7,22 @@ using DONDE_INVIERTO.Model.Views;
 namespace DONDE_INVIERTO.Service
 {
     public class CuentaService
-    {
-
-        public ComponenteOperando Cuenta { get; set; }
-
-        public double ObtenerValor(EmpresaView empresa, int periodo, List<ComponenteOperando> listaOperandos)
+    { 
+        public double ObtenerValor(ComponenteOperando cuenta, EmpresaView empresa, int periodo, List<ComponenteOperando> listaOperandos)
         {
-            var balances = empresa.Balances;
-            var balanceBuscado = balances.FirstOrDefault(x => x.Periodo == periodo);
-            if (balanceBuscado == null) return 0;
+            var balanceBuscado = empresa.Balances.FirstOrDefault(x => x.Periodo == periodo);
+
+            if (balanceBuscado == null)
+                throw new System.Exception("No se encuentra una cuenta en el periodo " + periodo);
+
             var componentes = listaOperandos.Where(comp => comp.BalanceId!=null && comp.BalanceId == balanceBuscado.Id).ToList();
-            var cuentaBuscada = componentes.FirstOrDefault(x => x.Nombre.ToLower() == Cuenta.Nombre.ToLower());
-            return cuentaBuscada != null ? (double) cuentaBuscada.Valor.Value : 0;
+
+            var cuentaBuscada = componentes.FirstOrDefault(x => x.Nombre.ToLower() == cuenta.Nombre.ToLower());
+
+            if (cuentaBuscada == null)
+                throw new System.Exception("No se encuentra una cuenta con el nombre " + cuenta.Nombre);
+
+            return (double) cuentaBuscada.Valor.Value;
         }
     }
 }

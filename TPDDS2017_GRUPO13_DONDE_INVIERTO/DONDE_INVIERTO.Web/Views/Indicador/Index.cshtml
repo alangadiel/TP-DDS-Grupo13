@@ -16,8 +16,8 @@
     function evaluarIndicador(idIndicador) {
         var empresaSeleccionada = $("#selectEmpresa").val();
         var anioIngresado = $("#inputAnio").val();
-        var url = '@Url.Action("EvaluarIndicadorParaEmpresa","Indicadores",new { idIndicador = "__idIndicador__", cuit = "__cuit__",periodo = "__periodo__"})';
-        url = url.replace("__idIndicador__", idIndicador).replace("amp;", "").replace("__cuit__", empresaSeleccionada).replace("amp;", "").replace("__periodo__", anioIngresado).replace("amp;", "");
+        var url = '@Url.Action("EvaluarIndicadorParaEmpresa","Indicadores",new { idIndicador = "__idIndicador__", idEmpresa = "__idEmpresa__", periodo = "__periodo__"})';
+        url = url.replace("__idIndicador__", idIndicador).replace("amp;", "").replace("__idEmpresa__", empresaSeleccionada).replace("amp;", "").replace("__periodo__", anioIngresado).replace("amp;", "");
         $.ajax({
             url: url,
             type: 'post',
@@ -44,7 +44,7 @@
             success: function (data) {
                 $.each(data.Empresas, function (index, item) {
                     $("#selectEmpresa").append($("<option></option>")
-                    .attr("value", item.CUIT)
+                    .attr("value", item.Id)
                     .text(item.Nombre));
                 });
             }
@@ -76,7 +76,7 @@
                 <td>@item.Nombre</td>
                 <td>@item.Formula</td>
                 <td>
-                    <a href="#" onclick="javascript: mostrarFiltrosEvaluacion(@item.Id)"><i class="fa fa-usd"></i> Evaluar</a><br />
+                    <a href="@Url.Action("Evaluar","Indicador",new { id = item.Id })"><i class="fa fa-usd"></i> Evaluar</a><br />
                     <a href="@Url.Action("Edit","Indicador",new { id = item.Id })"> <i class="fa fa-pencil"></i> Editar</a><br />
                     <a href="@Url.Action("Delete","Indicador",new { id = item.Id})" onclick="return confirm('¿Está seguro que desea eliminar este registro?')"> <i class="fa fa-trash"></i> Eliminar</a> <br />
                 </td>

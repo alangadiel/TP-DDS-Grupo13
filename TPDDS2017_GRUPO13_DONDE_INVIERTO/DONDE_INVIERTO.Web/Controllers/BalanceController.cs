@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 using DONDE_INVIERTO.Model;
 using DONDE_INVIERTO.Model.Views;
 using DONDE_INVIERTO.Service;
@@ -116,19 +118,39 @@ namespace DONDE_INVIERTO.Web.Controllers
             return RedirectToAction("Index");
         }
 
-       /* // POST: Balances/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id)
+        public List<Balance> DeserializarArchivoBalances()
         {
-            try
+            //Metodo para desserializar el archivo json
+            string buffer;
+            if (Request != null)
             {
-                
-                return RedirectToAction("Index");
+                var file = Request.Files[0];
+                buffer = new StreamReader(file.InputStream).ReadToEnd();
             }
-            catch
+            else
             {
-                return View();
+                buffer = System.IO.File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data\\Archivos\\balances.json"));
             }
-        }*/
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            List<Balance> listBalances = serializer.Deserialize<List<Balance>>(buffer);
+            return listBalances;
+
+        }
+
+        /* // POST: Balances/Delete/5
+         [HttpPost]
+         public ActionResult Delete(int id)
+         {
+             try
+             {
+
+                 return RedirectToAction("Index");
+             }
+             catch
+             {
+                 return View();
+             }
+         }*/
     }
 }

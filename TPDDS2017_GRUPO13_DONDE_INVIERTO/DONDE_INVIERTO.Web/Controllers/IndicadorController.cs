@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using System.Web.Script.Serialization;
 
 namespace DONDE_INVIERTO.Web.Controllers
 {
@@ -13,7 +14,8 @@ namespace DONDE_INVIERTO.Web.Controllers
     {
 
         private IndicadorService Service = new IndicadorService();
-
+        private EmpresaService EmpresaService = new EmpresaService();
+                
         public ActionResult List()
         {
             return View();
@@ -73,6 +75,47 @@ namespace DONDE_INVIERTO.Web.Controllers
         {
             Service.Delete(id);
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Evaluar(int id)
+        {
+            setViewBagEmpresa();
+            ViewBag.Id = id;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Evaluar(int idIndicador, int idEmpresa, int periodo)
+        {
+            try
+            {
+                ViewBag.Resultado = Service.EvaluarIndicadorParaEmpresa(idIndicador, idEmpresa, periodo, User.Identity.GetUserName()).ToString();
+                ViewBag.listaErrores = null;
+            }
+            catch (Exception e)
+            {
+                ViewBag.listaErrores = "Error, verifique que haya cuentas para el periodo seleccionado. \nDetalles: " + e.Message;
+            }
+            return Evaluar(idIndicador);
+        }
+
+        public List<ComponenteOperando> DeserializarArchivoIndicadores()
+        {
+            string buf = System.IO.File.ReadAllText(Server.MapPath("~/App_Data/Archivos/") + "indicadores.json");
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            List<ComponenteOperando> listIndicadores = serializer.Deserialize<List<ComponenteOperando>>(buf);
+            return listIndicadores;
+
+        }
+
+        private void setViewBagEmpresa()
+        {
+            ViewBag.Empresas = EmpresaService.List().Select(x => new SelectListItem
+            {
+                Text = x.Nombre,
+                Value = x.Id.ToString()
+            }).ToList();
+
         }
     }
 }

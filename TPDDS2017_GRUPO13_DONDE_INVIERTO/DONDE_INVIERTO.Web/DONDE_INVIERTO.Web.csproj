@@ -156,6 +156,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BalanceController.cs" />
+    <Compile Include="Controllers\CargarController.cs" />
     <Compile Include="Controllers\CondicionController.cs" />
     <Compile Include="Controllers\CuentaController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
@@ -292,6 +293,7 @@
     <Content Include="Views\Cargar\CargarArchivo.cshtml" />
     <Content Include="Views\Metodologia\Index.cshtml" />
     <Content Include="Views\Metodologia\ObtenerEmpresasDeseables.cshtml" />
+    <Content Include="Views\Indicador\Evaluar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

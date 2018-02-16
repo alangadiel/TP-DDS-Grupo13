@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Evaluar indicador";
+
+    List<SelectListItem> listEmpresas = new List<SelectListItem>();
+    List<SelectListItem> _listEmpresas = ViewBag.Empresas as List<SelectListItem>;
+    listEmpresas.AddRange(_listEmpresas);
+
+}
+
+<h2>Evaluar indicador</h2>
+@using (Html.BeginForm("Evaluar", "Indicador", FormMethod.Post, new { @id = "form" }))
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+            <label>Empresa</label>
+            @Html.DropDownList("idEmpresa", listEmpresas, "Seleccione empresa..", new { @required = "true", @id = "idEmpresa", @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.Hidden("idIndicador", (int)ViewBag.Id)
+        </div>
+        <div class="form-group">
+            <label>Periodo</label>
+            <input type="text" name="periodo" placeholder="Periodo" id="periodo" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Evaluar" />
+        </div>
+    </div>
+
+    if (ViewBag.listaErrores != null)
+    {
+        <div class="alert alert-danger divErrores">
+            <strong>Errores: @ViewBag.listaErrores<br></strong> <ul id="listaErrores"></ul>
+        </div>
+    }
+
+    else if (ViewBag.Resultado != null)
+    {
+        <div class="alert alert-success divResult">
+            <strong>Resultado: @ViewBag.Resultado<br></strong> <ul id="Resultado"></ul>
+        </div>
+    }
+}
+
