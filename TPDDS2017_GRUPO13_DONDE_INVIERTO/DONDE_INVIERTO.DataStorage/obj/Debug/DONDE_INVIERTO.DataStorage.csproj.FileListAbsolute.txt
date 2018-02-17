@@ -42,3 +42,25 @@ D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INV
 D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\obj\Debug\DONDE_INVIERTO.DataStorage.csproj.CoreCompileInputs.cache
 D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\obj\Debug\DONDE_INVIERTO.DataStorage.dll
 D:\Documents\Trabajos\UTN\Tercero\DDS\TP Anual\Repo2\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\obj\Debug\DONDE_INVIERTO.DataStorage.pdb
+C:\Users\lucas\Desktop\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\DONDE_INVIERTO.DataStorage.dll.config
+C:\Users\lucas\Desktop\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\DONDE_INVIERTO.DataStorage.dll
+C:\Users\lucas\Desktop\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\DONDE_INVIERTO.DataStorage.pdb
+C:\Users\lucas\Desktop\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\Antlr3.Runtime.dll
+C:\Users\lucas\Desktop\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\Castle.Core.dll
+C:\Users\lucas\Desktop\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\DONDE_INVIERTO.Model.dll
+C:\Users\lucas\Desktop\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\Iesi.Collections.dll
+C:\Users\lucas\Desktop\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\NHibernate.Caches.SysCache.dll
+C:\Users\lucas\Desktop\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\NHibernate.dll
+C:\Users\lucas\Desktop\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\Remotion.Linq.dll
+C:\Users\lucas\Desktop\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\Remotion.Linq.EagerFetching.dll
+C:\Users\lucas\Desktop\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\DONDE_INVIERTO.Model.pdb
+C:\Users\lucas\Desktop\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\Antlr3.Runtime.xml
+C:\Users\lucas\Desktop\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\Castle.Core.xml
+C:\Users\lucas\Desktop\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\Iesi.Collections.xml
+C:\Users\lucas\Desktop\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\NHibernate.xml
+C:\Users\lucas\Desktop\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\Remotion.Linq.xml
+C:\Users\lucas\Desktop\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\bin\Debug\Remotion.Linq.EagerFetching.xml
+C:\Users\lucas\Desktop\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\obj\Debug\DONDE_INVIERTO.DataStorage.csprojResolveAssemblyReference.cache
+C:\Users\lucas\Desktop\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\obj\Debug\DONDE_INVIERTO.DataStorage.csproj.CoreCompileInputs.cache
+C:\Users\lucas\Desktop\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\obj\Debug\DONDE_INVIERTO.DataStorage.dll
+C:\Users\lucas\Desktop\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.DataStorage\obj\Debug\DONDE_INVIERTO.DataStorage.pdb

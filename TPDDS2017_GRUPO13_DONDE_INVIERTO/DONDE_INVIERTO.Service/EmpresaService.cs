@@ -29,5 +29,7 @@ namespace DONDE_INVIERTO.Service
             return Context.Session.Query<Empresa>().
                 Where(emp => emp.Id == id).First();
         }
+
+
     }
 }

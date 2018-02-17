@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DONDE_INVIERTO.Model;
+using System.IO;
+using System.Web.Script.Serialization;
 
 namespace DONDE_INVIERTO.Web.Controllers
 {
@@ -53,6 +55,27 @@ namespace DONDE_INVIERTO.Web.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult TraerEmpresas() => Json(new { Empresas = service.List() }, JsonRequestBehavior.AllowGet);
+
+        public List<Empresa> DeserializarArchivoEmpresas()
+        {
+            //Metodo para desserializar el archivo json de empresas
+            string buffer;
+            if (Request != null)
+            {
+                var file = Request.Files[0];
+                buffer = new StreamReader(file.InputStream).ReadToEnd();
+            }
+            else
+            {
+                buffer = System.IO.File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data\\Archivos\\empresas.json"));
+            }
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            List<Empresa> listaEmpresas = serializer.Deserialize<List<Empresa>>(buffer);
+            return listaEmpresas;
+
+        }
 
     }
 }

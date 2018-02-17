@@ -24,6 +24,7 @@ namespace DONDE_INVIERTO.Service
             catch
             {
                 throw new System.Exception("Inicie Sesion");
+                
             }
         }
     }

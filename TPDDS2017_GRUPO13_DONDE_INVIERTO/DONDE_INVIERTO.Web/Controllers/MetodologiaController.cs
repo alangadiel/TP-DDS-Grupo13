@@ -1,8 +1,10 @@
-﻿using System;
+﻿using DONDE_INVIERTO.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 
 namespace DONDE_INVIERTO.Web.Controllers
 {
@@ -84,6 +86,16 @@ namespace DONDE_INVIERTO.Web.Controllers
             {
                 return View();
             }
+        }
+
+        public List<Metodologia> DeserializarArchivoMetodologias()
+        {
+            //TODO: Falta crear el archivo json de las metodologias
+            string buf = System.IO.File.ReadAllText(Server.MapPath("~/App_Data/Archivos/") + "metodologias.json");
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            List<Metodologia> listMetodologias = serializer.Deserialize<List<Metodologia>>(buf);
+            return listMetodologias;
+
         }
     }
 }

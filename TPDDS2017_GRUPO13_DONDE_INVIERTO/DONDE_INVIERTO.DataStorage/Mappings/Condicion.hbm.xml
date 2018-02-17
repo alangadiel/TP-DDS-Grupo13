@@ -4,7 +4,7 @@
 			<generator class="native" />
 		</id>
 		<property name="Descripcion" column="cond_descripcion" not-null="false" length="200" />
-		<property name="Discriminador" column="cond_discriminator" not-null="true" length="200" />
-		<property name="IndicadorId" column="cond_indicador_id" not-null="false" />
+		<property name="TipoCondicionId" column="cond_tipoCond_id" not-null="true" />
+		<property name="IndicadorId" column="cond_indicador_id" not-null="true" />
 	</class>
 </hibernate-mapping>

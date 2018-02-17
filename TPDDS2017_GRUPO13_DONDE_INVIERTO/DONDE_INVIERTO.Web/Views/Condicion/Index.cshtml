@@ -1,4 +1,4 @@
-﻿@model List<DONDE_INVIERTO.Model.Condicion>
+﻿@model List<DONDE_INVIERTO.Model.Views.CondicionView>
 @{
     ViewBag.Title = "Condiciones";
 }
@@ -26,7 +26,7 @@
             <tr>
                 @*<td>@item.Id</td>*@
                 <td>@item.Descripcion</td>
-                <td>@item.Tipo</td>
+                <td>@item.Tipo.Descripcion</td>
                 <td>@(item.Indicador != null ? item.Indicador.Nombre : "SIN INDICADOR") </td>  
                 <td><a href="@Url.Action("Delete","Condicion",new { id = item.Id})" onclick="return confirm('¿Está seguro que desea eliminar este registro?')"> <i class="fa fa-trash"></i> Eliminar</a></td>                
             </tr>

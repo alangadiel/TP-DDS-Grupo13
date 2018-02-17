@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
 using DONDE_INVIERTO.Model;
 using DONDE_INVIERTO.Model.Views;
 using DONDE_INVIERTO.Service;
@@ -116,19 +118,21 @@ namespace DONDE_INVIERTO.Web.Controllers
             return RedirectToAction("Index");
         }
 
-       /* // POST: Balances/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id)
-        {
-            try
-            {
-                
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }*/
+        
+
+        /* // POST: Balances/Delete/5
+         [HttpPost]
+         public ActionResult Delete(int id)
+         {
+             try
+             {
+
+                 return RedirectToAction("Index");
+             }
+             catch
+             {
+                 return View();
+             }
+         }*/
     }
 }

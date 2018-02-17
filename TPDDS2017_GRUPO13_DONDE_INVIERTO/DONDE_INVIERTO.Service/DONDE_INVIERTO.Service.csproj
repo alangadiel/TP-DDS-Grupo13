@@ -56,6 +56,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -74,6 +75,7 @@
     <Compile Include="ANTLR\gramaticaVisitor.cs" />
     <Compile Include="ANTLR\VisitorCore.cs" />
     <Compile Include="BalanceService.cs" />
+    <Compile Include="BalancesRepetidosException.cs" />
     <Compile Include="ComponenteService.cs" />
     <Compile Include="Condiciones\CondicionesFactory.cs" />
     <Compile Include="Condiciones\ITipoCondicion.cs" />
@@ -82,6 +84,7 @@
     <Compile Include="Condiciones\MayorAUno.cs" />
     <Compile Include="Condiciones\MinimizarDeuda.cs" />
     <Compile Include="Condiciones\RoeConsistente.cs" />
+    <Compile Include="CondicionService.cs" />
     <Compile Include="CuentaService.cs" />
     <Compile Include="EmpresaService.cs" />
     <Compile Include="IndicadorService.cs" />

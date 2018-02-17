@@ -46,8 +46,8 @@ namespace DONDE_INVIERTO.Service.Tests
                 indicadorTest
             };
             int periodo = 2017;
-            var serv = new IndicadorService() { Indicador = indicador2 };
-            double result = serv.ObtenerValor(empresa, periodo, lista);
+            var serv = new IndicadorService();
+            double result = serv.ObtenerValor(indicador2, empresa, periodo, lista);
             Assert.AreEqual(result, 61);
         }
 
@@ -84,8 +84,8 @@ namespace DONDE_INVIERTO.Service.Tests
                 indicadorTest
             };
             int periodo = 2017;
-            var serv = new IndicadorService() { Indicador = indicador2 };
-            double result = serv.ObtenerValor(empresa, periodo, lista);
+            var serv = new IndicadorService();
+            double result = serv.ObtenerValor(indicador2, empresa, periodo, lista);
             Assert.AreEqual(result, 525);
         }
         [TestMethod]
@@ -117,8 +117,8 @@ namespace DONDE_INVIERTO.Service.Tests
                 indicadorTest
             };
             int periodo = 2017;
-            var serv = new IndicadorService() { Indicador = indicadorTest };
-            double result = serv.ObtenerValor(empresa, periodo, lista);
+            var serv = new IndicadorService();
+            double result = serv.ObtenerValor(indicadorTest, empresa, periodo, lista);
             Assert.AreEqual(result, 68);
         }
         [TestMethod]
@@ -151,9 +151,9 @@ namespace DONDE_INVIERTO.Service.Tests
                 indicadorTest
             };
             int periodo = 2017;
-            var serv = new IndicadorService() { Indicador = indicadorTest };
+            var serv = new IndicadorService();
 
-            double result = serv.ObtenerValor(empresa, periodo, lista);
+            double result = serv.ObtenerValor(indicadorTest, empresa, periodo, lista);
             Assert.AreEqual(result, 500);
         }
         [TestMethod]

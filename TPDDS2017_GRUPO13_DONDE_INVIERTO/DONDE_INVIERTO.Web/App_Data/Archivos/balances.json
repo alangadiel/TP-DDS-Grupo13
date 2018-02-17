@@ -1,0 +1,12 @@
+[
+	 {
+		"Valor": "1000",
+        "Periodo": "2016",
+		"EmpresaId": "1"
+      },
+	  {
+		"Valor": "302",
+		"Periodo": "2017",
+		"EmpresaId": "2"
+      }
+]
