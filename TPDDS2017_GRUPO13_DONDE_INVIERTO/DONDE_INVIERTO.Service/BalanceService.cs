@@ -93,22 +93,14 @@ namespace DONDE_INVIERTO.Service
                 .Any(bal => bal.Periodo == periodo && bal.EmpresaId == empresa.Id);
         }
 
-        public void CargarBalances(List<Balance> balances)
-        {
-            //Valido que no haya balances repetidos
-            this.ValidarBalancesArchivo(balances);
-            foreach (Balance balance in balances)
-            {
-                Context.Save(balance);
-            }
-        }
+        
 
-        private void ValidarBalancesArchivo(List<Balance> balancesArchivo)
+        public void ValidarBalancesArchivo(List<BalanceView> balancesArchivo)
         {
-            List<Balance> balancesRepetidos = new List<Balance>();
+            var balancesRepetidos = new List<BalanceView>();
             foreach (var item in balancesArchivo)
             {
-                bool hayUnBalanceIgual = this.ExisteBalanceParaEmpresaEnPeriodo(item.Periodo, item.EmpresaId);
+                bool hayUnBalanceIgual = this.ExisteBalanceParaEmpresaEnPeriodo(item.Periodo, item.Empresa.Id);
                 if (hayUnBalanceIgual)
                 {
                     balancesRepetidos.Add(item);
@@ -117,7 +109,7 @@ namespace DONDE_INVIERTO.Service
             }
             if (balancesRepetidos.Count > 0)
             {
-                throw new BalancesRepetidosException("Hay balances del archivo que ya fueron cargados previamente") { Balances = balancesRepetidos };
+                throw new Exception("Hay balances del archivo que ya fueron cargados previamente"); //{ Balances = balancesRepetidos };
             }
         }
 

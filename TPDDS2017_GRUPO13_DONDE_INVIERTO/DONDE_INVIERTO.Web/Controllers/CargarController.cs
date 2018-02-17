@@ -1,5 +1,7 @@
 ﻿using DONDE_INVIERTO.Model;
+using DONDE_INVIERTO.Model.Views;
 using DONDE_INVIERTO.Service;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,9 +15,11 @@ namespace DONDE_INVIERTO.Web.Controllers
     public class CargarController : Controller
     {
         private BalanceService Service = new BalanceService();
+        private CuentaService CuentaService = new CuentaService();
 
         public ActionResult CargarArchivo()
         {
+            //GenerarJson();
             return View();
         }
 
@@ -43,7 +47,7 @@ namespace DONDE_INVIERTO.Web.Controllers
             }
         }
 
-        public List<Balance> DeserializarArchivoBalances()
+        public List<BalanceView> DeserializarArchivoBalances()
         {
             //Metodo para desserializar el archivo json
             string buffer;
@@ -58,10 +62,17 @@ namespace DONDE_INVIERTO.Web.Controllers
             }
 
             JavaScriptSerializer serializer = new JavaScriptSerializer();
-            List<Balance> listBalances = serializer.Deserialize<List<Balance>>(buffer);
-            return listBalances;
-
+            return serializer.Deserialize<List<BalanceView>>(buffer);
         }
+
+        private void GenerarJson()
+        {
+            var balances = Service.List(User.Identity.GetUserName());
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            var json = serializer.Serialize(balances);
+            System.IO.File.WriteAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data\\Archivos\\balances.json"), json);
+        }
+
 
         public ActionResult CargarBalancesDesdeArchivo()
         {
@@ -69,9 +80,17 @@ namespace DONDE_INVIERTO.Web.Controllers
             {
                 if (Request.Files.Count > 0)
                 {
-                    //Deserializo el archivo seleccionado
-                    List<Balance> balancesArchivo = this.DeserializarArchivoBalances();
-                    Service.CargarBalances(balancesArchivo);
+                    //Deserializo el archivo seleccionado  
+                    //List<ComponenteOperando> componentesArchivo = this.DeserializarArchivoComponente();
+                    //ComponenteService.cargarCuentas(componentesArchivo)
+                    var balancesArchivo = this.DeserializarArchivoBalances();
+                    Service.ValidarBalancesArchivo(balancesArchivo);
+                    balancesArchivo.ForEach(balance =>
+                    {
+                        balance.Id = 0;
+                        balance.Cuentas.ForEach(c => c.Id = 0);
+                        Service.Save(balance, User.Identity.GetUserName());
+                    });
                     return Json(new { Success = true });
                 }
                 else
