@@ -9,34 +9,17 @@ using Microsoft.AspNet.Identity;
 
 namespace DONDE_INVIERTO.Web.Controllers
 {
+    [Authorize]
     public class IndicadorController : Controller
     {
 
         private IndicadorService Service = new IndicadorService();
-
-        public ActionResult List()
-        {
-            return View();
-        }
-
 
         // GET: Indicador
         public ActionResult Index()
         {
             var indicadores = Service.List(User.Identity.GetUserName());
             return View(indicadores);
-        }
-
-        // GET: Indicador/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Indicador/Create
-        public ActionResult Create()
-        {
-            return View();
         }
 
         // POST: Indicador/Create
@@ -54,6 +37,7 @@ namespace DONDE_INVIERTO.Web.Controllers
         }
 
         // GET: Indicador/Edit/5
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             var indicador = Service.Get(id);
