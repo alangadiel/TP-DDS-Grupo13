@@ -28,7 +28,7 @@
         <div class="form-group">
             <div class="col-md-3">
                 <label>Fecha de fundacion</label>
-                @Html.TextBoxFor(x => x.FechaFundacion.Value, new { @id = "fechaFundacion", @class = "form-control", @type = "date", @required = true })
+                @Html.TextBoxFor(x => x.FechaFundacion, new { @id = "fechaFundacion", @class = "form-control", @type = "date", @Value = Model.FechaFundacion.GetValueOrDefault().ToString("yyyy-MM-dd"), @required = true })
             </div>
 
         </div>

@@ -44,7 +44,7 @@ namespace DONDE_INVIERTO.Web.Controllers
         [HttpPost]
         public ActionResult Edit(Empresa empresa)
         {
-            service.Save(empresa);
+            service.Update(empresa);
             return RedirectToAction("Index");
         }
 

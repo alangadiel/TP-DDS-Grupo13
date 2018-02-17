@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DONDE_INVIERTO.Model;
 using DONDE_INVIERTO.DataStorage;
 using DONDE_INVIERTO.Model.Views;
+using DONDE_INVIERTO.ANTLR;
 
 namespace DONDE_INVIERTO.Service
 {
@@ -47,5 +48,26 @@ namespace DONDE_INVIERTO.Service
                 Where(x => x.Id == id).First();
         }
 
+        public List<ITipoCondicion> GetTiposCondicionByMetodologia(MetodologiaView metodologia)
+        {
+            var listTipoCond = new List<ITipoCondicion>();
+            var tiposCond = Context.Session.Query<MetodologiaCondicion>()
+                .Join(Context.Session.Query<Condicion>(),
+                    mc => mc.CondicionId,
+                    c => c.Id,
+                    (mc, c) => new { mc, c })
+                .Join(Context.Session.Query<TipoCondicion>(),
+                    mc => mc.c.TipoCondicionId,
+                    tc => tc.Id,
+                    (mc, tc) => new { MetodologiaCondicion = mc.mc, Condicion = mc.c, TipoCondicion = tc })
+                .Where(cond => cond.MetodologiaCondicion.MetodologiaId == metodologia.Id)
+                .Select(cond => cond.TipoCondicion)
+                .ToList();
+            tiposCond.ForEach(tc =>
+            {
+                listTipoCond.Add(CondicionesFactory.FindCondicion(tc));
+            });
+            return listTipoCond.Distinct().ToList();
+        }
     }
 }

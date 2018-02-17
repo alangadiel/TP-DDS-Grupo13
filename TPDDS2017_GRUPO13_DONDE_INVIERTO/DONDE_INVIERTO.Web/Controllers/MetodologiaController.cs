@@ -36,7 +36,7 @@ namespace DONDE_INVIERTO.Web.Controllers
         [HttpPost]
         public ActionResult Create(Metodologia model, List<int> idsCondiciones)
         {
-            service.Save(model, idsCondiciones);
+            service.Save(model, idsCondiciones.Distinct().ToList());
             return RedirectToAction("Index");
         }
 
@@ -45,9 +45,18 @@ namespace DONDE_INVIERTO.Web.Controllers
             var metodologia = service.GetById(idMetodologia);
             var empresas = new EmpresaService().List().Select(emp => new EmpresaView() { Id = emp.Id, FechaFundacion = emp.FechaFundacion, Nombre = emp.Nombre }).ToList();
             var operandos = new IndicadorService().GetListByMetodologia(metodologia);
+            var tiposCondiciones = new CondicionService().GetTiposCondicionByMetodologia(metodologia);
+            service.Condiciones = tiposCondiciones;
             var deseables = service.ObtenerEmpresasDeseables(empresas, operandos);
             ViewBag.Metodologia_Nombre = metodologia.Nombre;
             return View(deseables);
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            service.Delete(id);
+            return RedirectToAction("Index");
         }
 
 

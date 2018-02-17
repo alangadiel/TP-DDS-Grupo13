@@ -69,5 +69,13 @@ namespace DONDE_INVIERTO.Service
             foreach(var id in condicionesIds)
                 Context.Save(new MetodologiaCondicion() { MetodologiaId = metodologia.Id, CondicionId = id });
         }
+
+        public void Delete(int metodologiaId)
+        {
+            var metodologia = Context.Session.Query<Metodologia>().Where(met => met.Id == metodologiaId).First();
+            var metodologiasCondiciones = Context.Session.Query<MetodologiaCondicion>().Where(mc => mc.MetodologiaId == metodologia.Id).ToList();
+            Context.Delete<MetodologiaCondicion>(metodologiasCondiciones);
+            Context.Delete(metodologia);
+        }
     }
 }

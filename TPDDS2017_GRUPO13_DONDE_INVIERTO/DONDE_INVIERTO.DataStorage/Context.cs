@@ -69,6 +69,18 @@ namespace DONDE_INVIERTO.DataStorage
             Session.SaveOrUpdate(entity);
         }
 
+        public static void Update<T>(T entity) where T : EditableEntity
+        {
+            try
+            {
+                Session.SaveOrUpdate(entity);
+            }
+            catch
+            {
+                Session.Merge(entity);
+            }
+        }
+
         public static void Save<T>(IList<T> entities) where T : EditableEntity
         {
             using (var transaction = Session.BeginTransaction())
@@ -91,6 +103,27 @@ namespace DONDE_INVIERTO.DataStorage
 
             Session.Delete(entity);
             Session.Flush();
+
+        }
+
+        public static void Delete<T>(IList<T> entities) where T : EditableEntity
+        {
+            using (var transaction = Session.BeginTransaction())
+            {
+                try
+                {
+                    entities.ToList().ForEach(entity =>
+                    {
+                        Session.Delete(entity);
+                        Session.Flush();
+                    });
+                    transaction.Commit();
+                }
+                catch
+                {
+                    transaction.Rollback();
+                }
+            }
 
         }
 
