@@ -143,23 +143,13 @@
                     </thead>
 
                     <tbody class="cuerpo"></tbody>
-                    @for (var i = 0; i < Model.Cuentas.Count(); i++)
-                    {
-                        var nameNombre = String.Concat("Cuentas[", i.ToString(), "].Nombre");
-                        var nameValor = String.Concat("Cuentas[", i.ToString(), "].Valor");
-                        
-                    <tr>
-                        @Html.HiddenFor(x => x.Cuentas[i].Id)
-                        <td><input type="text" class="form-control nombre " name=@nameNombre required value=@Model.Cuentas[i].Nombre></td>
-                        <td><input type="text" class="form-control valor " name=@nameValor required value=@Model.Cuentas[i].Valor></td>
-                        <td> <a class="eliminar" href="#">X</a> </td>
-                    </tr>
-                    }
+
                     <tr>
                         <td></td>
                         <td></td>
                         <td><a href="#" onclick="agregarCuenta()" value="+" id="agregarCuenta"> +</a></td>
                     </tr>
+         
                 </table>
             </div>
             <br />

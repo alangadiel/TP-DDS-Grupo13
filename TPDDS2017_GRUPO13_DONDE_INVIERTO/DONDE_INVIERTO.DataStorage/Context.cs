@@ -66,7 +66,14 @@ namespace DONDE_INVIERTO.DataStorage
 
         public static void Save<T>(T entity) where T : EditableEntity
         {
-            Session.SaveOrUpdate(entity);
+            try
+            {
+                Session.SaveOrUpdate(entity);
+            }
+            catch
+            {
+                Session.Merge(entity);
+            }
         }
 
         public static void Update<T>(T entity) where T : EditableEntity
