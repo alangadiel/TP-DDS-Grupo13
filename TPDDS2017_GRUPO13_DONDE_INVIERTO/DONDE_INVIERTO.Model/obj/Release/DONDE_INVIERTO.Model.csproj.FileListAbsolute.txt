@@ -1,6 +1,5 @@
 C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Model\bin\Release\DONDE_INVIERTO.Model.dll
 C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Model\bin\Release\DONDE_INVIERTO.Model.pdb
-C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Model\bin\Release\TrailHealth.Integration.dll
 C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Model\obj\Release\DONDE_INVIERTO.Model.csprojResolveAssemblyReference.cache
 C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Model\obj\Release\DONDE_INVIERTO.Model.csproj.CoreCompileInputs.cache
 C:\Users\adria\OneDrive\Documentos\TP-DDS-Grupo13\TPDDS2017_GRUPO13_DONDE_INVIERTO\DONDE_INVIERTO.Model\obj\Release\DONDE_INVIERTO.Model.dll
