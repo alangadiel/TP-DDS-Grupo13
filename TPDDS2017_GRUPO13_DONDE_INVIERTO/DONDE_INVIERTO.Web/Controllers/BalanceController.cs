@@ -12,6 +12,7 @@ using Microsoft.AspNet.Identity;
 
 namespace DONDE_INVIERTO.Web.Controllers
 {
+    [Authorize]
     public class BalanceController : Controller
     {
         private BalanceService Service = new BalanceService();

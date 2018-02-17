@@ -10,17 +10,12 @@ using System.Web.Script.Serialization;
 
 namespace DONDE_INVIERTO.Web.Controllers
 {
+    [Authorize]
     public class IndicadorController : Controller
     {
 
         private IndicadorService Service = new IndicadorService();
-        private EmpresaService EmpresaService = new EmpresaService();
-                
-        public ActionResult List()
-        {
-            return View();
-        }
-
+        private EmpresaService empresaService = new EmpresaService();
 
         // GET: Indicador
         public ActionResult Index()
@@ -29,13 +24,7 @@ namespace DONDE_INVIERTO.Web.Controllers
             return View(indicadores);
         }
 
-        // GET: Indicador/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Indicador/Create
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -56,6 +45,7 @@ namespace DONDE_INVIERTO.Web.Controllers
         }
 
         // GET: Indicador/Edit/5
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             var indicador = Service.Get(id);
@@ -110,7 +100,7 @@ namespace DONDE_INVIERTO.Web.Controllers
 
         private void setViewBagEmpresa()
         {
-            ViewBag.Empresas = EmpresaService.List().Select(x => new SelectListItem
+            ViewBag.Empresas = empresaService.List().Select(x => new SelectListItem
             {
                 Text = x.Nombre,
                 Value = x.Id.ToString()

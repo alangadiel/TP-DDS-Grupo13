@@ -18,6 +18,11 @@ namespace DONDE_INVIERTO.Service
              Context.Save(empresa);
         }
 
+        public void Update(Empresa empresa)
+        {
+            Context.Update(empresa);
+        }
+
         public void Delete(int id)
         {
             var empresa = Get(id);

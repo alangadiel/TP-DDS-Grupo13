@@ -12,6 +12,7 @@ using System.Web.Script.Serialization;
 
 namespace DONDE_INVIERTO.Web.Controllers
 {
+    [Authorize]
     public class CargarController : Controller
     {
         private BalanceService Service = new BalanceService();

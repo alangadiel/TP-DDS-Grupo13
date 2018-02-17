@@ -1,4 +1,5 @@
 ﻿using DONDE_INVIERTO.ANTLR;
+using DONDE_INVIERTO.DataStorage;
 using DONDE_INVIERTO.Model;
 using DONDE_INVIERTO.Model.Views;
 using System;
@@ -33,6 +34,48 @@ namespace DONDE_INVIERTO.Service
         {
             empresas.Sort((emp1, emp2) => EsMejorParaInvertir(emp1, emp2, lista) ? 1 : 0 );
             return empresas;
+        }
+
+        public List<MetodologiaView> GetAll()
+        {
+            var metodologiaViewList = new List<MetodologiaView>();
+            var metodologias = Context.Session.Query<Metodologia>().ToList();
+            metodologias.ForEach(metodologia =>
+            {
+                var condiciones = Context.Session.Query<MetodologiaCondicion>()
+                    .Join(Context.Session.Query<Condicion>(),
+                        mc => mc.CondicionId,
+                        c => c.Id,
+                        (mc, c) => c)
+                    .ToList();
+                metodologiaViewList.Add(new MetodologiaView()
+                {
+                    Id = metodologia.Id,
+                    Nombre = metodologia.Nombre,
+                    Condiciones = condiciones
+                });
+            });
+            return metodologiaViewList;
+        }
+
+        public MetodologiaView GetById(int id)
+        {
+            return GetAll().Where(met => met.Id == id).FirstOrDefault();
+        }
+
+        public void Save(Metodologia metodologia, List<int> condicionesIds)
+        {
+            Context.Save(metodologia);
+            foreach(var id in condicionesIds)
+                Context.Save(new MetodologiaCondicion() { MetodologiaId = metodologia.Id, CondicionId = id });
+        }
+
+        public void Delete(int metodologiaId)
+        {
+            var metodologia = Context.Session.Query<Metodologia>().Where(met => met.Id == metodologiaId).First();
+            var metodologiasCondiciones = Context.Session.Query<MetodologiaCondicion>().Where(mc => mc.MetodologiaId == metodologia.Id).ToList();
+            Context.Delete<MetodologiaCondicion>(metodologiasCondiciones);
+            Context.Delete(metodologia);
         }
     }
 }

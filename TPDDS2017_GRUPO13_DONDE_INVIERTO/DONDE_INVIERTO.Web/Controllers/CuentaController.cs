@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace DONDE_INVIERTO.Web.Controllers
 {
+    [Authorize]
     public class CuentaController : Controller
     {
         // GET: Cuenta

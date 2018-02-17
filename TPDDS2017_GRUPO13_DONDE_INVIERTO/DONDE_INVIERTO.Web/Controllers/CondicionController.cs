@@ -10,6 +10,7 @@ using DONDE_INVIERTO.Model.Views;
 
 namespace DONDE_INVIERTO.Web.Controllers
 {
+    [Authorize]
     public class CondicionController : Controller
     {
         private IndicadorService IndicadorService = new IndicadorService();
