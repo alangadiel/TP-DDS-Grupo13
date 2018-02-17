@@ -15,12 +15,19 @@ namespace DONDE_INVIERTO.Web.Controllers
     {
 
         private IndicadorService Service = new IndicadorService();
+        private EmpresaService empresaService = new EmpresaService();
 
         // GET: Indicador
         public ActionResult Index()
         {
             var indicadores = Service.List(User.Identity.GetUserName());
             return View(indicadores);
+        }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            return View();
         }
 
         // POST: Indicador/Create
@@ -93,7 +100,7 @@ namespace DONDE_INVIERTO.Web.Controllers
 
         private void setViewBagEmpresa()
         {
-            ViewBag.Empresas = EmpresaService.List().Select(x => new SelectListItem
+            ViewBag.Empresas = empresaService.List().Select(x => new SelectListItem
             {
                 Text = x.Nombre,
                 Value = x.Id.ToString()

@@ -15,14 +15,14 @@ namespace DONDE_INVIERTO.Service
         {
             var indicadores = Context.Session.Query<ComponenteOperando>();
             var tipos = Context.Session.Query<TipoCondicion>();
-            return Context.Session.Query<Condicion>().ToList()
-                .ConvertAll(cond => new CondicionView
+            return Context.Session.Query<Condicion>()
+                .Select(cond => new CondicionView
                 {
                     Id = cond.Id,
                     Descripcion = cond.Descripcion,
                     Tipo = tipos.FirstOrDefault(tipo => tipo.Id == cond.TipoCondicionId),
                     Indicador = indicadores.FirstOrDefault(ind => ind.Id == cond.IndicadorId)
-                });
+                }).ToList();
         }
 
         public void Save(CondicionView vista)
@@ -46,5 +46,6 @@ namespace DONDE_INVIERTO.Service
             return Context.Session.Query<Condicion>().
                 Where(x => x.Id == id).First();
         }
+
     }
 }

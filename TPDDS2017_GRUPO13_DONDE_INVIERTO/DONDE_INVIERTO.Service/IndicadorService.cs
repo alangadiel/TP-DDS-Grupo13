@@ -76,5 +76,21 @@ namespace DONDE_INVIERTO.Service
                 Where(ind => ind.Id == id).First();
         }
 
+        public List<ComponenteOperando> GetListByMetodologia(MetodologiaView metodologia)
+        {
+            return Context.Session.Query<MetodologiaCondicion>()
+                .Join(Context.Session.Query<Condicion>(),
+                    mc => mc.CondicionId, 
+                    c => c.Id, 
+                    (mc, c) => new { mc, c })
+                .Join(Context.Session.Query<ComponenteOperando>(), 
+                    mc => mc.c.IndicadorId, 
+                    co => co.Id,
+                    (mc, co) => new { mc, co })
+                .Where(mcco => mcco.mc.mc.MetodologiaId == metodologia.Id)
+                .Select(mcco => mcco.co)
+                .ToList();              
+        }
+
     }
 }

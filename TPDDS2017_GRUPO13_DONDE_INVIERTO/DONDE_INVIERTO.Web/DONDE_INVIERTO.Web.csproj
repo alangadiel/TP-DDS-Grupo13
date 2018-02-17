@@ -291,9 +291,9 @@
     <Content Include="Views\Balance\Edit.cshtml" />
     <Content Include="Views\Balance\Index.cshtml" />
     <Content Include="Views\Cargar\CargarArchivo.cshtml" />
-    <Content Include="Views\Metodologia\Index.cshtml" />
     <Content Include="Views\Metodologia\ObtenerEmpresasDeseables.cshtml" />
     <Content Include="Views\Indicador\Evaluar.cshtml" />
+    <Content Include="Views\Metodologia\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

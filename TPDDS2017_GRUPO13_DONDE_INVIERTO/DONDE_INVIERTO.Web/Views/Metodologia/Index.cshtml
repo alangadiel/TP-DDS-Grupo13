@@ -1,4 +1,4 @@
-﻿@model List<DONDE_INVIERTO.Model.Metodologia>
+﻿@model List<DONDE_INVIERTO.Model.Views.MetodologiaView>
 @{
     ViewBag.Title = "Metodologias";
 }
@@ -10,7 +10,7 @@
 <div class="col-md-5 row" style="margin-top:10px">
     <a class="btn btn-primary" href="@Url.Action("Create")"><i class="fa fa-plus"></i> Crear Metodologia</a>
 </div>
-<h2>Metodologías</h2>
+<h2>Metodologias</h2>
 
 <table id="tabla" class="dataTable table table-bordered table-condensed">
     <thead>
@@ -37,7 +37,7 @@
                 </td>
                 <td>
                     <a title="Empresas deseables para invertir" href="@Url.Action("ObtenerEmpresasDeseables","Metodologia",new { idMetodologia = item.Id })"><i class="fa fa-line-chart"></i> Ver empresas deseables</a>
-                    <a href="@Url.Action("Delete","Metodologia",new { id = item.Id})" onclick="return confirm('¿Está seguro que desea eliminar este registro?')"> <i class="fa fa-trash"></i> Eliminar</a>
+                    <a href="@Url.Action("Delete","Metodologia",new { id = @item.Id })" onclick="return confirm('¿Está seguro que desea eliminar este registro?')"> <i class="fa fa-trash"></i> Eliminar</a>
                 </td>
             </tr>
         }

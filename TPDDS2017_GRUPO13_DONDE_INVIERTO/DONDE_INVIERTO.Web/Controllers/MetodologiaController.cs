@@ -1,4 +1,6 @@
 ﻿using DONDE_INVIERTO.Model;
+using DONDE_INVIERTO.Model.Views;
+using DONDE_INVIERTO.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,85 +10,46 @@ using System.Web.Script.Serialization;
 
 namespace DONDE_INVIERTO.Web.Controllers
 {
+    [Authorize]
     public class MetodologiaController : Controller
     {
-        // GET: Metodologia
+        MetodologiaService service = new MetodologiaService();
+        
+        [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            var metodologias = service.GetAll();
+            return View(metodologias);
         }
 
-        // GET: Metodologia/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Metodologia/Create
+        [HttpGet]
         public ActionResult Create()
         {
+            ViewBag.ListCondiciones = new CondicionService().List().Select(x => new SelectListItem
+            {
+                Text = x.Descripcion,
+                Value = x.Id.ToString()
+            }).ToList();
             return View();
         }
 
-        // POST: Metodologia/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Metodologia model, List<int> idsCondiciones)
         {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            service.Save(model, idsCondiciones);
+            return RedirectToAction("Index");
         }
 
-        // GET: Metodologia/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult ObtenerEmpresasDeseables(int idMetodologia)
         {
-            return View();
+            var metodologia = service.GetById(idMetodologia);
+            var empresas = new EmpresaService().List().Select(emp => new EmpresaView() { Id = emp.Id, FechaFundacion = emp.FechaFundacion, Nombre = emp.Nombre }).ToList();
+            var operandos = new IndicadorService().GetListByMetodologia(metodologia);
+            var deseables = service.ObtenerEmpresasDeseables(empresas, operandos);
+            ViewBag.Metodologia_Nombre = metodologia.Nombre;
+            return View(deseables);
         }
 
-        // POST: Metodologia/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Metodologia/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Metodologia/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
         public List<Metodologia> DeserializarArchivoMetodologias()
         {

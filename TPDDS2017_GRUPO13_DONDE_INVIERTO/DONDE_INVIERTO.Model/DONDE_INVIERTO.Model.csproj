@@ -64,6 +64,7 @@
     <Compile Include="Views\BalanceView.cs" />
     <Compile Include="Views\CondicionView.cs" />
     <Compile Include="Views\EmpresaView.cs" />
+    <Compile Include="Views\MetodologiaView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
