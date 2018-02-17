@@ -92,5 +92,38 @@ namespace DONDE_INVIERTO.Service
             return Context.Session.Query<Balance>()
                 .Any(bal => bal.Periodo == periodo && bal.EmpresaId == empresa.Id);
         }
+
+        public void CargarBalances(List<Balance> balances)
+        {
+            //Valido que no haya balances repetidos
+            this.ValidarBalancesArchivo(balances);
+            foreach (Balance balance in balances)
+            {
+                Context.Save(balance);
+            }
+        }
+
+        private void ValidarBalancesArchivo(List<Balance> balancesArchivo)
+        {
+            List<Balance> balancesRepetidos = new List<Balance>();
+            foreach (var item in balancesArchivo)
+            {
+                bool hayUnBalanceIgual = this.ExisteBalanceParaEmpresaEnPeriodo(item.Periodo, item.EmpresaId);
+                if (hayUnBalanceIgual)
+                {
+                    balancesRepetidos.Add(item);
+                }
+
+            }
+            if (balancesRepetidos.Count > 0)
+            {
+                throw new BalancesRepetidosException("Hay balances del archivo que ya fueron cargados previamente") { Balances = balancesRepetidos };
+            }
+        }
+
+        public bool ExisteBalanceParaEmpresaEnPeriodo(int periodo, int empresaId)
+        {
+            return Context.Session.Query<Balance>().Any(x => x.Periodo == periodo && x.EmpresaId == empresaId);
+        }
     }
 }

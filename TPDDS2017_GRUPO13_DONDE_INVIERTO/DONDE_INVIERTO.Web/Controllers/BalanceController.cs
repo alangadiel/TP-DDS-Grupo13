@@ -118,25 +118,7 @@ namespace DONDE_INVIERTO.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        public List<Balance> DeserializarArchivoBalances()
-        {
-            //Metodo para desserializar el archivo json
-            string buffer;
-            if (Request != null)
-            {
-                var file = Request.Files[0];
-                buffer = new StreamReader(file.InputStream).ReadToEnd();
-            }
-            else
-            {
-                buffer = System.IO.File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data\\Archivos\\balances.json"));
-            }
-
-            JavaScriptSerializer serializer = new JavaScriptSerializer();
-            List<Balance> listBalances = serializer.Deserialize<List<Balance>>(buffer);
-            return listBalances;
-
-        }
+        
 
         /* // POST: Balances/Delete/5
          [HttpPost]

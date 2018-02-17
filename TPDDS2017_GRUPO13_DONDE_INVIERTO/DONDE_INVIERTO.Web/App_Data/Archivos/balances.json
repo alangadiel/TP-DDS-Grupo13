@@ -1,34 +1,12 @@
 [
 	 {
-		"Cuentas": [
-		{
-			"Nombre": "EBITDA",
-			"Valor": "10656"
-		},
-		{
-			"Nombre": "FDS",
-			"Valor": "12431"
-		},
-		{
-			"Nombre": "Free Cash Flow",
-			"Valor": "11784"
-		}		
-		],      
+		"Valor": "1000",
         "Periodo": "2016",
-		"Empresa_CUIT": "20334566550"
+		"EmpresaId": "1"
       },
 	  {
-		"Cuentas": [
-		{
-			"Nombre": "EBITDA",
-			"Valor": "12431"
-		},
-		{
-			"Nombre": "FDS",
-			"Valor": "11784"
-		}			
-		],      
-        "Periodo": "2016",
-		"Empresa_CUIT": "20222566550"
+		"Valor": "302",
+		"Periodo": "2017",
+		"EmpresaId": "2"
       }
 ]
