@@ -44,7 +44,7 @@
 </script>
 
 <div>
-    @if (Model != null)
+    @if (Model != null && ViewBag.Errores != null)
     {
         @Html.ValidationSummary(false, "Errores:", new { @class = "alert alert-error" })
     }
@@ -105,7 +105,24 @@
             </table>
         </div>
         <br />
-        <input type="submit" class="btn btn-primary" value="Guardar" />
+        <input type="submit" class="btn btn-success" value="Guardar" />
     </form>
+
+    <h3>Cargar archivo de cuentas</h3>
+
+    @using (Html.BeginForm("CargarArchivo", "Balance", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        <div>
+            @Html.TextBox("file", "", new { type = "file", @class = "btn btn-default" }) <br />
+
+            <input type="submit" class="btn btn-primary" value="Cargar Archivo" />
+            
+            @ViewBag.Message
+
+        </div>
+
+
+    }
 </div>
 

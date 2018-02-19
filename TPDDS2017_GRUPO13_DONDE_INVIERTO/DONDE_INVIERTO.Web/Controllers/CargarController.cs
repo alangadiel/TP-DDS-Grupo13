@@ -38,7 +38,7 @@ namespace DONDE_INVIERTO.Web.Controllers
                     file.SaveAs(_path);
                 }
                 ViewBag.Message = "Subido Correctamente!";
-                CargarBalancesDesdeArchivo();
+                CargarCuentasDesdeArchivo();
                 return View();
             }
             catch (Exception ex)
@@ -48,7 +48,7 @@ namespace DONDE_INVIERTO.Web.Controllers
             }
         }
 
-        public List<BalanceView> DeserializarArchivoBalances()
+        public List<ComponenteOperando> DeserializarArchivoCuentas()
         {
             //Metodo para desserializar el archivo json
             string buffer;
@@ -59,11 +59,11 @@ namespace DONDE_INVIERTO.Web.Controllers
             }
             else
             {
-                buffer = System.IO.File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data\\Archivos\\balances.json"));
+                buffer = System.IO.File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data\\Archivos\\cuentas.json"));
             }
 
             JavaScriptSerializer serializer = new JavaScriptSerializer();
-            return serializer.Deserialize<List<BalanceView>>(buffer);
+            return serializer.Deserialize<List<ComponenteOperando>>(buffer);
         }
 
         private void GenerarJson()
@@ -75,7 +75,7 @@ namespace DONDE_INVIERTO.Web.Controllers
         }
 
 
-        public ActionResult CargarBalancesDesdeArchivo()
+        public ActionResult CargarCuentasDesdeArchivo()
         {
             try
             {
@@ -84,7 +84,7 @@ namespace DONDE_INVIERTO.Web.Controllers
                     //Deserializo el archivo seleccionado  
                     //List<ComponenteOperando> componentesArchivo = this.DeserializarArchivoComponente();
                     //ComponenteService.cargarCuentas(componentesArchivo)
-                    var balancesArchivo = this.DeserializarArchivoBalances();
+                    /*var balancesArchivo = this.DeserializarArchivoBalances();
                     Service.ValidarBalancesArchivo(balancesArchivo);
                     balancesArchivo.ForEach(balance =>
                     {
@@ -93,16 +93,14 @@ namespace DONDE_INVIERTO.Web.Controllers
                         Service.Save(balance, User.Identity.GetUserName());
                     });
                     return Json(new { Success = true });
+                    */
+                    var cuentas = DeserializarArchivoCuentas();
+                    return View(cuentas);
                 }
                 else
                 {
-                    throw new Exception("Ingrese un archivo de balances");
+                    throw new Exception("Ingrese un archivo de cuentas");
                 }
-            }
-            catch (BalancesRepetidosException bre)
-            {
-                return Json(new { Success = false, Error = bre.Message, Balances = bre.Balances });
-
             }
             catch (Exception e)
             {
