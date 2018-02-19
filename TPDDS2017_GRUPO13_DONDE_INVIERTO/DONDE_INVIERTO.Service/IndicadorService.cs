@@ -76,7 +76,7 @@ namespace DONDE_INVIERTO.Service
                 Where(ind => ind.Id == id).First();
         }
 
-        public List<ComponenteOperando> GetListByMetodologia(MetodologiaView metodologia)
+        /*public List<ComponenteOperando> GetListByMetodologia(MetodologiaView metodologia)
         {
             return Context.Session.Query<MetodologiaCondicion>()
                 .Join(Context.Session.Query<Condicion>(),
@@ -90,7 +90,7 @@ namespace DONDE_INVIERTO.Service
                 .Where(mcco => mcco.mc.mc.MetodologiaId == metodologia.Id)
                 .Select(mcco => mcco.co)
                 .ToList();              
-        }
+        }*/
 
     }
 }

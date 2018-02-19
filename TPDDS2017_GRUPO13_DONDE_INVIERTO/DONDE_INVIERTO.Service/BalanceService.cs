@@ -18,7 +18,7 @@ namespace DONDE_INVIERTO.Service
 
             var cuentas = Context.Session.Query<ComponenteOperando>().Where(comp => comp.Formula == null).ToList();
             var empresas = Context.Session.Query<Empresa>().ToList();
-            return Context.Session.Query<Balance>().OrderBy(bal => bal.EmpresaId).ToList()
+            return List()
                 .ConvertAll(balance => new BalanceView(balance,
                 cuentas.FindAll(comp => comp.BalanceId == balance.Id),
                 empresas.Find(emp => balance.EmpresaId == emp.Id)))
@@ -30,6 +30,13 @@ namespace DONDE_INVIERTO.Service
         }
 
 
+<<<<<<< HEAD
+=======
+        public List<Balance> List()
+        {
+            return Context.Session.Query<Balance>().OrderBy(bal => bal.EmpresaId).ToList();
+        }
+>>>>>>> 72a468371261326d263d3db0ee31702d5427e647
 
         public void Save(BalanceView view, string username)
         {

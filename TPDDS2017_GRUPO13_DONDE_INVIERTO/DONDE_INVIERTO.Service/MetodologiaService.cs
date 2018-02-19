@@ -43,6 +43,7 @@ namespace DONDE_INVIERTO.Service
             metodologias.ForEach(metodologia =>
             {
                 var condiciones = Context.Session.Query<MetodologiaCondicion>()
+                    .Where(mc=>mc.MetodologiaId==metodologia.Id)
                     .Join(Context.Session.Query<Condicion>(),
                         mc => mc.CondicionId,
                         c => c.Id,

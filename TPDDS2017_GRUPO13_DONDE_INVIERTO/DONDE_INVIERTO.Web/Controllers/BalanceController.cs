@@ -17,6 +17,7 @@ namespace DONDE_INVIERTO.Web.Controllers
     {
         private BalanceService Service = new BalanceService();
         private EmpresaService EmpresaService = new EmpresaService();
+
         // GET: Balances
         public ActionResult Index()
         {
@@ -46,10 +47,82 @@ namespace DONDE_INVIERTO.Web.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult CargarArchivo(HttpPostedFileBase file)
+        {
+            setViewBagEmpresa();
+            try
+            {
+                if (file == null) throw new Exception("Ingrese un archivo de cuentas");
+                if (file.ContentLength > 0)
+                {
+                    string _FileName = Path.GetFileName(file.FileName);
+                    var path = Server.MapPath("~/App_Data/Archivos");
+                    string _path = Path.Combine(path, "cuentas.json");
+                    Directory.CreateDirectory(path);
+                    file.SaveAs(_path);
+                }
+                ViewBag.Message = "Subido Correctamente!";
+                return CargarCuentasDesdeArchivo();
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Message = "Hubo un error: " + ex.Message;
+                return View("Create");
+            }
+        }
+
+
+        public List<ComponenteOperando> DeserializarArchivoCuentas()
+        {
+            //Metodo para desserializar el archivo json
+            string buffer;
+            if (Request != null)
+            {
+                var file = Request.Files[0];
+                buffer = new StreamReader(file.InputStream).ReadToEnd();
+            }
+            else
+            {
+                buffer = System.IO.File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data\\Archivos\\cuentas.json"));
+            }
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            return serializer.Deserialize<List<ComponenteOperando>>(buffer);
+        }
+        
+        public ActionResult CargarCuentasDesdeArchivo()
+        {
+            try
+            {
+                if (Request.Files.Count > 0)
+                {
+                    var cuentas = DeserializarArchivoCuentas();
+                    var balance = new BalanceView
+                    {
+                        Cuentas=cuentas,
+                    };
+                    return View("Create", balance);
+                }
+                else
+                {
+                    throw new Exception("Ingrese un archivo de cuentas");
+                }
+            }
+            catch (Exception e)
+            {
+                return Json(new { Success = false, Error = e.Message });
+            }
+        }
+
+
         // POST: Balances/Create
         [HttpPost]
         public ActionResult Create(BalanceView balanceModel)
         {
+            ViewBag.Errores = true;
+            if (balanceModel.Empresa == null) return View(); //para la carga de cuentas
+
             if (!ModelState.IsValid)
             {
                 ModelState.AddModelError("", "Hay errores en el formulario, los valores erroneos se predeterminaran como 0");

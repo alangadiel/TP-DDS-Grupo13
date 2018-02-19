@@ -1,6 +1,7 @@
 ﻿using DONDE_INVIERTO.Model;
 using DONDE_INVIERTO.Model.Views;
 using DONDE_INVIERTO.Service;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,12 +15,12 @@ namespace DONDE_INVIERTO.Web.Controllers
     public class MetodologiaController : Controller
     {
         MetodologiaService service = new MetodologiaService();
-        
+        BalanceService BalanceService = new BalanceService();
+
         [HttpGet]
         public ActionResult Index()
         {
-            var metodologias = service.GetAll();
-            return View(metodologias);
+            return View(service.GetAll());
         }
 
         [HttpGet]
@@ -42,14 +43,28 @@ namespace DONDE_INVIERTO.Web.Controllers
 
         public ActionResult ObtenerEmpresasDeseables(int idMetodologia)
         {
-            var metodologia = service.GetById(idMetodologia);
-            var empresas = new EmpresaService().List().Select(emp => new EmpresaView() { Id = emp.Id, FechaFundacion = emp.FechaFundacion, Nombre = emp.Nombre }).ToList();
-            var operandos = new IndicadorService().GetListByMetodologia(metodologia);
-            var tiposCondiciones = new CondicionService().GetTiposCondicionByMetodologia(metodologia);
-            service.Condiciones = tiposCondiciones;
-            var deseables = service.ObtenerEmpresasDeseables(empresas, operandos);
-            ViewBag.Metodologia_Nombre = metodologia.Nombre;
-            return View(deseables);
+            try
+            {
+                var metodologia = service.GetById(idMetodologia);
+                var empresas = new EmpresaService().List().Select(emp => new EmpresaView()
+                {
+                    Id = emp.Id,
+                    FechaFundacion = emp.FechaFundacion,
+                    Nombre = emp.Nombre,
+                    Balances = BalanceService.List().Where(balance => balance.EmpresaId == emp.Id).ToList()
+                }).ToList();
+                var operandos = new ComponenteService().List(User.Identity.GetUserName());
+                var tiposCondiciones = new CondicionService().GetTiposCondicionByMetodologia(metodologia);
+                service.Condiciones = tiposCondiciones;
+                var deseables = service.ObtenerEmpresasDeseables(empresas, operandos);
+                ViewBag.Metodologia_Nombre = metodologia.Nombre;
+                return View(deseables);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                //return RedirectToAction("Index");
+            }
         }
 
         [HttpGet]

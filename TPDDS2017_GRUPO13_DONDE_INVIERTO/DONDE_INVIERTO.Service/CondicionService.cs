@@ -51,21 +51,27 @@ namespace DONDE_INVIERTO.Service
         public List<ITipoCondicion> GetTiposCondicionByMetodologia(MetodologiaView metodologia)
         {
             var listTipoCond = new List<ITipoCondicion>();
-            var tiposCond = Context.Session.Query<MetodologiaCondicion>()
+            var tabla = Context.Session.Query<MetodologiaCondicion>()
                 .Join(Context.Session.Query<Condicion>(),
                     mc => mc.CondicionId,
                     c => c.Id,
                     (mc, c) => new { mc, c })
+                .Join(Context.Session.Query<ComponenteOperando>(),
+                    mc => mc.c.IndicadorId,
+                    i => i.Id,
+                    (mc, i) => new { mc, i })
                 .Join(Context.Session.Query<TipoCondicion>(),
-                    mc => mc.c.TipoCondicionId,
+                    mc => mc.mc.c.TipoCondicionId,
                     tc => tc.Id,
-                    (mc, tc) => new { MetodologiaCondicion = mc.mc, Condicion = mc.c, TipoCondicion = tc })
-                .Where(cond => cond.MetodologiaCondicion.MetodologiaId == metodologia.Id)
-                .Select(cond => cond.TipoCondicion)
-                .ToList();
-            tiposCond.ForEach(tc =>
+                    (mc, tc) => new { MetodologiaCondicion = mc.mc.mc, Condicion = mc.mc.c, TipoCondicion = tc, Indicador = mc.i })
+                .Where(cond => cond.MetodologiaCondicion.MetodologiaId == metodologia.Id);
+            //var tiposCond = tabla.Select(cond => cond.TipoCondicion).ToList();
+            //var indicadores = tabla.Select(cond => cond.Indicador).ToList();
+            tabla.ToList().ForEach(e =>
             {
-                listTipoCond.Add(CondicionesFactory.FindCondicion(tc));
+                var cond = CondicionesFactory.FindCondicion(e.TipoCondicion);
+                cond.Componente = e.Indicador;
+                listTipoCond.Add(cond);
             });
             return listTipoCond.Distinct().ToList();
         }
