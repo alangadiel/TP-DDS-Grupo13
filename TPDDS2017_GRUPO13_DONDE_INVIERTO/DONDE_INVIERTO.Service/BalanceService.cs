@@ -30,13 +30,11 @@ namespace DONDE_INVIERTO.Service
         }
 
 
-<<<<<<< HEAD
-=======
         public List<Balance> List()
         {
             return Context.Session.Query<Balance>().OrderBy(bal => bal.EmpresaId).ToList();
         }
->>>>>>> 72a468371261326d263d3db0ee31702d5427e647
+
 
         public void Save(BalanceView view, string username)
         {
