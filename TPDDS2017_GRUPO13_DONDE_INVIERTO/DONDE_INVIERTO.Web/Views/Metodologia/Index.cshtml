@@ -12,6 +12,13 @@
 </div>
 <h2>Metodologias</h2>
 
+@if (ViewBag.Errores != null)
+{
+    <div class="alert alert-danger">
+        <strong>Errores: @ViewBag.Errores<br></strong> <ul id="Errores"></ul>
+    </div>
+}
+
 <table id="tabla" class="dataTable table table-bordered table-condensed">
     <thead>
         <tr>
