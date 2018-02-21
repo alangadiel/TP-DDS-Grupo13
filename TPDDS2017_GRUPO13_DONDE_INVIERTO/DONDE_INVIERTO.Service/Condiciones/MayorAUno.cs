@@ -19,7 +19,7 @@ namespace DONDE_INVIERTO.ANTLR
             var service = new ComponenteService() { Componente = Componente };
             while (i < periodos.Count && result)
             {
-                result = service.ObtenerValor(empresa, i, componentes) > 1;
+                result = service.ObtenerValor(empresa, periodos[i], componentes) > 1;
                 i++;
             }
             return result;

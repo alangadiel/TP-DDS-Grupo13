@@ -1,1 +1,1 @@
-[{"Id":1,"BalanceId":5,"Discriminador":null,"Formula":null,"Nombre":"otraCuenta","PadreId":null,"Valor":55,"UsuarioCreador_Id":1},{"Id":2,"BalanceId":5,"Discriminador":null,"Formula":null,"Nombre":"GananciaAnual","PadreId":null,"Valor":43,"UsuarioCreador_Id":1}]
+[{"Id":1,"BalanceId":5,"Discriminador":null,"Formula":null,"Nombre":"otraCuenta","PadreId":null,"Valor":55,"UsuarioCreador_Id":1},{"Id":2,"BalanceId":5,"Discriminador":null,"Formula":null,"Nombre":"GananciaAnual","PadreId":null,"Valor":5000,"UsuarioCreador_Id":1}]

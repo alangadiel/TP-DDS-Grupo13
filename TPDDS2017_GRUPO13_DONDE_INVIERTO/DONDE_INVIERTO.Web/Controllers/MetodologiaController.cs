@@ -43,28 +43,23 @@ namespace DONDE_INVIERTO.Web.Controllers
 
         public ActionResult ObtenerEmpresasDeseables(int idMetodologia)
         {
-            try
+
+            var metodologia = service.GetById(idMetodologia);
+            var empresas = new EmpresaService().List().Select(emp => new EmpresaView()
             {
-                var metodologia = service.GetById(idMetodologia);
-                var empresas = new EmpresaService().List().Select(emp => new EmpresaView()
-                {
-                    Id = emp.Id,
-                    FechaFundacion = emp.FechaFundacion,
-                    Nombre = emp.Nombre,
-                    Balances = BalanceService.List().Where(balance => balance.EmpresaId == emp.Id).ToList()
-                }).ToList();
-                var operandos = new ComponenteService().List(User.Identity.GetUserName());
-                var tiposCondiciones = new CondicionService().GetTiposCondicionByMetodologia(metodologia);
-                service.Condiciones = tiposCondiciones;
-                var deseables = service.ObtenerEmpresasDeseables(empresas, operandos);
-                ViewBag.Metodologia_Nombre = metodologia.Nombre;
-                return View(deseables);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-                //return RedirectToAction("Index");
-            }
+                Id = emp.Id,
+                FechaFundacion = emp.FechaFundacion,
+                Nombre = emp.Nombre,
+                Balances = BalanceService.List().Where(balance => balance.EmpresaId == emp.Id).ToList()
+            }).ToList();
+            var operandos = new ComponenteService().List(User.Identity.GetUserName());
+            var tiposCondiciones = new CondicionService().GetTiposCondicionByMetodologia(metodologia);
+            service.Condiciones = tiposCondiciones;
+            var deseables = service.ObtenerEmpresasDeseables(empresas, operandos);
+            service.OrdenarEmpresas(deseables, operandos);
+            ViewBag.Metodologia_Nombre = metodologia.Nombre;
+            return View(deseables);
+
         }
 
         [HttpGet]
